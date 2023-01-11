@@ -1,0 +1,44 @@
+const CategoryList=[
+    {
+        id:1,
+        cat:"electronics",
+        img:'https://png.pngtree.com/element_our/20200609/ourmid/pngtree-fluorescent-cartoon-electronics-image_2227976.jpg',
+    },
+    {
+        id:2,
+        cat:"mens",
+        img:'https://png.pngtree.com/png-vector/20220610/ourmid/pngtree-cap-icons-set-collection-vector-6-color-isolated-on-white-background-png-image_4972368.png',
+    },
+    {
+        id:7,
+        cat:"womens",
+        img:'https://png.pngtree.com/png-clipart/20211105/ourmid/pngtree-merry-christmas-and-happy-new-year-opened-gift-boxes-3d-illustration-png-image_4024399.png',
+    },
+    {
+        id:6,
+        cat:"kids",
+        img:'https://png.pngtree.com/png-clipart/20200520/ourmid/pngtree-cartoon-style-birthday-teddy-bear-element-png-image_2208814.jpg',
+    },
+    {
+        id:3,
+        cat:"grocery",
+        img:'https://png.pngtree.com/element_pic/16/12/03/c4e37da9f8438ac553d2e77e47cfd9e9.jpg'
+    },
+    {
+        id:4,
+        cat:"sports",
+        img4:'https://png.pngtree.com/element_pic/16/12/03/46e791ab40ab193561a7bbeb313bde72.jpg',
+    },
+    {
+        id:5,
+        cat:"gadgets",
+        img:'https://png.pngtree.com/element_pic/00/16/10/175803a54de5418.jpg',
+    },
+    {
+        id:8,
+        cat:"gifts",
+        img:'https://png.pngtree.com/png-clipart/20190115/ourmid/pngtree-12-12-hand-drawn-illustration-womens-clothing-clothing-png-image_345761.jpg',
+    },
+]
+
+export default CategoryList;
