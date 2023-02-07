@@ -34,6 +34,7 @@ const DataTable = () => {
             columns={userColumns.concat(actionColumn)}
             pageSize={9}
             rowsPerPageOptions={[9]}
+            className='dataGrid'
             checkboxSelection/>
         </div>
     </div>

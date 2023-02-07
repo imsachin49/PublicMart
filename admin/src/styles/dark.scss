@@ -1,7 +1,80 @@
 .App.dark{
-    background-color: #333;
+    background-color: #111;
+    color: white;
     .chartGrid{
-        stroke: #333;
+        stroke: #222;
+    }
+    .table{
+        background-color: #111;
+        color: white;
+        .tableCell{
+            color: rgb(190, 190, 190);
+        }
+    }
+    .home{
+        .tableContainer{
+            color: white;
+            font-size: 35px;
+            text-align: center;
+        }
+    }
+    .featured{
+        .bottom,.title,.amount,.desc,.target-text{
+            color: rgb(189, 189, 189);
+        }
+    }
+    .navbar{
+        background-color: #111;
+        color:white;
+        margin-bottom: 5px;
+        border-bottom: 1px solid rgb(44, 44, 44);
+        .search {
+            .searchIcon{
+                color: black;
+            }
+            }
+    }
+    .sidebar{
+        background-color: #111;
+        .center{
+            .type,li,.icon{
+                color: rgba(184, 182, 182, 0.795);
+            }
+            .icon:hover{
+                background-color: grey;
+                color:whitesmoke;
+            }
+        }
+    }
+    .datatable{
+        .dataGrid{
+            color: white;
+            border: none;
+            .action__view,.action__delete{
+                color:grey;
+                font-size: medium;
+                font-weight: bold;
+                border: none;
+                background: none;
+            }
+            .action__view{
+                color: green;
+            }
+            .action__delete{
+                color: red;
+            }
+        }
+    }
+    input{
+        background: transparent;
+        color: white;
+    }
+    .single{
+        .singleContainer{
+            .detailItem,.title{
+                color: rgba(255, 255, 255, 0.733);
+            }
+        }
     }
 }
 

@@ -16,7 +16,7 @@ function App() {
       
       <Route path="/" element={<Home />} />
       <Route path='/login' element={<Login />} />
-
+      
       <Route path='/users' element={<List />} />
       <Route path='/users/:userId' element={<Single />} />
       <Route path='users/new' element={<New inputs={userInputs} title="Add New User"/>} />
