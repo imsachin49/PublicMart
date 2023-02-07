@@ -8,6 +8,7 @@ import { useState } from 'react';
 import GoogleIcon from '@mui/icons-material/Google';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
@@ -22,6 +23,7 @@ const Register = () => {
   // }
 
   const smallSc=useMediaQuery('(max-width: 800px)')
+  const navigate=useNavigate();
   const [user,setUser]=useState({
     username:"",email:"",pwd1:"",pwd2:""
   });
@@ -31,16 +33,21 @@ const Register = () => {
   }
   
   const sendRequest=async()=>{
-    const res=await axios.post('http://localhost:5000/api/auth/register',user);
-    const data=await res.data;
-    console.log(data);
-    return data;
+    try{
+      const res=await axios.post('http://localhost:5000/api/auth/register',user);
+      const data=await res.data;
+      console.log(data);
+      return data;
+    }catch(err){
+      console.log(err);
+      
+    }
   }
-
   
   const handleSubmit=async(e)=>{
     e.preventDefault();
     sendRequest();
+    navigate('/login');
     // const res=await axios.post('http://localhost:5000/api/auth/register',user);
   }
 
@@ -108,6 +115,6 @@ const Register = () => {
         </div>
     </div>
   )
-}
+} 
 
 export default Register

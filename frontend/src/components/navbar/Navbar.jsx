@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {json, Link} from 'react-router-dom'
 import Button from '@mui/material/Button';
 import { Stack } from '@mui/system';
 import { IconButton, Typography } from '@mui/material';
@@ -27,8 +27,11 @@ const Navbar = ({user}) => {
     // console.log(user.user.username);
     const cart=useSelector(state=>state.cart);
     const quantity=useSelector(state=>state.cart.quantity);
+    // const currentUser=useSelector(state=>state.user.currentUser.user.username);
+    // const lik=JSON.stringify(currentUser);
+    // const firstName=currentUser.split(" ")[0];
+    // console.log(firstName);
     // console.log(cart);
-
 
     const navigate=useNavigate()
     const handleRegister=()=>{
@@ -102,7 +105,7 @@ const Navbar = ({user}) => {
                                 sx={{fontFamily:'cursive'}} 
                                 aria-expanded={open ? 'true' : undefined}
                                 onClick={handleClick}
-                                >Sachin <ExpandMoreIcon/>
+                                >firstName <ExpandMoreIcon/>
                             </Typography>    
                         </Button>
                         <Menu

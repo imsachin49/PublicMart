@@ -1,0 +1,73 @@
+.sidebar{
+    border-right: 1px solid rgb(216, 216, 216);
+    flex:1;
+    min-height: 100vh;
+    background-color: white;
+    .top{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        .logo{
+            display: flex;
+            align-items: center;
+            color: purple;
+            font-size: 20px;
+        }
+    }
+    hr{
+        height: 0;
+        border: 0.1px solid rgb(202, 202, 202);
+        margin: 0;
+        padding: 0;
+    }
+    .center{
+        padding-left: 10px;
+        padding-right: 10px;
+        ul li{
+            text-decoration: none;
+            list-style: none;
+            cursor: pointer;
+            &:hover{
+                background-color:aliceblue;
+            }
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+        .icon{
+            display:flex;
+            align-items: center;
+            font-size: 19px;
+            font-weight: lighter;
+            margin: 8px;
+            color:rgb(56, 23, 23);
+            &:hover{
+                color: blue;
+            }
+        }
+        .type{
+            font-size:12px;
+            color: grey;
+            margin-top: 10px;
+        }
+    }
+    .bottom{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color:rgba(78, 127, 218, 0.83);
+        bottom: 0;
+        .logo{
+            padding: 10px;
+            border:1px solid rgb(185, 184, 184);
+            margin:5px;
+            border-radius: 50%;
+            background-color: #333;
+        }
+        .logo:nth-child(1){
+            background-color: white;
+        }
+    }
+}

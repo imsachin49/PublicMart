@@ -1,0 +1,8 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Eczar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+.App{
+    /* font-family: 'Secular One', sans-serif; */
+    /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-family: 'Space Grotesk', sans-serif;
+}

@@ -13,7 +13,7 @@ import cart2 from '../../assets/cart2.png'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import { useSelector } from 'react-redux'
 import StripeCheckout from 'react-stripe-checkout'
-import { userRequest } from '../../requestMethods' 
+import { publicRequest, userRequest } from '../../requestMethods' 
 import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
@@ -40,7 +40,7 @@ const Cart = () => {
       console.log("its my cart :haha",cart.products);
       const [stripeToken,setStripeToken]=useState(null);
 
-      const handleToken=(token)=>{
+      const onToken=(token)=>{
         setStripeToken(token);
       }
 
@@ -66,18 +66,18 @@ const Cart = () => {
     useEffect(() => {
         const makeRequest = async () => {
           try {
-            const res = await userRequest.post("/checkout/payment", {
+            const res = await publicRequest.post("/checkout/payment", {
               tokenId: stripeToken.id,
               amount: 500,
             });
-            navigate("/success");
+            navigate("/success", {state:res});
             console.log(res);
           } catch(err) {
             console.log(err+"in payment");
           }
         };
         stripeToken && makeRequest();
-      }, [stripeToken, cart.total, navigate]);
+    }, [stripeToken, cart.total , navigate]);
 
   return (
     <>
@@ -142,7 +142,8 @@ const Cart = () => {
                     description={`Your payable amount is $${cart.total}`}
                     amount={cart.total}
                     panelLabel="Pay Now"
-                    token={handleToken}
+                    currency="INR"
+                    token={onToken}
                     stripeKey={KEY}
                 >
 

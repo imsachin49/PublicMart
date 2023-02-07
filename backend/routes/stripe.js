@@ -9,17 +9,42 @@ router.post('/payment',(req,res)=>{
        {
             source:req.body.tokenId,
             amount: req.body.amount,
-            currency: "usd",
+            currency: "INR",
        },
        (stripeErr,stripeRes)=>{
             if(stripeErr){
                 res.status(500).json(stripeErr);
+                console.log(stripeErr)
             }
             else{
                 res.status(200).json(stripeRes);
+                console.log(stripeRes)
             }
        }
     )
 })
+
+
+// router.post('/payment', async (req, res) => {
+//     const session = await stripe.checkout.sessions.create({
+//         line_items: [
+//             {
+//                 price_data: {
+//                     currency: 'usd',
+//                     product_data: {
+//                         name: 'T-shirt',
+//                     },
+//                     unit_amount: 2000,
+//                 },
+//                 quantity: 1,
+//             },
+//         ],
+//         mode: 'payment',
+//         success_url: 'http://localhost:3000/success',
+//         cancel_url: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.searchenginejournal.com%2Fwp-content%2Fuploads%2F2020%2F08%2Fkiller-404-page-disney-5f3d563a47cff.png&imgrefurl=https%3A%2F%2Fwww.searchenginejournal.com%2F404-page-examples%2F211154%2F&tbnid=zK257dTsV_73UM&vet=12ahUKEwiXoeDOkML8AhUwjtgFHTPsCkoQMygBegUIARDiAQ..i&docid=A3TElsevwM7BgM&w=1394&h=746&q=404%20page&ved=2ahUKEwiXoeDOkML8AhUwjtgFHTPsCkoQMygBegUIARDiAQ',
+//     });
+    
+//     res.redirect(303, session.url);
+// });
 
 module.exports=router

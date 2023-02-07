@@ -10,23 +10,27 @@ import React from 'react';
 import ProductType from './pages/productType/ProductType';
 import Cart from './pages/cart/Cart';
 import {useState,useEffect} from 'react';
-// import MyCart from './components/myCart/MyCart';
+import { useSelector } from 'react-redux';
+import One from './components/One';
 
 function App() {
   // console.log("hello hello");
-  const user=true;
+  const user=useSelector(state=>state.user.currentUser);
+  console.log(user+"Ye hai user")
+  // const user=false;
   return (
     <>
      <Router >
       <Navbar user={user} />
       <Routes>
         <Route path='/' element={<Home />} />
-        {<Route path='/login' element={user ? <Navigate to='/' /> : <Login/> } />}
-        {<Route path='/register' element={user ? <Navigate to='/' /> : <Register/> } />}
+        <Route path='/login' element={user ? <Navigate to='/' /> : <Login/> } />
+        <Route path='/register' element={user ? <Navigate to='/' /> : <Register/> } />
         <Route path='/products/:category' element={<ProductType />} />
         <Route path='/product/:id' element={<SingleProduct />} />
         <Route path='/cart' element={<Cart />} />        
         <Route path='/success' element={<Success/>}/>
+        <Route path='/one' element={<One/>}/>        
       </Routes>
      </Router>
     </>

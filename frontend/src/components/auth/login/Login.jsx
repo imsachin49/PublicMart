@@ -8,6 +8,9 @@ import { useState } from 'react';
 import LoginIcon from '@mui/icons-material/Login';
 import GoogleIcon from '@mui/icons-material/Google';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import {useDispatch} from 'react-redux';
+import { useSelector } from 'react-redux';
+import { login } from '../../../redux/apiCalls';
 
 const Login = () => {
   
@@ -16,6 +19,9 @@ const Login = () => {
     console.log("hello from google");
   }
 
+  const dispatch=useDispatch();
+  const {isFetching,error}=useSelector(state=>state.user);
+
   // const github=()=>{
   //   window.open("http://localhost:5000/auth/github", "_self");
   //   console.log("hello from github");
@@ -23,18 +29,19 @@ const Login = () => {
 
   const smallSc=useMediaQuery('(max-width: 800px)')
   const [user,setUser]=useState({
-    email:"",pwd1:"",
+    email:"",password:"",
   });
 
   const handleChange=(e)=>{
     setUser({...user,[e.target.name]:e.target.value})
   }
+
+  // console.log(user);
   
   const handleSubmit=(e)=>{
     e.preventDefault();
+    login(dispatch,user);
   }
-
-
 
   return (
     <div className='rmain-form'>
@@ -59,17 +66,17 @@ const Login = () => {
                   id='rpwd1' 
                   label="Password"
                   type='password' 
-                  name='passowrd1' 
-                  value={user.pwd1}
+                  name='password' 
+                  value={user.password}
                   // required
                   onChange={handleChange}
                   />
                 </div>
-                  <Button type='submit' variant='contained' className='rbtn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',marginBottom:'-20px'}}>Submit</Button><br />
+                  <Button type='submit' variant='contained' className='rbtn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',marginBottom:'-20px'}} disabled={isFetching}>Login</Button><br />
                   <Link to='/register' className='rlog'>Don't have account? Create One.</Link>
-                  {/* <p className='or' style={{border:'1px solid red',borderRadius:'50%'}}>OR</p> */}
                   <br/>
                   <Button variant='contained' className='rbtn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',marginBottom:'8px'}} onClick={google}><img src='https://cdn-icons-png.flaticon.com/128/2875/2875404.png' style={{height:'20px'}} />&nbsp;Login with Google</Button>
+                  {error && <span className='or' style={{color:'red'}}>Something went wrong</span>}
                   {/* <Button variant='contained' className='rbtn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive'}} onClick={github}><GitHubIcon/>&nbsp;Login with Github</Button> */}
             </form>
         </div>

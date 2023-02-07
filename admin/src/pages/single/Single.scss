@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Kavivanar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@1,300&display=swap');
+.single{
+    font-family: 'Kavivanar', cursive;
+    font-family: 'Edu SA Beginner', cursive;
+    font-family: 'Radio Canada', sans-serif;
+    display:flex;
+    width:100%;
+    .singleContainer{
+        flex:6;
+    }
+    .top{
+        display: flex;
+        padding: 20px;
+        gap: 20px;
+        .left{
+            flex: 1;
+            padding-left: 15px;
+            position: relative;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+            .title{
+                font-size: 25px;
+                font-weight: 700;
+                color: #333;
+                text-shadow: 0 0 10px rgba(0,0,0,0.5);
+                // text-shadow:
+                text-align: center;
+            }
+            .edit{
+                position: absolute;
+                padding:4px 14px;
+                border-radius: 10px;
+                cursor: pointer;
+                top: 4px;
+                right: 4px;
+                color:lightseagreen;
+                background-color: rgba(32, 178, 171, 0.178);
+            }
+        }
+        .right{
+            flex:2;
+        }
+        .item{
+            display: flex;
+            padding: 20px;
+            .itemImg{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            .details{
+                margin-left: 20px;
+                .detail-name{
+                    font-size: 17px;
+                    margin-bottom: 4px;
+                    font-weight:bolder;
+                    // font-family: 'ca';
+                }
+                .detailItem{
+                    display: flex;
+                    // font-size: 16px;
+                    align-items: center;
+                    color: rgb(41, 41, 41);
+                    .detailKey{
+                        font-size: 20px;
+                        font-weight: 400;
+                    }
+                    .detailValue{
+                        font-size: 16px;
+                    }
+                }
+            }
+
+
+        }
+    }
+    .bottomb{
+        margin: 15px;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        .title{
+            font-size: 35px;
+            padding: 10px;
+            font-weight: 700;
+            color: #333;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+    }
+}

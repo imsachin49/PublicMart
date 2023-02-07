@@ -11,12 +11,13 @@ router.post('/register',async(req,res)=>{
         email,
         password,
     }=req.body;
-
+    
     if(!username || !email || !password){
         res.status(400).json({message:'All field are Required'});
     }
     
     const isExisting=await User.findOne({email});
+
     if(isExisting){
         res.status(500).json({message:'User already exist'});
     }
@@ -83,6 +84,5 @@ router.post('/login',async(req,res)=>{
         res.status(500).json(err);
     }
 })
-
 
 module.exports=router

@@ -73,39 +73,11 @@ const SingleProduct = () => {
             <div className='wrapper'>
                 <div className='image-container'>
                     <img src={product.img} />
-                    {/* <div className='rating'>3.7⭐</div> */}
-                    {/* <FavoriteBorderIcon style={{position:'fixed',marginLeft:'-200'}} color='primary'/> */}
-                </div>
+
                 <div className='text-container'>
-
                     <div className='title'>{product.title}</div><hr />
-                
-                    <div className='description'>{product.desc}
-                        {/* Product Name is lorem ipsum Product Name is lorem ipsum Product 
-                        Name is lorem ipsum Product Name is lorem ipsum Product Name is lorem ipsum Product Name is  */}
-                    </div>
-                
+                    <div className='description'>{product.desc}</div>
                     <div className='price'>₹{product.price}</div>
-                
-                    {/* <div className='size'>
-                    <Box sx={{ minWidth: 120 }}>
-                            <FormControl fullWidth>
-                            <InputLabel id="demo-simple-select-label">Size</InputLabel>
-                            <Select
-                                labelId="demo-simple-select-label"
-                                id="demo-simple-select"
-                                value={size}
-                                label="Size"
-                                onChange={handleChange}>
-                                {product.size.map((syz)=>{
-                                    return <MenuItem key={syz} onClick={(e)=>setSize(e.target.value)} value={syz}>{syz}</MenuItem>
-                                })}
-                            </Select>
-                            </FormControl>
-
-                    </Box>
-                    </div> */}
-
                     <div className='size'>
                         <select className='select' value={size} onChange={handleChange} style={{outline:'none',padding:'5px',borderRadius:'7px'}}>
                             <option value=''>Select Size</option>
@@ -115,17 +87,18 @@ const SingleProduct = () => {
                         </select>
                     </div>
                 
-                        <div className='buy'>
-                            <div className='count'>
-                                <Button className='inc' onClick={countInc} color='error' size='large'><AddCircleOutlineIcon/></Button>
-                                <p className='no'>{count}</p>
-                                <Button className='dec' onClick={countDec} color='error' size='large'><RemoveCircleOutlineIcon/></Button>
-                                {!isMobile && <Button variant='contained' color='warning' style={{fontWeight:'bold',fontFamily:'cursive',marginLeft:'10px'}} onClick={handleClick}><AddShoppingCartIcon />Cart</Button>}
-                            </div>
+                    <div className='buy'>
+                        <div className='count'>
+                            <Button className='inc' onClick={countInc} color='error' size='large'><AddCircleOutlineIcon/></Button>
+                            <p className='no'>{count}</p>
+                            <Button className='dec' onClick={countDec} color='error' size='large'><RemoveCircleOutlineIcon/></Button>
+                            {!isMobile && <Button variant='contained' color='warning' style={{fontWeight:'bold',fontFamily:'cursive',marginLeft:'10px'}} onClick={handleClick}><AddShoppingCartIcon />Cart</Button>}
                         </div>
-                        {isMobile && <Button variant='contained' color='warning' style={{fontWeight:'bold',fontFamily:'cursive',marginLeft:'10px',display:'flex',margin:'auto',justifyContent:'center',marginLeft:'40px'}} onClick={handleClick}><AddShoppingCartIcon />Cart</Button>}
-                                        
+                    </div>
+                    {isMobile && <Button variant='contained' color='warning' style={{fontWeight:'bold',fontFamily:'cursive',marginLeft:'10px',display:'flex',margin:'auto',justifyContent:'center',marginLeft:'40px'}} onClick={handleClick}><AddShoppingCartIcon />Cart</Button>}                    
                 </div>
+                </div>
+
             </div>
         </div>
     // {/* </div> */}
