@@ -8,8 +8,6 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline'
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline'
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import RemoveCircleOutlineOutlinedIcon from '@mui/icons-material/RemoveCircleOutlineOutlined';
-import cart1 from '../../assets/cart1.png'
-import cart2 from '../../assets/cart2.png'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import { useSelector } from 'react-redux'
 import StripeCheckout from 'react-stripe-checkout'
@@ -27,36 +25,20 @@ import {removeProduct} from '../../redux/cartRedux'
 import { useDispatch } from 'react-redux'
 import Stripe from 'react-stripe-checkout'
 import axios from 'axios'
-// import { useSelector } from 'react-redux'
-// import StripeCheckout from 'react-stripe-checkout'
-// import { publicRequest, userRequest } from '../../requestMethods' 
-// import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
   const KEY='pk_test_51MKhvSSG3siNDqLS6dujjGtMZHHKqf2P2LtV8bY8YQTqL7RSkk9II0vH00NkVSLdSRYkD229QJVXIB9OlYMJdpjU00kkD9wiBW';
   const [isEmpty,setEmpty]=useState(false)
-  // const [count,setCount]=useState(1);
   const navigate=useNavigate()
   const cart=useSelector(state=>state.cart);
   const user=useSelector(state=>state.user.currentUser);
   const dispatch=useDispatch();
-  // console.log(cart.products)
+  // length of cart
+  const cartLength=cart.products.length;
+  console.log(cartLength)
 
-
-  // const countInc=()=>{
-  //   setCount(count+1);
-  // }
-
-  // const countDec=()=>{
-  //   if(count>1)
-  //     setCount(count-1);
-  // }
-
-  // to remove product from cart
   const handleRemove=(item)=>{
     try{
-      // dispatch(removeProduct(id));
-      console.log(item)
       dispatch(removeProduct(item));
       window.location.reload();
     }catch(err){
@@ -64,8 +46,7 @@ const Cart = () => {
     }
   }
 
-  // to handle payment
-  const handleToken=(totalAmount,token)=>{ // token is the response from stripe
+  const handleToken=(totalAmount,token)=>{
     try{
       axios.post('https://full-stack-ecommerce-mu.vercel.app/api/checkout/payment',{
         token:token.id,
@@ -82,8 +63,6 @@ const Cart = () => {
   }
     
 
-
-
   return (
     <>
       <div className='cart-wrapper'>
@@ -92,19 +71,12 @@ const Cart = () => {
 
           {cart.products.map((c)=>{return (
             <div className='cartItem'>
-            {console.log(c._id+"mnb njkb n")}
-
             <div className='leftCart'>
                 <img className='cartImg' src={c.img} alt='no -img' />
                 <div className='cartInfo'>
                   <p className='itemName'>{c?.title}</p>
                   <p className='itemDesc'>{c?.desc}</p>
                   <p className='cartsize'>{c.size ? c.size : "N/A"} || {c.color}</p>  
-                {/* <div className='quantity'>
-                    <button className='speech-bubble' onClick={()=>(c.quantity-1)}><RemoveIcon style={{border:'1px solid #999',borderRadius:'50%'}}/></button>
-                    <button className='speech-bubble'>{c.quantity}</button>
-                    <button className='speech-bubble' onClick={()=>(c.quantity+1)}><AddIcon style={{border:'1px solid #999',borderRadius:'50%'}}/></button>
-                </div> */}
                 </div>
             </div>
             <div className='rightCart'>
@@ -117,56 +89,6 @@ const Cart = () => {
               </div>
             </div>
           </div>)})}
-
-          {/* <div className='cartItem'>
-            <div className='leftCart'>
-                <img className='cartImg' src='https://images.unsplash.com/photo-1552346154-21d32810aba3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c25lYWtlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60' alt='no -img' />
-                <div className='cartInfo'>
-                  <p className='itemName'>Product Name is Lorem ipsum</p>
-                  <p className='itemDesc'>Product Description is lorem ipsum 10 times 20 times etc...</p>
-                  <p className='cartsize'>120x200cm || dark grey</p>  
-                  <div className='quantity'>
-                    <button className='speech-bubble'><RemoveIcon style={{border:'1px solid #999',borderRadius:'50%'}}/></button>
-                    <button className='speech-bubble'>6</button>
-                    <button className='speech-bubble'><AddIcon style={{border:'1px solid #999',borderRadius:'50%'}}/></button>
-                </div>
-                </div>
-            </div>
-            <div className='rightCart'>
-              <IconButton className='icon' style={{color:'black'}} size='large'>
-                <DisabledByDefaultIcon/>
-              </IconButton>
-              <div className='cartPrice'>
-                <p className='times'>6x</p>
-                <p className='Itemprice'>$456.89</p>
-              </div>
-            </div>
-          </div>
-
-          <div className='cartItem'>
-            <div className='leftCart'>
-                <img className='cartImg' src='https://images.unsplash.com/photo-1552346154-21d32810aba3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c25lYWtlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60' alt='no -img' />
-                <div className='cartInfo'>
-                  <p className='itemName'>Product Name is Lorem ipsum</p>
-                  <p className='itemDesc'>Product Description is lorem ipsum 10 times 20 times etc...</p>
-                  <p className='cartsize'>120x200cm || dark grey</p>  
-                  <div className='quantity'>
-                    <button className='speech-bubble'><RemoveIcon style={{border:'1px solid #999',borderRadius:'50%'}}/></button>
-                    <button className='speech-bubble'>6</button>
-                    <button className='speech-bubble'><AddIcon style={{border:'1px solid #999',borderRadius:'50%'}}/></button>
-                </div>
-                </div>
-            </div>
-            <div className='rightCart'>
-              <IconButton className='icon' style={{color:'black'}} size='large'>
-                <DisabledByDefaultIcon/>
-              </IconButton>
-              <div className='cartPrice'>
-                <p className='times'>6x</p>
-                <p className='Itemprice'>$456.89</p>
-              </div>
-            </div>
-          </div> */}
 
           <div className='checkout'>
             <div className='checkoutContainer'>
@@ -191,7 +113,7 @@ const Cart = () => {
                 <Button className='next' variant='contained' style={{margin:'20px',backgroundColor:'black'}}>CHECKOUT<NavigateNextIcon size='small'/></Button>
                 </Stripe>
               </div>
-                    
+
             </div>
           </div>
         </div>
