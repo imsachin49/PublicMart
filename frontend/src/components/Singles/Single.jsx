@@ -1,19 +1,19 @@
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import {useDispatch} from 'react-redux';
 import { Button } from '@mui/material'
+import {useMediaQuery} from '@mui/material';
 import KeyboardDoubleArrowRightSharpIcon from '@mui/icons-material/KeyboardDoubleArrowRightSharp';
 import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
-import './Single.css'
-import { useLocation } from 'react-router-dom';
-import { useState } from 'react';
-import {userRequest,publicRequest} from '../../requestMethods';
-import {useDispatch} from 'react-redux';
-import {addProduct} from '../../redux/cartRedux';
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import {useMediaQuery} from '@mui/material';
-import { useNavigate } from 'react-router-dom';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
-import { useSelector } from 'react-redux';
+import {userRequest,publicRequest} from '../../requestMethods';
+import {addProduct} from '../../redux/cartRedux';
+import './Single.css'
 
 const Single = () => {
     const location=useLocation();
