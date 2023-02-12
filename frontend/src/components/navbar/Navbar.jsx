@@ -59,7 +59,7 @@ const Navbar = ({user}) => {
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        console.log(title);
+        // console.log(title);
         if(title?.trim().length>0){
           navigate(`/search?title=${title.trim()}`);
         }

@@ -49,7 +49,7 @@ const Products = () => {
     const addToProduct=(id)=>{
         // dispatch(addProduct(id));
         navigate('/product/'+id);
-        alert("Now Select the size...");
+        // alert("Now Select the size...");
     }
 
     return (
