@@ -35,7 +35,7 @@ mongoose.connect(process.env.MONGO_URL)
 })
 
 app.use(cors({
-  "origin":["http://localhost:3000","https://full-stack-ecommerce-scm2.vercel.app/"],
+  "origin":["http://localhost:3000","https://full-stack-ecommerce-scm2.vercel.app"],
   methods:"GET,POST,PUT,DELETE",
   credentials:true,
 }))
