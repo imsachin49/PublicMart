@@ -25,6 +25,8 @@ import {removeProduct} from '../../redux/cartRedux'
 import { useDispatch } from 'react-redux'
 import Stripe from 'react-stripe-checkout'
 import axios from 'axios'
+import { NavHashLink } from 'react-router-hash-link';
+
 
 const Cart = () => {
   const KEY='pk_test_51MKhvSSG3siNDqLS6dujjGtMZHHKqf2P2LtV8bY8YQTqL7RSkk9II0vH00NkVSLdSRYkD229QJVXIB9OlYMJdpjU00kkD9wiBW';
@@ -124,7 +126,7 @@ const Cart = () => {
             <div className='noItem'>
               <img className='noItemImg' src='https://img.freepik.com/premium-photo/man-with-cart_441797-9038.jpg?size=626&ext=jpg' alt='no-img' />
               <p className='noItemText'>Your cart is Empty</p>
-              <Button className='noItemBtn' variant='contained' style={{backgroundColor:'black',color:'white',fontWeight:'bold',fontFamily:'cursive',marginTop:'10px'}} onClick={shopNow}>SHOP NOW</Button>
+              <NavHashLink to='/#new' style={{textDecoration:'none'}}><Button className='noItemBtn' variant='contained' style={{backgroundColor:'black',color:'white',fontWeight:'bold',fontFamily:'cursive',marginTop:'10px'}} onClick={shopNow}>SHOP NOW</Button></NavHashLink>
             </div>
           }
         </div>

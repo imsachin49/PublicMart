@@ -91,6 +91,11 @@ Link:hover{
     color: royalblue;
 }
 
+.equal{
+    text-decoration: none;
+    color: #111;
+}
+
 .NavAuthItems:hover{
     background-color: aliceblue;
     color: royalblue;

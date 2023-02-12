@@ -30,6 +30,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import { setLogout } from '../../redux/userRedux';
 import {Box,Select,FormControl} from "@mui/material";
 import { useDispatch } from 'react-redux';
+import { NavHashLink } from 'react-router-hash-link';
+
 
 const Navbar = ({user}) => {
     var isUser=false;
@@ -70,19 +72,15 @@ const Navbar = ({user}) => {
 
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         {/* <div className="navbarMenu navbar-nav"> */}
-            <div className='navbarMenuItems'>Home</div>
-            <div className='navbarMenuItems'>
+            <NavHashLink to='/' className='equal'><div className='navbarMenuItems'>Home</div></NavHashLink>
+            <NavHashLink to='/#categories' className='equal'><div className='navbarMenuItems'>
                <span className='catNav'>Categories</span>
                <KeyboardArrowDownIcon />
-            </div>
-            <div className='navbarMenuItems'>What's New</div>
-            <div className='navbarMenuItems'>Delivery</div>
+            </div></NavHashLink>
+            <NavHashLink to='/#new' className='equal'><div className='navbarMenuItems'>What's New</div></NavHashLink>
+            <NavHashLink to='/#delivery' className='equal'><div className='navbarMenuItems'>Delivery</div></NavHashLink>
         {/* </div> */}
         </ul>
-
-        {/* adding a dropdown */}
-        
-
 
         <div className='NavAuth'>            
             <div className='NavAuthItems1'>
