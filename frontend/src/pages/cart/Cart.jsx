@@ -61,6 +61,10 @@ const Cart = () => {
   const tokenHandler=(token)=>{
     handleToken(100,token)
   }
+
+  const shopNow=()=>{
+    navigate('/products')
+  }
     
 
   return (
@@ -90,7 +94,7 @@ const Cart = () => {
             </div>
           </div>)})}
 
-          {cartLength>0 && <div className='checkout'>
+          {cartLength>0 ? <div className='checkout'>
             <div className='checkoutContainer'>
               <div className='checkoutLeft' style={{paddingTop:'10px'}}>
                 <p className='subTotal'>Subtotal</p>
@@ -115,7 +119,14 @@ const Cart = () => {
               </div>
 
             </div>
-          </div>}
+          </div>
+          :
+            <div className='noItem'>
+              <img className='noItemImg' src='https://images.pexels.com/photos/7195232/pexels-photo-7195232.jpeg?auto=compress&cs=tinysrgb&w=600' alt='no-img' />
+              <p className='noItemText'>Your cart is Empty</p>
+              <Button className='noItemBtn' variant='contained' style={{backgroundColor:'black',color:'white',fontWeight:'bold',fontFamily:'cursive',marginTop:'10px'}} onClick={shopNow}>SHOP NOW</Button>
+            </div>
+          }
         </div>
       </div>
     </>

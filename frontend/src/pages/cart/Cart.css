@@ -268,6 +268,39 @@
     padding-right: 9px;
 }
 
+.noItem{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.noItemText{
+    font-size: 30px;
+    color: #525252;
+    font-family: 'candara',sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.noItemImg{
+    width: 200px;
+    height: 200px;
+}
+
+.noItemBtn{
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #525252;
+    color: white;
+    font-size: 20px;
+    font-family: 'candara',sans-serif;
+    text-decoration: none;
+}
+
 @media screen and (max-width: 880px){
     .checkout,.checkoutContainer{
         width: 100%;
