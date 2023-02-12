@@ -32,10 +32,11 @@ hr{
 }
 
 .cat-card img{
-    border-radius: 15px;
-    border: 3px solid snow;
+    border-radius: 10px;
+    /* border: 0.3px solid snow; */
     position: relative;
     width: 270px;
+    height: 230px;
 }
 
 .org-card{
@@ -45,7 +46,7 @@ hr{
 .org-card img{
     /* width: 100%; */
     /* height: auto; */
-    opacity: 0.7;
+    /* opacity: 0.7; */
 }
 
 
@@ -54,20 +55,31 @@ hr{
     flex-direction: column;
     margin:auto;
     color: black;
-    top:0;
     justify-content: center;
     position: absolute;
-    top: 50%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
 }
 
 .ctitle{
-    font-weight: bolder;
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color:black;
+    color:#292929e3;
+    padding: 2px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 5px;
+    text-transform: capitalize;
+    font-family: 'candara' , sans-serif;
+    background: rgba(255, 255, 255, 0.493);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 0.5px );
+    -webkit-backdrop-filter: blur( 0.3px );
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.685);
 }
 
 .content{
@@ -96,7 +108,6 @@ h2{
     .cat-card{
         width: 240px;
     }
-    
 }
 
 @media screen and (max-width: 1020px){

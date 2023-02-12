@@ -5,17 +5,22 @@
     justify-content: center;
     align-items:center;
     margin-top: -30px;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
+    font-family: "candara", sans-serif;
+
 }
 
 .rform{
     display: flex;
     flex-direction: column;
-    /* width:400px; */
-    /* padding: 90px; */
     justify-content: center;
     align-items: center;
     height:fit-content;
+    font-family:'candara',sans-serif,
+}
+
+.rbox{
+    font-family:'candara',sans-serif,
 }
 
 .or{
@@ -39,14 +44,26 @@ h3{
 
 .rlog{
     text-decoration: none;
-    color:red;
+    color:#111;
     font-weight: bold;
-    padding-top: 5px;
+    margin-top: 6px;
+    margin-bottom:15px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    font-family:'candara',sans-serif,
 }
 
-.rlog:hover{
-    color:green;
-    font-weight: bold;
+.register{
+    color: rgb(42, 42, 177);
+    cursor: pointer;
+    font-family:'candara',sans-serif,
+
+}
+
+.register:hover{
+    color: crimson;
+    text-decoration: underline;
 }
 
 .rbtn{
@@ -54,10 +71,10 @@ h3{
 }
 
 .rbox{
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     padding: 30px;
     border-radius: 15px;
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 }
 
 @media screen and (max-width:450px){
@@ -105,4 +122,8 @@ h3{
     .rbox{
         width:98%;
     }
+}
+
+label{
+    font-family:'candara',sans-serif,
 }

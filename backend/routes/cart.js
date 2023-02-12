@@ -15,14 +15,14 @@ router.post('/',verifyToken,async(req,res)=>{
 })
 
 //get user cart
-router.get('/find/:userId',verifyTokenAndAuthorization,async(req,res)=>{
+router.get('/find/:userId',verifyToken,async(req,res)=>{
     try{
         const userCart=await Cart.findOne({userId:req.params.userId});
         if(userCart){
             res.status(200).json(userCart);
         }
         else{
-            res.status(200).json({msg:"userCart is empty"});            
+            res.status(400).json({msg:"userCart is empty"});            
         }
     }catch{
         res.status(400).json({message:'error in getting user cart'+err});

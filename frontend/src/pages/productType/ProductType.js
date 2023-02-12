@@ -5,10 +5,15 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';import Navbar from '../../components/navbar/Navbar'
 import Products from '../../components/products/Products'
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 import './ProductType.css';
 import '../../components/products/Products.css'
 import Type from '../../MyProducts';
 import { Link, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../../redux/cartRedux';
+import { useNavigate } from 'react-router-dom';
 
 const ProductType = () => {
     const location=useLocation();
@@ -32,6 +37,15 @@ const ProductType = () => {
 
     const [products,setProduts]=useState([]);
     const [filteredProducts,setFilteredProducts]=useState([]);
+    const [length,setLength]=useState(0);
+
+    // const dispatch=useDispatch();
+    const navigate=useNavigate();
+    const addToProduct=(id)=>{
+        // dispatch(addProduct(id));
+        // console.log("chutiya hai")
+        navigate('/product/'+id);
+    }
 
     useEffect(()=>{
         const getProducts=async()=>{
@@ -50,7 +64,8 @@ const ProductType = () => {
         getProducts()
     },[cat])
     
-    //filtering the products
+    console.log("length=",length)
+
     useEffect(()=>{
        cat && setFilteredProducts(
             products.filter((item)=>
@@ -82,62 +97,61 @@ const ProductType = () => {
 
     return (
     <>
-        <h1>{cat}</h1>
-        <div className='below-nav'>
+        <div style={{ backgroundColor: 'white'}}>
+            <div className='pKacategories' style={{backgroundColor:'white'}}>
             
-            <div className='filters'>
-                <h4>Filters Products:-</h4>
-                <select class="form-select" aria-label="Default select example" name='color' onChange={handleFilters}>
-                    <option defaultValue>Colors</option>
-                    <option>Red</option>
-                    <option>Black</option>
-                    <option>Green</option>
-                    <option>White</option>
-                    <option>Blue</option>
-                </select>
-                <select class="form-select" aria-label="Default select example" name='size' onChange={handleFilters}>
-                    <option defaultValue>Size</option>
-                    <option>S</option>
-                    <option>M</option>
-                    <option>L</option>
-                    <option>XL</option>
-                </select>
-            </div>
-
-            <div className='sorts'>
-                <h4>Sort Products:-</h4>
-                <select class="form-select" aria-label="Default select example" name='sort' onChange={handleSort}>
-                    <option selected defaultValue>Sort</option>
-                    <option value='newest'>Newest</option>
-                    <option value='asc'>Price(asce)</option>
-                    <option value='des'>Price(desc)</option>
-                </select>
-            </div>
-        </div>
-
-        <div className='p-categories'>
-        <div className='p-wrapper'>  
-
-            {filteredProducts.map((item)=>{
-                return(
-                    <div className='card' key={item.id}>
-                    <img src={item.img}/>
-                    <FavoriteBorderOutlinedIcon className='like' color='red' />
-                    <p className='offer'>-25%</p>
-                    <div className='content'>
-                        <div className='p-text'>
-                            <h4 className='p-title'>{item.title}</h4>
-                            <h4>{item.price}</h4><hr />
+                <div className='typeTop'>
+                    <div className='leftTop'>{cat}</div>
+                    <div className='rightTop'>
+                          
+                    <div className='sort'>
+                        <select class="form-select" aria-label="Default select example" name='sort' onChange={handleSort}>
+                            <option selected defaultValue className='jii'>Sort</option>
+                            <option value='newest' className='commonClass'>Newest</option>
+                            <option value='asc' className='commonClass'>Price(asce)</option>
+                            <option value='des' className='commonClass'>Price(desc)</option>
+                        </select>
                         </div>
-                        <div className='prbtn'>
-                                <Button variant='text' size='small' sx={{color:'black',fontWeight:'bolder'}}>4.5 <StarBorderOutlinedIcon/></Button>
-                                <Link to={`/product/${item._id}`}><Button size='small' variant='contained' style={{backgroundColor:'blue',fontWeight:'lighter'}} className='pshop'>Shop</Button></Link>&nbsp;&nbsp;
-                                <Button size='small'variant='contained' style={{backgroundColor:'green',fontWeight:'lighter'}} className='ptcart'>Cart<AddShoppingCartIcon /></Button>
+
+                        <div className='filter'>
+                        <select class="form-select" aria-label="Default select example" name='color' onChange={handleFilters}>
+                            <option defaultValue>Color</option>
+                            <option className='commonClass'>Red</option>
+                            <option className='commonClass'>Black</option>
+                            <option className='commonClass'>Green</option>
+                            <option className='commonClass'>White</option>
+                            <option className='commonClass'>Blue</option>
+                        </select>
                         </div>
                     </div>
+        
                 </div>
-            )
-            })}
+
+                <div className='pKawrapper'>
+                {filteredProducts.map((item)=>{
+                return(
+                    <div className='productCard' key={item.id}>
+                    <div className='imgContainer'>
+                        <img src={item.img} className='itemImg' />
+                        {/* <FavoriteBorderOutlinedIcon/> */}
+                    </div>
+                    {/* <div className='Itemlikes' >
+                    </div> */}
+                        <div className='productTexts'>
+                            <p className='productTitle' style={{fontWeight:'bolder'}}>{item.title}</p>
+                            <p className='productPrice'>${item.price}</p>
+                        </div>
+                        <div className='cartBtn'>
+                            <><Button className='cartNow' style={{border:'1px solid #555',marginLeft:'20px',borderRadius:'25px',color:'#444',fontFamily:"'candara', sans-serif",fontWeight:'bold',padding:'3px 8px'}} onClick={()=>addToProduct(item._id)} >Explore</Button></>
+                        </div>
+                </div>
+            )})}  
+            </div>
+            {/* <div className='pagination'>
+            <Stack spacing={2}>
+                <Pagination count={10} variant="outlined" shape="circular" color='info' />
+            </Stack>
+            </div> */}
         </div>
         </div>
 

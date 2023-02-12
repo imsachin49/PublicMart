@@ -47,7 +47,8 @@ router.post('/login',async(req,res)=>{
     try{
         const { email, password } = req.body;
         const user=await User.findOne({email});
-        
+        console.log(user)
+
         if(!email || !password){
             res.status(400).json({message: 'Please enter all fields'});
         }

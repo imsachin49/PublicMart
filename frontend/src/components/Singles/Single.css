@@ -1,0 +1,262 @@
+.singles{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    /* border: 1px solid red; */
+    font-family: 'candara',sans-serif;
+}
+
+.singleContainer{ 
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.singleLeft{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    /* border: 1px solid grey; */
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-around;
+    /* width: 50%; */
+}
+
+.singleRight{
+    /* border: 1px solid red; */
+    height: 100%;
+}
+
+.singleImg{
+    width:360px;
+    height:430px;
+    margin-top: 10px;
+}
+
+.titlePrice{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    border: 1px solid rgb(218, 218, 218);
+    margin: 10px;
+    padding-bottom: 0.1px;
+}
+
+.singleTitle{
+    margin:10px;
+    width: 400px;
+    font-size: 24px;
+    color: rgb(0, 0, 0);
+    font-family: 'candara',sans-serif;
+    padding: 5px;
+}
+
+.singlePrice{
+    margin:0px 10px;
+    font-size: 31px;
+    font-family: 'candara',sans-serif;
+    margin-top: -10px;
+    margin-left: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.delivery{
+    margin-left: 8px;
+    font-size: 14px;
+    color: grey;
+    font-family: 'candara',sans-serif;
+    border: 1px solid #999;
+    width: fit-content;
+    padding: 4px 10px;
+    background-color: rgb(3, 141, 99);
+    border-radius: 25px;
+    color: white;
+    border:1px solid transparent;
+    /* margin-bottom: 13px; */
+}
+
+.selectSize{
+    /* margin: 20px; */
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 19px;
+    color: rgb(59, 59, 59);
+    font-family: 'candara',sans-serif;
+}
+
+.productDetails{
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 19px;
+    color: rgb(59, 59, 59);
+    font-family: 'candara',sans-serif;
+    margin-bottom: 0px;
+}
+
+.Sizes{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.quantity1{
+    font-size: 27px;
+    margin: 0px 9px;
+    font-weight: bolder;
+    border: 1px solid #9999;
+    width: 103px;
+    margin-top: -16px;
+    padding: 0px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.choose{
+    height: 21px;
+    width: 21px;
+    margin-bottom: 10px;
+    margin: 0px 2px;
+    border: 1px solid rgb(151, 151, 151);
+    border-radius: 50%;
+    border: none;
+}
+
+.choose:nth-child(1){
+    background-color:green;
+}
+
+.choose:nth-child(2){
+    background-color:red;
+}
+
+.choose:nth-child(3){
+    background-color:rgba(122, 121, 121, 0.377);
+}
+
+.choose:nth-child(4){
+    background-color:black;
+}
+
+.choose:nth-child(5){
+    background-color:yellow;
+}
+
+.choose:nth-child(6){
+    background-color:rgb(0, 140, 255);
+}
+
+.chooseS{
+    margin: 5px;
+    padding: 6px 12px;
+    border: 1px solid rgb(167, 167, 167);
+    border-radius: 20px;
+}
+
+.chooseS:hover{
+    background-color: rgb(3, 141, 99);
+    color: white;
+    border:1px solid transparent;
+    
+}
+
+/* .singleDetails{
+    margin: 10px;
+    font-size: 16px;
+    color: grey;
+    font-family: 'candara',sans-serif;
+} */
+
+.titleS{
+    margin: 10px;
+    font-size: 23px;
+    color: #111;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    font-family: 'candara',sans-serif;
+}
+
+.singleTitle1{
+    margin:10px;
+    width: 400px;
+    font-size: 14px;
+    color: rgb(61, 61, 61);
+    font-family: 'candara',sans-serif
+}
+
+@media screen and  (max-width:850px){
+    .singleImg{
+        width:300px;
+        height:380px;
+    }
+    .buttons{
+        justify-content: center;
+    }
+    .singleTitle{
+        width: 100%;
+        font-size: 16px;
+    }
+    .singlePrice{
+        font-size: 25px;
+    }
+    .delivery{
+        margin-left: 0px;
+    }
+    .selectSize{
+        font-size: 16px;
+    }
+    .productDetails{
+        font-size: 16px;
+    }
+    .singleTitle1{
+        font-size: 12px;
+    }
+    
+}
+
+@media screen and  (max-width:700px){
+    .singleContainer{
+        flex-direction: column;
+    }
+    .singleLeft{
+        width: 100%;
+    }
+    .singleRight{
+        width: 100%;
+    }
+    .singleImg{
+        width: 100%;
+        height: 100%;
+    }
+    .singleTitle{
+        width: 100%;
+        font-size: 16px;
+    }
+    .singlePrice{
+        font-size: 25px;
+    }
+    .delivery{
+        margin-left: 0px;
+    }
+    .selectSize{
+        font-size: 16px;
+    }
+    .productDetails{
+        font-size: 16px;
+    }
+    .singleTitle1{
+        font-size: 12px;
+    }
+    .titleS{
+        font-size: 20px;
+    }
+}

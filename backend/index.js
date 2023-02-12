@@ -17,7 +17,8 @@ const stripeRoutes=require('./routes/stripe');
 const passportRoutes=require('./routes/authPassport');
 
 dotenv.config();
-app.use(cookieSession({name:"session",keys:["sachin_kumar"],maxAge: 24*60*60*100})); //keys->.env & maxAge=1day
+app.use(cookieSession({name:"session",keys:["sachin_kumar"],maxAge: 24*60*60*100})); 
+//keys->.env & maxAge=1day
 
 //initializing passport
 app.use(passport.initialize());

@@ -72,7 +72,7 @@ const SingleProduct = () => {
         <div className='containers'>
             <div className='wrapper'>
                 <div className='image-container'>
-                    <img src={product.img} />
+                <img src={product.img} />
 
                 <div className='text-container'>
                     <div className='title'>{product.title}</div><hr />
@@ -101,7 +101,6 @@ const SingleProduct = () => {
 
             </div>
         </div>
-    // {/* </div> */}
   )
 }
 

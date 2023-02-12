@@ -21,7 +21,7 @@ router.post('/',verifyTokenAndAdmin,async(req,res)=>{
 router.get('/',async(req,res)=>{
     const category=req.query.category;
     const userId=req.query.userId;
-
+    
     try{
         let products;
         if(userId){

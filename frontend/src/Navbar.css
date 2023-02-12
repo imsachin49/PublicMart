@@ -1,4 +1,4 @@
- @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
 .navbar{
     /* padding: 10px; */
     margin: 0;
@@ -71,7 +71,7 @@
 }
 
 .navbarMenuItems{
-    padding: 5px 15px;
+    padding: 0px 15px;
     cursor: pointer;
     font-weight: bold;
 }
@@ -80,15 +80,7 @@
     background-color: aliceblue;
     color: royalblue;
     border-radius: 10px;
-}
-
-Link{
-    text-decoration: none;
-    color: #000;
-}
-
-Link:hover{
-    color: royalblue;
+    padding: 5px 10px;
 }
 
 .NavAuthItems:hover{
@@ -103,7 +95,6 @@ Link:hover{
     display: flex;
     flex-direction: row;
     align-items: center;
-    text-decoration: none;
     /* padding: 0px 10px; */
 }
 
@@ -122,23 +113,22 @@ Link:hover{
     border:none;
     outline:none;
     background: none;
-    font-size: 13px;
-    /* font-weight: bold; */
+    font-size: 17px;
     /* font-family: 'candara' , sans-serif; */
     font-family: 'consolas' , sans-serif;
     width:250px;
 }
 
 .NavAuthItems1{
-    border: 1px solid rgb(63, 63, 63);
+    border: 1px solid rgba(231, 231, 231, 0.514);
     padding: 5px 10px;
     font-size: 30;
     font-family: 'Paprika', cursive;
     border-radius: 10px;
-    /* background-color: aliceblue; */
-    background-color: #fff;
+    background-color: aliceblue;
     margin-right: 20px;
 }
+
 
 .container-fluid{
     /* border: 1px solid red; */
@@ -157,20 +147,10 @@ Link:hover{
     margin-top: -1px;
 }
 
-.carts{
-    display: none;
-}
-
-.NavAuthItemsCart{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
 @media only screen and (max-width: 992px){
     .NavAuth{
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
     .NavAuth{
         padding: 0;
@@ -179,8 +159,8 @@ Link:hover{
     }
     .navbarMenuItems,.NavAuthItems{
         padding-bottom:8px;
-        /* background-color: cadetblue; */
-        /* color: wheat; */
+        background-color: cadetblue;
+        color: wheat;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -194,7 +174,7 @@ Link:hover{
         font-size: 30;
         font-family: 'Paprika', cursive;
         border-radius: 50px;
-        /* background-color: rgb(245, 246, 247); */
+        background-color: rgb(245, 246, 247);
         margin-right: 20px;
         display: flex;
     }
@@ -205,17 +185,5 @@ Link:hover{
         font-size: 17px;
         font-family: 'consolas' , sans-serif;
         width:250px;
-    }
-    .carts{
-        display: block;
-    }
-    .NavAuthItemsCart:hover{
-        background-color: aliceblue;
-        color: royalblue;
-        border-radius: 10px;
-        padding: 5px 10px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
     }
 }

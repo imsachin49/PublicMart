@@ -10,7 +10,6 @@ import ShopIcon from '@mui/icons-material/Shop';
 import InputBase from '@mui/material/InputBase';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import Badge from '@mui/material/Badge';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import './Navbar.css';
@@ -22,116 +21,126 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import { useSelector } from 'react-redux';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
+import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
+import Badge from '@mui/material/Badge';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import { setLogout } from '../../redux/userRedux';
+import {Box,Select,FormControl} from "@mui/material";
+import { useDispatch } from 'react-redux';
 
 const Navbar = ({user}) => {
-    // console.log(user.user.username);
+    var isUser=false;
     const cart=useSelector(state=>state.cart);
     const quantity=useSelector(state=>state.cart.quantity);
-    // const currentUser=useSelector(state=>state.user.currentUser.user.username);
-    // const lik=JSON.stringify(currentUser);
-    // const firstName=currentUser.split(" ")[0];
-    // console.log(firstName);
-    // console.log(cart);
+    const currentUser=useSelector(state=>state.user.currentUser.user);
+    console.log(currentUser);
+    const dispatch=useDispatch();
+    const navigate=useNavigate();
 
-    const navigate=useNavigate()
-    const handleRegister=()=>{
-        navigate('/register');
+    if(currentUser){
+        console.log(currentUser.username);
+        isUser=true;
     }
-    const handleLogin=()=>{
-        navigate('/login')
-    }
-    const handleCart=()=>{
-        navigate('/cart');
+    else{
+        console.log("no user");
+        isUser=false;
     }
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
+    const handleLogout=()=>{
+        dispatch(setLogout());
+        navigate('/')
+    }
 
     return (
-    <div>
-        <nav className="navbar navbar-expand-lg" style={{backgroundColor:'#e3f2fd'}}>
-        {/* <div> */}
-            <div className="container-fluid">
-                <Link className="navbar-brand" style={{fontFamily:"'Lemonada', cursive"}} to='/'>PublicMart</Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item" style={{display:'flex',alignItems:'center',border:'1px solid black',borderRadius:'10px',backgroundColor:'white'}}>
-                            <Search className='search' style={{marginLeft:"10px",maxWidth:'300px'}}/>
-                            <InputBase placeholder="Search Products..." style={{padding:'0% 1%',fontWeight:'lighter',fontFamily:'cursive'}} />
-                        </li> 
-                    </ul>
-                    {!user ? (<><Stack className='login'>
-                        <Button variant="outlined" style={{color:'black',borderColor:'black',fontWeight:'normal'}}  onClick={handleLogin}>
-                            <Typography sx={{fontFamily:'cursive'}}><LoginIcon />Login</Typography>    
-                        </Button>
-                    </Stack>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
 
+        <div className='logo'>
+            <img src='https://img.icons8.com/bubbles/1x/shopping-cart.png' alt='no-images' className='logoImg' />
+            <Link className='logoName' to='/'>PublicMart</Link>
+        </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    <Stack className='signup'>
-                        <Button variant="outlined" style={{color:'black',borderColor:'black',fontWeight:'normal'}} onClick={handleRegister}>
-                            <Typography sx={{fontFamily:'cursive'}}><PersonAddIcon />SignUp</Typography>    
-                        </Button>
-                    </Stack></>) :
-                    
-                    (<>
-                        
-                    <Stack className='cart'>
-                        <Button variant="outlined" style={{color:'black',borderColor:'black'}}  onClick={handleCart}>
-                                <Typography sx={{fontFamily:'cursive'}}><ShoppingCartIcon/>Cart({quantity})</Typography>    
-                        </Button>
-                    </Stack>
-
-                    {/* <Stack className='signup'>
-                        <Button variant="outlined" style={{color:'black',borderColor:'black',fontWeight:'normal'}}>
-                            <Typography sx={{fontFamily:'cursive'}}><LogoutIcon />Logout</Typography>    
-                        </Button>
-                    </Stack> */}
-
-                    
-                        <Button variant='outlined' style={{color:'black',borderColor:'black'}} >
-                            <Typography 
-                                sx={{fontFamily:'cursive'}} 
-                                aria-expanded={open ? 'true' : undefined}
-                                onClick={handleClick}
-                                >firstName <ExpandMoreIcon/>
-                            </Typography>    
-                        </Button>
-                        <Menu
-                            id="basic-menu"
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleClose}
-                            MenuListProps={{
-                            'aria-labelledby': 'basic-button',
-                            }}>
-                            <MenuItem onClick={handleClose}>
-                                <Typography style={{fontWeight:'bold',color:'green'}}>My Account</Typography>
-                            </MenuItem>
-                            <MenuItem onClick={handleClose}>
-                                <Typography style={{fontWeight:'bold',color:'red'}}>Logout<PowerSettingsNewIcon/></Typography>
-                            </MenuItem>
-                            <MenuItem onClick={handleClose}>
-                                <Typography style={{fontWeight:'bold'}}>Help?</Typography>
-                            </MenuItem>
-                        </Menu>
-                    </>)}
-                   
-                </div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {/* <div className="navbarMenu navbar-nav"> */}
+            <div className='navbarMenuItems'>Home</div>
+            <div className='navbarMenuItems'>
+               <span className='catNav'>Categories</span>
+               <KeyboardArrowDownIcon />
             </div>
-        </nav>
+            <div className='navbarMenuItems'>What's New</div>
+            <div className='navbarMenuItems'>Delivery</div>
+        {/* </div> */}
+        </ul>
+
+        <div className='NavAuth'>            
+            <div className='NavAuthItems1'>
+                <input type='text' placeholder='Search Products' className='searchInput'/>
+                <SearchIcon />
+            </div>
+            
+            {!isUser ? (<><Link className='NavAuthItems' to='/login' style={{textDecoration:'none',color:'black'}}>
+                <LoginIcon fontSize='10px' />
+                <span className='NavAuthText'>Login</span>
+            </Link>
+            
+            <Link className='NavAuthItems' to='/register' style={{textDecoration:'none',color:'black'}}>
+                <PersonAddIcon fontSize='10px' />
+                <span className='NavAuthText'>Signup</span>
+            </Link></>) :
+
+            (<>
+            <div className='NavAuthItems'>
+                {/* <PermIdentityOutlinedIcon />
+                <span className='NavAuthText' style={{textTransform:'capitalize'}}>{currentUser.username}</span> */}
+                <FormControl variant="standard" value={currentUser.username} style={{backgroundColor:'#e2dede'}}>
+                    <Select
+                    value={currentUser.username}
+                    sx={{
+                        backgroundColor: '#e2dede',
+                        borderRadius: "25px",
+                        p: "0rem 1rem",
+                        "& .MuiSvgIcon-root": {
+                        pr: "0.25rem",
+                        width: "3rem",
+                        },
+                        "& .MuiSelect-select:focus": {
+                        backgroundColor: '#e2dede',
+                        },
+                        fontFamily:"'candara',sans-serif",
+                        textTransform:'capitalize'
+                    }}
+                    input={<InputBase />}
+                    >
+                    <MenuItem value={currentUser.username} style={{fontFamily:"'candara',sans-serif",textTransform:'capitalize'}}>
+                        <Typography style={{fontFamily:"'candara',sans-serif",fontWeight:'bold'}}>{currentUser.username}</Typography>
+                    </MenuItem>
+                    <MenuItem onClick={handleLogout} style={{fontFamily:"'candara',sans-serif",fontWeight:'bold'}}>Log Out</MenuItem>
+                    </Select>
+                </FormControl>
+            </div>
+
+            <Link className='NavAuthItemsCart' to='/cart' style={{textDecoration:'none',color:'black'}}>
+                <span className='carts'>Carts</span>
+                <IconButton>
+                <Badge badgeContent={quantity} color="secondary">
+                    <ShoppingCartIcon />
+                </Badge>
+                </IconButton>
+            </Link></>)}
+        </div>
+
+        </div>
     </div>
+    </nav>
+    
   )
 }
 
