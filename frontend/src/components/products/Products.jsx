@@ -48,7 +48,7 @@ const Products = () => {
     }
 
     return (
-        <div style={{ backgroundColor: 'white'}}>
+        <div style={{ backgroundColor: 'white'}} id="new">
             <h2>Our Latest Top Collections</h2>
             <div className='pKacategories' style={{backgroundColor:'white'}}>
                 

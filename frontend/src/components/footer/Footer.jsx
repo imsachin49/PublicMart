@@ -13,7 +13,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 const Footer = () => {
   return (
     <div>
-        <div className="footer">
+        <div className="footer" id="delivery">
         <div className='footerContainer'>
             
             <div className='leftpart'>

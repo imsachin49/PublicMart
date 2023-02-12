@@ -80,6 +80,10 @@ const Navbar = ({user}) => {
         {/* </div> */}
         </ul>
 
+        {/* adding a dropdown */}
+        
+
+
         <div className='NavAuth'>            
             <div className='NavAuthItems1'>
                 <input type='text' placeholder='Search Products' className='searchInput'/>
