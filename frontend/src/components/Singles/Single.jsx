@@ -13,7 +13,9 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import {userRequest,publicRequest} from '../../requestMethods';
 import {addProduct} from '../../redux/cartRedux';
+import CircularProgress from '@mui/material/CircularProgress';
 import './Single.css'
+
 
 const Single = () => {
     const location=useLocation();
@@ -22,17 +24,20 @@ const Single = () => {
     const dispatch=useDispatch();
     const currentUser=useSelector(state=>state.user.currentUser.user);
     const cart=useSelector(state=>state.cart);
+    const [loading,setLoading]=useState(false);
+    const [error,setError]=useState(false);
     
-    console.log("ye rha cart")
-    console.log(cart)
 
     useEffect(()=>{
         const getProduct=async()=>{
             try{
+                setLoading(true);
                 const res=await publicRequest.get(`/products/find/${id}`);
                 setProdut(res.data);
+                setLoading(false);
             }catch(err){
                 console.log(err);
+                setError(true);
             }
         }
         getProduct();
@@ -73,7 +78,7 @@ const Single = () => {
 
   return (
     <div className='singles'>
-        <div className='singleContainer'>
+        {!loading ? <div className='singleContainer'>
             
             <div className='singleLeft'>
                 <img src={product.img} />
@@ -123,7 +128,10 @@ const Single = () => {
 
             </div>
 
-        </div>
+        </div> : 
+        <div className='singleContainer1'>
+            <CircularProgress color="success" />
+        </div>}
     </div>
   )
 }

@@ -31,23 +31,24 @@ import { setLogout } from '../../redux/userRedux';
 import {Box,Select,FormControl} from "@mui/material";
 import { useDispatch } from 'react-redux';
 import { NavHashLink } from 'react-router-hash-link';
-
+import { useState } from 'react';
 
 const Navbar = ({user}) => {
     var isUser=false;
     const cart=useSelector(state=>state.cart);
     const quantity=useSelector(state=>state.cart.quantity);
     const currentUser=useSelector(state=>state.user.currentUser.user);
-    console.log(currentUser);
+    // console.log(currentUser);
     const dispatch=useDispatch();
     const navigate=useNavigate();
+    const [title,setTitle]=useState('');
 
     if(currentUser){
-        console.log(currentUser.username);
+        // console.log(currentUser.username);
         isUser=true;
     }
     else{
-        console.log("no user");
+        // console.log("no user");
         isUser=false;
     }
 
@@ -55,6 +56,19 @@ const Navbar = ({user}) => {
         dispatch(setLogout());
         navigate('/')
     }
+
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        console.log(title);
+        if(title?.trim().length>0){
+          navigate(`/search?title=${title.trim()}`);
+        }
+        else{
+          console.log("hello heloo");
+          navigate('/');
+        }
+        setTitle('');
+      }
 
     return (
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -83,10 +97,10 @@ const Navbar = ({user}) => {
         </ul>
 
         <div className='NavAuth'>            
-            <div className='NavAuthItems1'>
-                <input type='text' placeholder='Search Products' className='searchInput'/>
+            <form className='NavAuthItems1' onSubmit={handleSubmit}>
+                <input type='text' placeholder='Search Products' className='searchInput' onChange={e=>setTitle(e.target.value)} name='title' value={title}/>
                 <SearchIcon />
-            </div>
+            </form>
             
             {!isUser ? (<><Link className='NavAuthItems' to='/login' style={{textDecoration:'none',color:'black'}}>
                 <LoginIcon fontSize='10px' />

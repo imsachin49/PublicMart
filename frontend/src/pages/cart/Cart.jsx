@@ -26,6 +26,7 @@ import { useDispatch } from 'react-redux'
 import Stripe from 'react-stripe-checkout'
 import axios from 'axios'
 import { NavHashLink } from 'react-router-hash-link';
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 const Cart = () => {
@@ -35,9 +36,10 @@ const Cart = () => {
   const cart=useSelector(state=>state.cart);
   const user=useSelector(state=>state.user.currentUser);
   const dispatch=useDispatch();
-  // length of cart
   const cartLength=cart.products.length;
   console.log(cartLength)
+  const [loading,setLoading]=useState(false);
+  const [error,setError]=useState(false);
 
   const handleRemove=(item)=>{
     try{
@@ -50,12 +52,15 @@ const Cart = () => {
 
   const handleToken=(totalAmount,token)=>{
     try{
+      setLoading(true);
       axios.post('https://full-stack-ecommerce-mu.vercel.app/api/checkout/payment',{
         token:token.id,
         amount:cart.total*100
         });
+        setLoading(false);
         navigate('/success')
     }catch(err){
+      setError(true);
       console.log(err)
     }
   }
@@ -65,6 +70,10 @@ const Cart = () => {
   }
 
   const shopNow=()=>{
+    navigate('/')
+  }
+
+  const goBack=()=>{
     navigate('/')
   }
     
@@ -114,9 +123,10 @@ const Cart = () => {
               </div> <Divider variant="middle" style={{width:'93%',display:'flex',margin:'auto',backgroundColor:'#333'}}/>
 
               <div className='preNext'>
-                <Button className='back' variant='contained' style={{margin:'20px',backgroundColor:'white',color:'black',border:'1px solid black'}}><ChevronLeftIcon size='small'/>GO BACK</Button>
+                <Button className='back' variant='contained' style={{margin:'20px',backgroundColor:'white',color:'black',border:'1px solid black'}} onClick={goBack}><ChevronLeftIcon size='small'/>GO BACK</Button>
                <Stripe stripeKey={KEY} token={tokenHandler}>
-                <Button className='next' variant='contained' style={{margin:'20px',backgroundColor:'black'}}>CHECKOUT<NavigateNextIcon size='small'/></Button>
+                {!loading ? <Button className='next' variant='contained' style={{margin:'20px',backgroundColor:'black'}}>CHECKOUT<NavigateNextIcon size='small'/></Button>
+                : <Button className='next' variant='contained' style={{margin:'20px',backgroundColor:'black'}}><CircularProgress style={{color:'white'}} /></Button>}
                 </Stripe>
               </div>
 

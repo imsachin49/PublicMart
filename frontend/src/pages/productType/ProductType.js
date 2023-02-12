@@ -14,12 +14,15 @@ import { Link, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../../redux/cartRedux';
 import { useNavigate } from 'react-router-dom';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const ProductType = () => {
     const location=useLocation();
     const cat=location.pathname.split('/')[2];
     const [filters,setFilters]=useState({});
     const [sort,setSort]=useState('newest');
+    const [loading,setLoading]=useState(false);
+    const [error,setError]=useState(false);
 
     const handleFilters=(e)=>{
         setFilters({
@@ -39,32 +42,30 @@ const ProductType = () => {
     const [filteredProducts,setFilteredProducts]=useState([]);
     const [length,setLength]=useState(0);
 
-    // const dispatch=useDispatch();
     const navigate=useNavigate();
     const addToProduct=(id)=>{
-        // dispatch(addProduct(id));
-        // console.log("chutiya hai")
         navigate('/product/'+id);
     }
 
     useEffect(()=>{
         const getProducts=async()=>{
             try{
+                setLoading(true);
                 const res=
                     await axios.get(cat ? 
                     `https://full-stack-ecommerce-mu.vercel.app/api/products?category=${cat}` : 
                     "https://full-stack-ecommerce-mu.vercel.app/api/products"
                 );
-                console.log(res.data);
                 setProduts(res.data);  
+                setLoading(false);
             }catch(err){
+                setError(true);
                 console.log(err);
             }
         }
         getProducts()
     },[cat])
     
-    console.log("length=",length)
 
     useEffect(()=>{
        cat && setFilteredProducts(
@@ -95,10 +96,28 @@ const ProductType = () => {
         }
     },[sort])
 
+    // length of products
+    useEffect(()=>{
+        setLength(filteredProducts.length);
+    },[filteredProducts])
+
+    let grid2=false,grid3=false;
+    // console.log(length)
+    // let grid3=filteredProducts.length=3;
+    // let grid2=filteredProducts.length=2;
+    
+    // if(length===3){
+    //     grid3=true;
+    // }
+    // else if(length===2){
+    //     grid2=true;
+    // }
+    
+
     return (
     <>
         <div style={{ backgroundColor: 'white'}}>
-            <div className='pKacategories' style={{backgroundColor:'white'}}>
+            {!loading ? <div className='pKacategories' style={{backgroundColor:'white'}}>
             
                 <div className='typeTop'>
                     <div className='leftTop'>{cat}</div>
@@ -127,16 +146,13 @@ const ProductType = () => {
         
                 </div>
 
-                <div className='pKawrapper'>
+                <div className={`pKawrapper`}>
                 {filteredProducts.map((item)=>{
                 return(
                     <div className='productCard' key={item.id}>
                     <div className='imgContainer'>
                         <img src={item.img} className='itemImg' />
-                        {/* <FavoriteBorderOutlinedIcon/> */}
                     </div>
-                    {/* <div className='Itemlikes' >
-                    </div> */}
                         <div className='productTexts'>
                             <p className='productTitle' style={{fontWeight:'bolder'}}>{item.title}</p>
                             <p className='productPrice'>${item.price}</p>
@@ -152,7 +168,14 @@ const ProductType = () => {
                 <Pagination count={10} variant="outlined" shape="circular" color='info' />
             </Stack>
             </div> */}
-        </div>
+            {length===0 &&<div className='noProduct'>
+                 <p className='noProductText'>No Products Found</p>
+            </div>}
+
+        </div> :
+            <div className='pKacategories1' style={{backgroundColor:'white'}}>
+            <CircularProgress color="success" />
+            </div>}
         </div>
 
     </>

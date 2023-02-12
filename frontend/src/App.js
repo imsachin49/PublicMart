@@ -16,6 +16,7 @@ import One from './components/One';
 import Single from './components/Singles/Single';
 import { useParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import Search from './components/search/Search';
 
 function App() {
   // console.log("hello hello");
@@ -36,6 +37,7 @@ function App() {
         <Route path='/success' element={<Success/>}/>
         <Route path='/one' element={<One/>}/>      
         <Route path='/single' element={<Single/>}/>  
+        <Route path='/search' element={<Search/>}/>  
       </Routes>
      </Router>
       {/* <Navbar /> */}

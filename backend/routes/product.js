@@ -73,7 +73,16 @@ router.delete('/:id',verifyTokenAndAdmin,async(req,res)=>{
     }
 })
 
-//for Query using regex later part
-
+//for Query using regex later part and case insensitive search\
+router.get('/search',async(req,res)=>{
+    const title=req.query.title;
+    try{
+        const products=await Product.find({title:{$regex:title,$options:'$i'}});
+        res.status(200).json(products);
+    }
+    catch(err){
+        res.status(400).json({message:'error in getting the product'+err});
+    }
+})
 
 module.exports=router

@@ -12,18 +12,23 @@ import {useDispatch} from 'react-redux';
 import {addProduct} from '../../redux/cartRedux';
 import {useNavigate} from 'react-router-dom';
 import { publicRequest } from '../../requestMethods';
+import Skeleton from '@mui/material/Skeleton';
+import Box from '@mui/material/Box';
 
 const Products = () => {
     const [products,setProduts]=useState([]);
     const dispatch=useDispatch();
     const navigate=useNavigate();
+    const [loading,setLoading]=useState(false);
 
     useEffect(()=>{
         const getProducts=async()=>{
             try{
+                setLoading(true);
                 const res=await publicRequest.get("/products");
                 console.log(res.data);
-                setProduts(res.data);  
+                setProduts(res.data);
+                setLoading(false);  
             }catch(err){
                 console.log(err);
             }
@@ -50,7 +55,7 @@ const Products = () => {
     return (
         <div style={{ backgroundColor: 'white'}} id="new">
             <h2>Our Latest Top Collections</h2>
-            <div className='pKacategories' style={{backgroundColor:'white'}}>
+            {!loading ? <div className='pKacategories' style={{backgroundColor:'white'}}>
                 
                 <div className='pKawrapper'>
                 {products.slice(0,12).map((item)=>{
@@ -58,10 +63,7 @@ const Products = () => {
                     <div className='productCard' key={item.id}>
                     <div className='imgContainer'>
                         <img src={item.img} className='itemImg' />
-                        {/* <FavoriteBorderOutlinedIcon/> */}
                     </div>
-                    {/* <div className='Itemlikes' >
-                    </div> */}
                         <div className='productTexts'>
                             <p className='productTitle' style={{fontWeight:'bolder'}}>{item.title}</p>
                             <p className='productPrice'>${item.price}</p>
@@ -77,7 +79,14 @@ const Products = () => {
                 <Pagination count={10} variant="outlined" shape="circular" color='info' />
             </Stack>
             </div>
-        </div>
+            </div> : 
+            <div className='skeleton'>
+            <Box sx={{ width: '100%',height:240}} style={{display:'flex',justifyContent:'center'}}>
+                <Skeleton variant="rectangular" style={{margin:'6px',flex:1,width:'210px',height:'185px'}} className='parts' />
+                <Skeleton variant="rectangular" style={{margin:'6px',flex:1,width:'210px',height:'185px'}} className='parts' />
+                <Skeleton variant="rectangular" style={{margin:'6px',flex:1,width:'210px',height:'185px'}} className='parts' />
+                <Skeleton variant="rectangular" style={{margin:'6px',flex:1,width:'210px',height:'185px'}} className='parts' />
+            </Box></div>} 
         </div>
   )
 }

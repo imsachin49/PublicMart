@@ -48,6 +48,15 @@ hr{
     margin-top: 0px;
 }
 
+.skeleton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding-bottom: 10px;
+}
+
+
 .itemImg{
     border-radius: 5px;
     background-color:rgba(237, 236, 236, 0.905);

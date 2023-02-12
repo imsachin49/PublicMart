@@ -15,6 +15,10 @@
     width: 100%;
 }
 
+.singleContainer1{
+    margin-bottom: 200px;
+}
+
 .singleLeft{
     display: flex;
     flex-direction: column;
