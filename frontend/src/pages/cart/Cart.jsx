@@ -90,7 +90,7 @@ const Cart = () => {
             </div>
           </div>)})}
 
-          <div className='checkout'>
+          {cartLength>0 && <div className='checkout'>
             <div className='checkoutContainer'>
               <div className='checkoutLeft' style={{paddingTop:'10px'}}>
                 <p className='subTotal'>Subtotal</p>
@@ -115,7 +115,7 @@ const Cart = () => {
               </div>
 
             </div>
-          </div>
+          </div>}
         </div>
       </div>
     </>
