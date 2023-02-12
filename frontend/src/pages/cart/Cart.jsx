@@ -63,7 +63,7 @@ const Cart = () => {
   }
 
   const shopNow=()=>{
-    navigate('/products')
+    navigate('/')
   }
     
 
@@ -122,7 +122,7 @@ const Cart = () => {
           </div>
           :
             <div className='noItem'>
-              <img className='noItemImg' src='https://images.pexels.com/photos/7195232/pexels-photo-7195232.jpeg?auto=compress&cs=tinysrgb&w=600' alt='no-img' />
+              <img className='noItemImg' src='https://img.freepik.com/premium-photo/man-with-cart_441797-9038.jpg?size=626&ext=jpg' alt='no-img' />
               <p className='noItemText'>Your cart is Empty</p>
               <Button className='noItemBtn' variant='contained' style={{backgroundColor:'black',color:'white',fontWeight:'bold',fontFamily:'cursive',marginTop:'10px'}} onClick={shopNow}>SHOP NOW</Button>
             </div>
