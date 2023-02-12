@@ -11,6 +11,7 @@ import Type from '../../MyProducts';
 import {useDispatch} from 'react-redux';
 import {addProduct} from '../../redux/cartRedux';
 import {useNavigate} from 'react-router-dom';
+import { publicRequest } from '../../requestMethods';
 
 const Products = () => {
     const [products,setProduts]=useState([]);
@@ -20,7 +21,7 @@ const Products = () => {
     useEffect(()=>{
         const getProducts=async()=>{
             try{
-                const res=await axios.get("https://full-stack-ecommerce-mu.vercel.app/api/products");
+                const res=await publicRequest.get("/products");
                 console.log(res.data);
                 setProduts(res.data);  
             }catch(err){
