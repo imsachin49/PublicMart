@@ -37,7 +37,7 @@ const Register = () => {
   
   const sendRequest=async()=>{
     try{
-      const res=await axios.post('http://localhost:5000/api/auth/register',user);
+      const res=await axios.post('https://full-stack-ecommerce-mu.vercel.app/api/auth/register',user);
       const data=await res.data;
       console.log(data);
       return data;

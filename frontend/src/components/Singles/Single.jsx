@@ -1,7 +1,6 @@
 import { Button } from '@mui/material'
 import KeyboardDoubleArrowRightSharpIcon from '@mui/icons-material/KeyboardDoubleArrowRightSharp';
 import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
-import InfoSharpIcon from '@mui/icons-material/InfoSharp';
 import './Single.css'
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
@@ -67,6 +66,10 @@ const Single = () => {
     const isInCart=cart.products.filter((item)=>item._id===id).length>0;
     console.log(isInCart)
 
+    const Send=()=>{
+        navigate('/cart');
+    }
+
 
   return (
     <div className='singles'>
@@ -76,7 +79,7 @@ const Single = () => {
                 <img src={product.img} />
                 <div className='buttons'>
                 {!isInCart ? <Button variant='contained' style={{margin:'10px 20px',fontFamily:"'candara',sans-serif",fontWeight:'bold',padding:'8px 18px',backgroundColor:'white',color:'#111',border:'1px solid #111'}} onClick={handleClick}><ShoppingCartSharpIcon/>Add to Cart</Button>
-                : <Button variant='contained' style={{margin:'10px 20px',fontFamily:"'candara',sans-serif",fontWeight:'bold',padding:'8px 18px',backgroundColor:'white',color:'#111',border:'1px solid #111'}}><ShoppingCartSharpIcon/>View Cart</Button>}
+                : <Button variant='contained' style={{margin:'10px 20px',fontFamily:"'candara',sans-serif",fontWeight:'bold',padding:'8px 18px',backgroundColor:'white',color:'#111',border:'1px solid #111'}} onClick={Send}><ShoppingCartSharpIcon/>View Cart</Button>}
                 <Link  to='/cart' style={{textDecoration:'none'}}><Button variant='contained' style={{margin:'10px 20px',fontFamily:"'candara',sans-serif",fontWeight:'bold',padding:'8px 18px',backgroundColor:'rgb(244, 51, 151)',color:'white',border:'1px solid transparent'}}><KeyboardDoubleArrowRightSharpIcon/>Buy Now</Button></Link>
                 </div>
             </div>

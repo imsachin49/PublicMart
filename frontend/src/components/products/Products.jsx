@@ -20,7 +20,7 @@ const Products = () => {
     useEffect(()=>{
         const getProducts=async()=>{
             try{
-                const res=await axios.get("http://localhost:5000/api/products");
+                const res=await axios.get("https://full-stack-ecommerce-mu.vercel.app/api/products");
                 console.log(res.data);
                 setProduts(res.data);  
             }catch(err){

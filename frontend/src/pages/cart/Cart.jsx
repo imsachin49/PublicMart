@@ -67,7 +67,7 @@ const Cart = () => {
   // to handle payment
   const handleToken=(totalAmount,token)=>{ // token is the response from stripe
     try{
-      axios.post('http://localhost:5000/api/payment',{
+      axios.post('https://full-stack-ecommerce-mu.vercel.app/api/checkout/payment',{
         token:token.id,
         amount:cart.total*100
         });
@@ -108,7 +108,7 @@ const Cart = () => {
                 </div>
             </div>
             <div className='rightCart'>
-                          <IconButton className='icon' style={{color:'black'}} size='large' onClick={() => handleRemove(c)}>
+              <IconButton className='icon' style={{color:'black'}} size='large' onClick={() => handleRemove(c)}>
                 <DisabledByDefaultIcon/>
               </IconButton>
               <div className='cartPrice'>

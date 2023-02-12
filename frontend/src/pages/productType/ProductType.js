@@ -52,8 +52,8 @@ const ProductType = () => {
             try{
                 const res=
                     await axios.get(cat ? 
-                    `http://localhost:5000/api/products?category=${cat}` : 
-                    "http://localhost:5000/api/products"
+                    `https://full-stack-ecommerce-mu.vercel.app//api/products?category=${cat}` : 
+                    "https://full-stack-ecommerce-mu.vercel.app//api/products"
                 );
                 console.log(res.data);
                 setProduts(res.data);  
