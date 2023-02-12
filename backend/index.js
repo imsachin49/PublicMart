@@ -35,10 +35,14 @@ mongoose.connect(process.env.MONGO_URL)
 })
 
 app.use(cors({
-  "origin":"http://localhost:3000",
+  "origin":["http://localhost:3000","https://full-stack-ecommerce-scm2.vercel.app/"],
   methods:"GET,POST,PUT,DELETE",
   credentials:true,
 }))
+
+// app.use(cors({
+//   origin:["http://localhost:3000","https://picture-book-iiitr.vercel.app"]
+// }));
 
 app.use(express.json());
 
