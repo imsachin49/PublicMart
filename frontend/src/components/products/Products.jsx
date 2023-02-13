@@ -25,7 +25,7 @@ const Products = () => {
         const getProducts=async()=>{
             try{
                 setLoading(true);
-                const res=await publicRequest.get("/products");
+                const res=await publicRequest.get(`/products?page=1&limit=6`);
                 console.log(res.data);
                 setProduts(res.data);
                 setLoading(false);  
@@ -36,6 +36,8 @@ const Products = () => {
         getProducts()
     },[])
 
+    const totalLength=products.length;
+    const totalPage=Math.ceil(totalLength/8);
     // const addToCart=()=>{
         // dispatch(addProduct({}));
     // }
@@ -76,7 +78,7 @@ const Products = () => {
             </div>
             <div className='pagination'>
             <Stack spacing={2}>
-                <Pagination count={10} variant="outlined" shape="circular" color='info' />
+                <Pagination count={totalPage} variant="outlined" shape="circular" color='info' />
             </Stack>
             </div>
             </div> : 

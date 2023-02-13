@@ -26,14 +26,20 @@ router.get('/',async(req,res)=>{
         let products;
         if(userId){
             products=await Product.find({userId:userId})
+            res.status(200).json(products);
          }
         else if(category){
             products=await Product.find({categories:{$in:[category]}});
+            res.status(200).json(products);
         }
         else{
             products=await Product.find();
+            let page=Number(req.query.page) || 1;
+            let limit=Number(req.query.limit) || 10;
+            let skip=(page-1)*limit;
+            const paginatedProducts=products.slice(skip,skip+limit);
+            res.status(200).json(paginatedProducts);
         }
-        res.status(200).json(products);
     }
     catch(err){
         res.status(400).json(err);
