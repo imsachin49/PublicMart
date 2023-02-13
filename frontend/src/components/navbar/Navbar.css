@@ -139,7 +139,7 @@ Link:hover{
     padding: 5px 10px;
     font-size: 30;
     font-family: 'Paprika', cursive;
-    border-radius: 10px;
+    border-radius: 50px;
     /* background-color: aliceblue; */
     background-color: #fff;
     margin-right: 20px;
@@ -172,6 +172,16 @@ Link:hover{
     align-items: center;
 }
 
+@media screen and (max-width:1070px){
+    .NavAuthItems1{}
+    .searchInput{
+        width: 200px;
+    }
+    .navbarMenuItems{
+        padding: 5px 8px;
+    }
+}
+
 @media only screen and (max-width: 992px){
     .NavAuth{
         display: flex;
@@ -184,24 +194,22 @@ Link:hover{
     }
     .navbarMenuItems,.NavAuthItems{
         padding-bottom:8px;
-        /* background-color: cadetblue; */
-        /* color: wheat; */
         width: 100%;
         display: flex;
         justify-content: center;
         margin: 0px 10px;
     }
     .NavAuthItems1{
-        width: 280px;
-        margin-left: 20px;
+        width: 200px;
+        margin-left: 10px;
         border: 1px solid #111;
-        padding: 5px 10px;
+        padding: 0px 10px;
         font-size: 30;
         font-family: 'Paprika', cursive;
         border-radius: 50px;
-        /* background-color: rgb(245, 246, 247); */
         margin-right: 20px;
         display: flex;
+        align-items: center;
     }
     .searchInput{
         border:none;
@@ -209,7 +217,7 @@ Link:hover{
         background: none;
         font-size: 17px;
         font-family: 'consolas' , sans-serif;
-        width:250px;
+        width:150px;
     }
     .carts{
         display: block;

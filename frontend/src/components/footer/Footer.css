@@ -8,6 +8,7 @@
     color:white;
     height: 100%;
     padding-top: 8px;
+    font-family: 'candara',sans-serif;
 }
 
 .footerContainer{
@@ -30,28 +31,48 @@
     align-items: center;
     color: white;
     flex-direction: column;
+    font-family: 'candara',sans-serif;
 }
 
 .newsEmail{
     display: flex;
-    flex-direction: column;
-    margin: auto;
+    flex-direction: row;
+    font-family: 'candara',sans-serif;
+}
+.enterEmail1{
+    border: none;
+    background: none;
+    border: 1px solid rgba(128, 128, 128, 0.432);
+    outline: none;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-family: 'candara',sans-serif;
+    color: white;
+    padding-left: 10px;
+}
+
+.newsButton{
+    border: none;
+    background: none;
+    border: 1px solid rgb(3, 250, 16);
+    outline: none;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-family: 'candara',sans-serif;
+    color: white;
+    padding-left: 10px;
+    cursor: pointer;
+    background-color: rgb(3, 250, 16);
+    border-top-right-radius:6px;
+    border-bottom-right-radius: 6px;
 }
 
 .mymart{
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.enterEmail{
-    border: none;
-    background: none;
-    border-bottom: 2px solid white;
-    outline: none;
-    color: white;
-    margin-bottom: 20px;
+    font-size: 20px;
+    margin-bottom: 16px;
     font-family: 'candara',sans-serif;
 }
+
 
 .MobilTitle{
     font-size: 19px;
@@ -84,17 +105,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.37);
+    /* border: 1px solid rgba(255, 255, 255, 0.37); */
     cursor: pointer;
-    color:rgb(9, 127, 236);
-    border-color:rgb(9, 127, 236);
+    color:rgb(241, 242, 243);
+    /* border-color:rgb(9, 127, 236); */
 }
 
 .socialIcons:hover{
     margin-top: -3px;
     text-shadow: 0px 16px 10px rgba(0, 0, 0, 0.3);
     transform: translate(0, 2);
-    border:1px solid aqua;
     color: aqua;
 }
 
@@ -123,5 +143,15 @@
     }
     .MobilTitle,.phone{
         text-align: center;
+    }
+}
+
+@media screen and (max-width:365px){
+    .enterEmail1{
+        width: 100%;
+    }
+    .newsletter{
+        width:100%;
+        margin: 20px 0px;
     }
 }

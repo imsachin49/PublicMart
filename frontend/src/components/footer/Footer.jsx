@@ -18,10 +18,10 @@ const Footer = () => {
             
             <div className='leftpart'>
               <div className='newsLetter'>
-                <div className='mymart'>Subsribe To NewLetter</div>
+                <div className='mymart'>Get Our Weekly Newsletter</div>
                 <form className='newsEmail'>
-                  <input type='email' className='enterEmail' placeholder='Enter Your Email*' />
-                  <Button variant='contained' style={{borderRadius:'25px',width:'130px',paddingLeft:'25px',fontFamily:"'candara',sans-sarif"}}>Subscribe<TelegramIcon style={{margin:'5px'}}/></Button>
+                  <input type='email' className='enterEmail1' placeholder='Enter Your E-mail' />
+                  <button className='newsButton' type='submit'>Subscribe</button>
                 </form>
               </div>
             </div>
@@ -36,12 +36,12 @@ const Footer = () => {
               </div>
 
               <div className='socialHandles'>
-                <div className='socialIcons'><TwitterIcon style={{padding:'2px'}}/></div>
-                <div className='socialIcons'><FacebookIcon style={{padding:'2px'}}/></div>
-                <div className='socialIcons'><YouTubeIcon style={{padding:'2px'}}/></div>
-                <div className='socialIcons'><InstagramIcon style={{padding:'2px'}}/></div>
-                <div className='socialIcons'><PinterestIcon style={{padding:'2px'}}/></div>
-                <div className='socialIcons'><LinkedInIcon style={{padding:'2px'}}/></div>
+                <div className='socialIcons'><TwitterIcon/></div>
+                <div className='socialIcons'><FacebookIcon/></div>
+                <div className='socialIcons'><YouTubeIcon/></div>
+                <div className='socialIcons'><InstagramIcon/></div>
+                <div className='socialIcons'><PinterestIcon/></div>
+                <div className='socialIcons'><LinkedInIcon/></div>
               </div>
             </div>
             
@@ -50,6 +50,8 @@ const Footer = () => {
                 <div className='rightTtems'>About US</div>
                 <div className='rightTtems'>Services</div>
                 <div className='rightTtems'>Get In Touch</div>
+                <div className='rightTtems'>Become a Seller</div>
+                <div className='rightTtems'>Privacy Policy</div>
             </div>
         </div>
         </div>

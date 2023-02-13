@@ -27,7 +27,6 @@ const Search = () => {
             console.log(res);
             setProducts(res.data);
             setLoading(false);
-            // setTitle('');
         }catch(err){
             console.log(err);
         }
@@ -37,17 +36,9 @@ const Search = () => {
         fetchProducts();
     },[mytitle])
 
-    console.log(products);
-
-    // const addToProduct=async(id)=>{
-    //     navigate(`/product/${id}`);
-    // }
-
-    // check if the the search result is empty
-    // if(products.length===0 || products===null || products===undefined || products==='' || products===[]){
-    //     setEmpty(true);
-        console.log(products.length);
-    // }
+    const addToProduct=(id)=>{
+        navigate(`/product/${id}`)
+    }
 
   return (
     <div className='search'>
@@ -65,7 +56,7 @@ const Search = () => {
                         <p className='productPrice'>${item.price}</p>
                     </div>
                     <div className='cartBtn'>
-                        <><Button className='cartNow' style={{border:'1px solid #555',marginLeft:'20px',borderRadius:'25px',color:'#444',fontFamily:"'candara', sans-serif",fontWeight:'bold',padding:'3px 8px'}}>Explore</Button></>
+                        <><Button onClick={()=>addToProduct(item._id)} className='cartNow' style={{border:'1px solid #555',marginLeft:'20px',borderRadius:'25px',color:'#444',fontFamily:"'candara', sans-serif",fontWeight:'bold',padding:'3px 8px'}}>Explore</Button></>
                     </div>
             </div>
             )})}  

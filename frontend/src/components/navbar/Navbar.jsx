@@ -67,7 +67,6 @@ const Navbar = ({user}) => {
           console.log("hello heloo");
           navigate('/');
         }
-        setTitle('');
       }
 
     return (

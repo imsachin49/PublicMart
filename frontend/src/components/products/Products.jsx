@@ -17,41 +17,48 @@ import Box from '@mui/material/Box';
 
 const Products = () => {
     const [products,setProduts]=useState([]);
+    const [allProducts,setAllProducts]=useState([]);
     const dispatch=useDispatch();
     const navigate=useNavigate();
     const [loading,setLoading]=useState(false);
+    const [page,setPage]=useState(1);
+    console.log(page)
+
+    const getAllProducts=async()=>{
+        try{
+            setLoading(true);
+            const res=await publicRequest.get(`/products`);
+            setAllProducts(res.data);
+            setLoading(false);  
+        }catch(err){
+            console.log(err);
+        }
+    }
 
     useEffect(()=>{
-        const getProducts=async()=>{
-            try{
-                setLoading(true);
-                const res=await publicRequest.get(`/products?page=1&limit=6`);
-                console.log(res.data);
-                setProduts(res.data);
-                setLoading(false);  
-            }catch(err){
-                console.log(err);
-            }
-        }
-        getProducts()
+        getAllProducts();
     },[])
 
-    const totalLength=products.length;
-    const totalPage=Math.ceil(totalLength/8);
-    // const addToCart=()=>{
-        // dispatch(addProduct({}));
-    // }
+    const totalLength=allProducts.length;
+    const totalPage=Math.ceil(totalLength/7);
 
-    // const handleClick=(id)=>{
-    //     // dispatch(addProduct(id));
-    //     navigate('/product/'+id);
-    //     console.log("chutiya hai")
-    // }
+    const getProducts=async()=>{
+        try{
+            setLoading(true);
+            const res=await publicRequest.get(`/products?page=${page}&limit=7`);
+            setProduts(res.data);
+            setLoading(false);  
+        }catch(err){
+            console.log(err);
+        }
+    }
+
+    useEffect(()=>{
+        getProducts();
+    },[page])
 
     const addToProduct=(id)=>{
-        // dispatch(addProduct(id));
         navigate('/product/'+id);
-        // alert("Now Select the size...");
     }
 
     return (
@@ -59,8 +66,10 @@ const Products = () => {
             <h2>Our Latest Top Collections</h2>
             {!loading ? <div className='pKacategories' style={{backgroundColor:'white'}}>
                 
+                {/* in-case only two items is there grid wiill not work properly so use this */}
+                
                 <div className='pKawrapper'>
-                {products.slice(0,12).map((item)=>{
+                {products.map((item)=>{
                 return(
                     <div className='productCard' key={item.id}>
                     <div className='imgContainer'>
@@ -78,8 +87,9 @@ const Products = () => {
             </div>
             <div className='pagination'>
             <Stack spacing={2}>
-                <Pagination count={totalPage} variant="outlined" shape="circular" color='info' />
+                <Pagination defaultPage={page} count={totalPage}  variant="outlined" shape="circular" color='info'  onChange={(e,value)=>setPage(value)}/>
             </Stack>
+
             </div>
             </div> : 
             <div className='skeleton'>
