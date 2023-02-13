@@ -6,12 +6,17 @@
     height: 20px;
 }
 
-@media screen and (max-width:768px) {
+.carousel-caption{
+    font-family: 'candara', sans-serif;
+    color:darkslategray;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+@media screen and (max-width:770px) {
     .carousel-item img{
         height:450px;
-    }
-    .carousel-caption{
-        display: block;
     }
 }
 
@@ -40,6 +45,18 @@
     }
     .prevS,.nextS{
         height: 20px;
+    }
+    .carousel-control-next-icon,.carousel-control-prev-icon{
+        height: 20px;
+        width: 20px;
+    }   
+    .carousel-caption{
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .butn{
+        font-size: 12px;
+        font-weight: lighter;
     }
 }
 
