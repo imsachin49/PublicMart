@@ -6,28 +6,30 @@ import New from './pages/new/New';
 import Single from './pages/single/Single';
 import List from './pages/list/List';
 import { productInputs,userInputs } from './FormSource';
-import './styles/dark.scss'
 
 function App() {
+  const admin=(JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).currentUser.user.isAdmin);
+  console.log(admin)
   return (
-    <div className="App dark">
     <Router>
     <Routes>
       
-      <Route path="/" element={<Home />} />
       <Route path='/login' element={<Login />} />
-      
-      <Route path='/users' element={<List />} />
-      <Route path='/users/:userId' element={<Single />} />
-      <Route path='users/new' element={<New inputs={userInputs} title="Add New User"/>} />
+      { !admin && 
+      <>
+        <Route path="/" element={<Home />} />
+        <Route path='/users' element={<List />} />
+        <Route path='/users/:userId' element={<Single />} />
+        <Route path='users/new' element={<New inputs={userInputs} title="Add New User"/>} />
 
-      <Route path='/products' element={<List />} />
-      <Route path='/products/:productId' element={<Single />} />
-      <Route path='products/new' element={<New inputs={productInputs} title="Add New Product" />} />
+        <Route path='/products' element={<List />} />
+        <Route path='/products/:productId' element={<Single />} />
+        <Route path='products/new' element={<New inputs={productInputs} title="Add New Product" />} />
+      </>
+      }
       
     </Routes>
     </Router>
-    </div>
   );
 }
 

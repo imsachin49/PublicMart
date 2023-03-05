@@ -30,7 +30,7 @@ const Register = () => {
   const smallSc=useMediaQuery('(max-width: 800px)')
   const navigate=useNavigate();
   const [user,setUser]=useState({
-    username:"",phone:"",email:"",password:"",pwd2:""
+    username:"",phone:"",email:"",password:""
   });
 
   const handleChange=(e)=>{
@@ -80,10 +80,10 @@ const Register = () => {
                     <label htmlFor='password'>Password</label>
                     <input type='password' name='password' id='password' value={user.password} onChange={handleChange} required placeholder='At least 4 characters'/>
                 </div>
-                <div className='formInput'>
+                {/* <div className='formInput'>
                     <label htmlFor='password2'>Confirm Password</label> 
                     <input type='password' name='pwd2' id='password2' value={user.pwd2} onChange={handleChange} required/>
-                </div>
+                </div> */}
                 <div className='formInput'>
                     {!loading ? <Button type='submit' variant='contained' className='btn' style={{backgroundColor:'black',color:'white',margin:'3px 0px',fontFamily:"'candara',sans-serif",marginTop:'11px'}}>Continue</Button>
                     :<Button type='submit' variant='contained' className='btn' style={{backgroundColor:'black',color:'white',margin:'3px 0px',fontFamily:"'candara',sans-serif",marginTop:'11px'}}><CircularProgress style={{color:'white'}} /></Button>}
@@ -91,12 +91,12 @@ const Register = () => {
                 <div className='formInput'>
                     <Link  className='log'>Already have an account? <Link className='login' to='/login'>&nbsp;Login</Link> </Link>
                 </div>
-                <div className='formInput'>
-                    <Button variant='contained' className='btn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',marginBottom:'8px',fontFamily:"'candara',sans-serif"}} ><img src='https://cdn-icons-png.flaticon.com/128/2875/2875404.png' style={{height:'20px'}} />&nbsp;Continue with Google</Button>
+                {/* <div className='formInput'>
+                    <Button variant='contained' className='btn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',marginBottom:'8px',fontFamily:"'candara',sans-serif"}} onClick={google}><img src='https://cdn-icons-png.flaticon.com/128/2875/2875404.png' style={{height:'20px'}} />&nbsp;Continue with Google</Button>
                 </div>
                 <div className='formInput'>
                     <Button variant='contained' className='btn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',fontFamily:"'candara',sans-serif",marginBottom:'5px'}} ><GitHubIcon/>&nbsp;Continue with Github</Button>
-                </div>
+                </div> */}
             </form>
         </div>
     </div>

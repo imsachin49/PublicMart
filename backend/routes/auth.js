@@ -80,6 +80,7 @@ router.post('/login',async(req,res)=>{
                 isAdmin:user.isAdmin,
                 // restricting password
             },accessToken});
+            console.log("done with login")
     }
     catch(err){
         res.status(500).json(err);

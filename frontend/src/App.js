@@ -19,10 +19,16 @@ import { useLocation } from 'react-router-dom';
 import Search from './components/search/Search';
 
 function App() {
-  // console.log("hello hello");
   const user=useSelector(state=>state.user.currentUser);
-  console.log(typeof(user))
-
+  // checking if user is logged in or not
+  const [isLogged,setIsLogged]=useState(false);
+  
+  useEffect(()=>{
+    if(user){
+      setIsLogged(true);
+    }
+  },[user])
+  
   return (
     <>
      <Router >
@@ -33,7 +39,7 @@ function App() {
         <Route path='/register' element={<Register/> } />
         <Route path='/products/:category' element={<ProductType />} />
         <Route path='/product/:id' element={<Single />} />
-        <Route path='/cart' element={<Cart />} />        
+        <Route path='/cart' element={isLogged ? <Cart /> : <Home/>} />        
         <Route path='/success' element={<Success/>}/>
         <Route path='/one' element={<One/>}/>      
         <Route path='/single' element={<Single/>}/>  

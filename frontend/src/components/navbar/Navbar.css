@@ -1,6 +1,5 @@
- @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
 .navbar{
-    /* padding: 10px; */
     margin: 0;
     padding: 3px;
     display: flex;
@@ -57,7 +56,6 @@
     align-items: center;
     text-decoration: none;
 }
-
 
 .navbarMenu{
     display: flex;

@@ -13,19 +13,17 @@ import { useSelector } from 'react-redux';
 import { login } from '../../../redux/apiCalls';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
-  
+const Login = () => {  
   const smallSc=useMediaQuery('(max-width: 800px)')
+  
   // const google=()=>{
-  //   window.open("http://localhost:5000/auth/google", "_self");
-  //   console.log("hello from google");
+  //   window.open("https://full-stack-ecommerce-mu.vercel.app/auth/google", "_self");
   // }
   
   // const github=()=>{
-  //   window.open("http://localhost:5000/auth/github", "_self");
-  //   console.log("hello from github");
+  //   window.open("https://full-stack-ecommerce-mu.vercel.app/auth/github", "_self");
   // }
-
+  
   const dispatch=useDispatch();
   const {isFetching,error}=useSelector(state=>state.user);
   console.log(isFetching,error);
@@ -71,15 +69,13 @@ const Login = () => {
                     <Link className='rlog'>
                     Don't have account ? <Link to='/register' className='register'>&nbsp;Create New</Link></Link>
                 </div>
-                <div className='formInput'>
-                    <Button variant='contained' className='rbtn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',marginBottom:'8px',fontFamily:"'candara',sans-serif"}} ><img src='https://cdn-icons-png.flaticon.com/128/2875/2875404.png' style={{height:'20px'}} />&nbsp;Login with Google</Button>
-                </div>
                 {/* <div className='formInput'>
-                    {error && <span className='or' style={{color:'red'}}>Something went wrong</span>}
-                </div> */}
-                <div className='formInput'>
-                    <Button variant='contained' className='rbtn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',fontFamily:"'candara',sans-serif"}} ><GitHubIcon/>&nbsp;Login with Github</Button>
+                    <Button variant='contained' className='rbtn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',marginBottom:'8px',fontFamily:"'candara',sans-serif"}} ><img src='https://cdn-icons-png.flaticon.com/128/2875/2875404.png' style={{height:'20px'}} onClick={google} />&nbsp;Login with Google</Button>
                 </div>
+                
+                <div className='formInput'>
+                    <Button variant='contained' className='rbtn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',fontFamily:"'candara',sans-serif"}} onClick={github}><GitHubIcon/>&nbsp;Login with Github</Button>
+                </div> */}
                 
             </form>
         </div>

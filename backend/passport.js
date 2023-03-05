@@ -37,13 +37,13 @@ passport.use(
                    }).save().then((newUser)=>{
                        console.log("new user created: "+ newUser);
                        done(null,newUser);
+                       res.status(200).json({newUser},);
                     });
                 }
-            });
-        
+            });                    
         }
     )
-);
+)
 
 
 // passport.use(

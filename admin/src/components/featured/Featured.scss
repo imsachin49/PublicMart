@@ -15,14 +15,13 @@
         padding: 5px;
         color: grey;
         flex-direction: column;
-        // font-family: 'Caveat', cursive;
         .featured-chart{
             width: 140px;
             height: 140px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Caveat', cursive;
+            font-family: 'candara', sans-serif;
 
         }
         .title{
@@ -37,13 +36,13 @@
             color: black;
             margin: 0;
             padding: 0;
-            font-family: 'Caveat', cursive;
+            font-family: 'candara', sans-serif;
         }
         .desc{
             text-align: center;
             margin: 0;
             padding: 0;
-            font-family: 'Caveat', cursive;
+            font-family: 'candara', sans-serif;
             font-size: 20px;    
         }
     }
