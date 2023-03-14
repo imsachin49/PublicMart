@@ -66,6 +66,13 @@ h3{
     text-decoration: underline;
 }
 
+.formInput{
+    /* border: 1px solid grey; */
+    padding: 6px;
+    width: 100%;
+    padding-right: 20px;
+}
+
 .rbtn{
     width: 260px;
 }

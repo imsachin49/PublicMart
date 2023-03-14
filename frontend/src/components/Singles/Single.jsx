@@ -14,8 +14,8 @@ import AddIcon from '@mui/icons-material/Add';
 import {userRequest,publicRequest} from '../../requestMethods';
 import {addProduct} from '../../redux/cartRedux';
 import CircularProgress from '@mui/material/CircularProgress';
+import LoginIcon from '@mui/icons-material/Login';
 import './Single.css'
-
 
 const Single = () => {
     const location=useLocation();
@@ -26,7 +26,10 @@ const Single = () => {
     const cart=useSelector(state=>state.cart);
     const [loading,setLoading]=useState(false);
     const [error,setError]=useState(false);
-    
+    const [size, setSize] =useState('');
+    const [color,setColor]=useState('');
+    const isMobile=useMediaQuery('(max-width:365px)');
+    const navigate=useNavigate();
 
     useEffect(()=>{
         const getProduct=async()=>{
@@ -42,11 +45,6 @@ const Single = () => {
         }
         getProduct();
     },[id])
-
-    const [size, setSize] =useState('');
-    const [color,setColor]=useState('');
-    const isMobile=useMediaQuery('(max-width:365px)');
-    const navigate=useNavigate();
 
     const handleChange = (event) => {
       setSize(event.target.value);
@@ -69,7 +67,6 @@ const Single = () => {
     }
     
     const isInCart=cart.products.filter((item)=>item._id===id).length>0;
-    console.log(isInCart)
 
     const Send=()=>{
         navigate('/cart');
@@ -82,14 +79,20 @@ const Single = () => {
             
             <div className='singleLeft'>
                 <img src={product.img} />
-                <div className='buttons'>
-                {!isInCart ? <Button variant='contained' style={{margin:'10px 20px',fontFamily:"'candara',sans-serif",fontWeight:'bold',padding:'8px 18px',backgroundColor:'white',color:'#111',border:'1px solid #111'}} onClick={handleClick}><ShoppingCartSharpIcon/>Add to Cart</Button>
-                : <Button variant='contained' style={{margin:'10px 20px',fontFamily:"'candara',sans-serif",fontWeight:'bold',padding:'8px 18px',backgroundColor:'white',color:'#111',border:'1px solid #111'}} onClick={Send}><ShoppingCartSharpIcon/>View Cart</Button>}
-                <Link  to='/cart' style={{textDecoration:'none'}}><Button variant='contained' style={{margin:'10px 20px',fontFamily:"'candara',sans-serif",fontWeight:'bold',padding:'8px 18px',backgroundColor:'rgb(244, 51, 151)',color:'white',border:'1px solid transparent'}}><KeyboardDoubleArrowRightSharpIcon/>Buy Now</Button></Link>
-                </div>
+               {currentUser ? <div className='buttons'>
+                    {!isInCart ? <Button variant='contained' style={{margin:'10px 20px',fontFamily:"'candara',sans-serif",fontWeight:'bold',padding:'8px 18px',backgroundColor:'white',color:'#111',border:'1px solid #111'}} onClick={handleClick}><ShoppingCartSharpIcon/>Add to Cart</Button>
+                    : <Button variant='contained' style={{margin:'10px 20px',fontFamily:"'candara',sans-serif",fontWeight:'bold',padding:'8px 18px',backgroundColor:'white',color:'#111',border:'1px solid #111'}} onClick={Send}><ShoppingCartSharpIcon/>View Cart</Button>}
+                    <Link  to='/cart' style={{textDecoration:'none'}}><Button variant='contained' style={{margin:'10px 20px',fontFamily:"'candara',sans-serif",fontWeight:'bold',padding:'8px 18px',backgroundColor:'rgb(244, 51, 151)',color:'white',border:'1px solid transparent'}}><KeyboardDoubleArrowRightSharpIcon/>Buy Now</Button></Link>
+                </div> : 
+                <div className='noProduct' style={{textAlign:'center'}}>
+                    <p className='noProductText'>Login to Buy Products</p>
+                    <Link  to='/login' style={{textDecoration:'none'}}><Button variant='contained' style={{margin:'10px 20px',fontFamily:"'candara',sans-serif",fontWeight:'bold',padding:'8px 18px',backgroundColor:'rgb(244, 51, 151)',color:'white',border:'1px solid transparent'}}><LoginIcon style={{marginRight:'5px'}}/>Login</Button></Link>
+                </div>    
+                }
             </div>
 
             <div className='singleRight'>
+                
                 <div className='titlePrice'>
                     <p className='singleTitle'>{product.title}</p>
                     <p className='singlePrice'>${product.price}</p>
@@ -108,7 +111,7 @@ const Single = () => {
                     <p className='selectSize'>Select Color</p>
                     <div className='Sizes'>
                        {product.color && product.color.map((clr)=>{
-                            return (<button className='choose' onClick={(e)=>setColor(e.target.value)} value={clr} key={clr} style={{backgroundColor:clr,border:'1px solid #999'}}></button>)})}
+                            return (<button className="choose" onClick={(e)=>setColor(e.target.value)} value={clr} key={clr} style={{backgroundColor:clr,border:'1px solid #999'}}></button>)})}
                     </div>    
                 </div>
 
@@ -125,7 +128,7 @@ const Single = () => {
                     <div className='titleS'>Product Details</div>
                     <p className='singleTitle' style={{fontSize:'17px'}}>{product.desc}</p>
                 </div>
-
+                        
             </div>
 
         </div> : 

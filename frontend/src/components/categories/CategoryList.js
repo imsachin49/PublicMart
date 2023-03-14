@@ -1,10 +1,5 @@
 const CategoryList=[
     {
-        id:1,
-        cat:"furnitures",
-        img:'https://images.pexels.com/photos/1743227/pexels-photo-1743227.jpeg?auto=compress&cs=tinysrgb&w=600'
-    },
-    {
         id:2,
         cat:"mens",
         img:'https://images.pexels.com/photos/3755706/pexels-photo-3755706.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -23,6 +18,11 @@ const CategoryList=[
         id:5,
         cat:"beauty",
         img:'https://images.pexels.com/photos/15191189/pexels-photo-15191189.jpeg?auto=compress&cs=tinysrgb&w=600'
+    },
+    {
+        id:1,
+        cat:"furnitures",
+        img:'https://images.pexels.com/photos/1743227/pexels-photo-1743227.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
         id:6,
