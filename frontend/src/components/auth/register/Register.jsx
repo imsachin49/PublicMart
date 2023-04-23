@@ -91,6 +91,7 @@ const Register = () => {
                 <div className='formInput'>
                     <Link  className='log'>Already have an account? <Link className='login' to='/login'>&nbsp;Login</Link> </Link>
                 </div>
+                {error && <p className='wrong'>Something went Wrong..</p>}
                 {/* <div className='formInput'>
                     <Button variant='contained' className='btn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',marginBottom:'8px',fontFamily:"'candara',sans-serif"}} onClick={google}><img src='https://cdn-icons-png.flaticon.com/128/2875/2875404.png' style={{height:'20px'}} />&nbsp;Continue with Google</Button>
                 </div>

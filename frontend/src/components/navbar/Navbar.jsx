@@ -32,6 +32,7 @@ import {Box,Select,FormControl} from "@mui/material";
 import { useDispatch } from 'react-redux';
 import { NavHashLink } from 'react-router-hash-link';
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const Navbar = ({user}) => {
     var isUser=false;
@@ -42,6 +43,10 @@ const Navbar = ({user}) => {
     const dispatch=useDispatch();
     const navigate=useNavigate();
     const [title,setTitle]=useState('');
+    const location=useLocation();
+    console.log(location.pathname);
+    const isAuthPage=location.pathname==='/login' || location.pathname==='/register';
+    console.log(isAuthPage);
 
     if(currentUser){
         // console.log(currentUser.username);
@@ -84,7 +89,7 @@ const Navbar = ({user}) => {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        {/* <div className="navbarMenu navbar-nav"> */}
+        {!isAuthPage && <>
             <NavHashLink to='/' className='equal'><div className='navbarMenuItems'>Home</div></NavHashLink>
             <NavHashLink to='/#categories' className='equal'><div className='navbarMenuItems'>
                <span className='catNav'>Categories</span>
@@ -92,16 +97,16 @@ const Navbar = ({user}) => {
             </div></NavHashLink>
             <NavHashLink to='/#new' className='equal'><div className='navbarMenuItems'>What's New</div></NavHashLink>
             <NavHashLink to='/#delivery' className='equal'><div className='navbarMenuItems'>Delivery</div></NavHashLink>
-        {/* </div> */}
+            </>}
         </ul>
 
         <div className='NavAuth'>            
-            <form className='NavAuthItems1' onSubmit={handleSubmit}>
+        {!isAuthPage && <form className='NavAuthItems1' onSubmit={handleSubmit}>
                 <input type='text' placeholder='Search Products' className='searchInput' onChange={e=>setTitle(e.target.value)} name='title' value={title}/>
                 <SearchIcon />
-            </form>
+            </form>}
             
-            {!isUser ? (<><Link className='NavAuthItems' to='/login' style={{textDecoration:'none',color:'black'}}>
+            {!isUser ? (<div><Link className='NavAuthItems' to='/login' style={{textDecoration:'none',color:'black'}}>
                 <LoginIcon fontSize='10px' />
                 <span className='NavAuthText'>Login</span>
             </Link>
@@ -109,7 +114,7 @@ const Navbar = ({user}) => {
             <Link className='NavAuthItems' to='/register' style={{textDecoration:'none',color:'black'}}>
                 <PersonAddIcon fontSize='10px' />
                 <span className='NavAuthText'>Signup</span>
-            </Link></>) :
+            </Link></div>) :
 
             (<>
             <div className='NavAuthItems'>

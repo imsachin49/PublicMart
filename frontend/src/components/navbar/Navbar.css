@@ -7,7 +7,11 @@
     align-items: center;
     width: 100%;
     font-family: 'candara' , sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
+
 
 .hamburger,.closeHamburger{
     display: none;

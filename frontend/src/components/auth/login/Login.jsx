@@ -15,7 +15,12 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {  
   const smallSc=useMediaQuery('(max-width: 800px)')
-  
+  const [loading,setLoading]=useState(false);
+  //  const loginSuccess=useSelector(state=>state.user.loginSuccess);
+  //  const loginFailure=useSelector(state=>state.user.loginFailure);
+  //  const loginStart=useSelector(state=>state.user.loginStart);
+  //  console.log(loginSuccess,loginFailure,loginStart)
+    
   // const google=()=>{
   //   window.open("https://full-stack-ecommerce-mu.vercel.app/auth/google", "_self");
   // }
@@ -28,6 +33,7 @@ const Login = () => {
   const {isFetching,error}=useSelector(state=>state.user);
   console.log(isFetching,error);
   const navigate=useNavigate();
+  const [err,setErr]=useState(false);
 
   const [user,setUser]=useState({
     email:"",password:"",
@@ -48,7 +54,6 @@ const Login = () => {
     console.log("hello");
   }
 
-
   return (
     <div className='rmain-form'>
         <div className='rbox'>
@@ -56,11 +61,11 @@ const Login = () => {
                 <h3><LoginIcon style={{fontSize:'xx-large'}}/> Login User</h3>
                 <div className='formInput'>
                     <label htmlFor='email'>Email</label>
-                    <input type='email' name='email' value={user.email} onChange={handleChange} placeholder='Enter Email' />
+                    <input type='email' required name='email' value={user.email} onChange={handleChange} placeholder='Enter Email' />
                 </div>
                 <div className='formInput'>
                     <label htmlFor='password'>Password</label>
-                    <input type='password' name='password' id='password' value={user.password} onChange={handleChange} placeholder='Enter Password'/>
+                    <input type='password' required name='password' id='password' value={user.password} onChange={handleChange} placeholder='Enter Password'/>
                 </div>
                 <div className='formInput'>
                     <Button type='submit' variant='contained' className='rbtn' style={{backgroundColor:'black',color:'white',marginTop:'10px',fontFamily:"'candara',sans-serif"}} onClick={handleClick}>Login</Button>
@@ -69,6 +74,7 @@ const Login = () => {
                     <Link className='rlog'>
                     Don't have account ? <Link to='/register' className='register'>&nbsp;Create New</Link></Link>
                 </div>
+                {/* {err && <p className='wrong'>Something went Wrong..</p>} */}
                 {/* <div className='formInput'>
                     <Button variant='contained' className='rbtn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',marginBottom:'8px',fontFamily:"'candara',sans-serif"}} ><img src='https://cdn-icons-png.flaticon.com/128/2875/2875404.png' style={{height:'20px'}} onClick={google} />&nbsp;Login with Google</Button>
                 </div>

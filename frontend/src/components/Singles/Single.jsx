@@ -103,7 +103,7 @@ const Single = () => {
                     <p className='selectSize'>Select Size</p>
                     <div className='Sizes'>
                         {product.size && product.size.map((syz)=>{
-                           return (<button className='chooseS' onClick={(e)=>setSize(e.target.value)} value={syz} key={syz}>{syz}</button>)})}
+                           return (<button className={`chooseS ${syz === size ? 'selectedSyz' : 'notS'}`} onClick={(e)=>setSize(e.target.value)} value={syz} key={syz}>{syz}</button>)})}
                     </div>    
                 </div>
                 
@@ -111,7 +111,7 @@ const Single = () => {
                     <p className='selectSize'>Select Color</p>
                     <div className='Sizes'>
                        {product.color && product.color.map((clr)=>{
-                            return (<button className="choose" onClick={(e)=>setColor(e.target.value)} value={clr} key={clr} style={{backgroundColor:clr,border:'1px solid #999'}}></button>)})}
+                            return (<button className={`choose ${clr === color ? 'selected' : 'notS'}`} onClick={(e)=>setColor(e.target.value)} value={clr} key={clr} style={{backgroundColor:clr}}></button>)})}
                     </div>    
                 </div>
 
