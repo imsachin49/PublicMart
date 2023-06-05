@@ -40,10 +40,6 @@ app.use(cors({
   credentials:true,
 }))
 
-// app.use(cors({
-//   origin:["http://localhost:3000","https://picture-book-iiitr.vercel.app"]
-// }));
-
 app.use(express.json());
 
 //routes
