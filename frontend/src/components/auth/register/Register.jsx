@@ -15,10 +15,10 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 const Register = () => {
 
-  // const google=()=>{
-  //   window.open("http://localhost:5000/auth/google", "_self");
-  //   console.log("hello from google");
-  // }
+  const google=()=>{
+    window.open("http://localhost:5000/auth/google", "_self");
+    console.log("hello from google");
+  }
 
   // const github=()=>{
   //   window.open("http://localhost:5000/auth/github", "_self");
@@ -94,10 +94,10 @@ const Register = () => {
                 {error && <p className='wrong'>Something went Wrong..</p>}
                 {/* <div className='formInput'>
                     <Button variant='contained' className='btn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',marginBottom:'8px',fontFamily:"'candara',sans-serif"}} onClick={google}><img src='https://cdn-icons-png.flaticon.com/128/2875/2875404.png' style={{height:'20px'}} />&nbsp;Continue with Google</Button>
-                </div>
+                </div>*/}
                 <div className='formInput'>
                     <Button variant='contained' className='btn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',fontFamily:"'candara',sans-serif",marginBottom:'5px'}} ><GitHubIcon/>&nbsp;Continue with Github</Button>
-                </div> */}
+                </div> 
             </form>
         </div>
     </div>
