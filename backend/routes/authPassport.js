@@ -2,7 +2,7 @@ const express=require('express');
 const router=express.Router();
 const passport=require('passport');
 
-const CLIENT_URL="http://localhost:3000/cart"
+const CLIENT_URL="https://full-stack-ecommerce-scm2.vercel.app/cart"
 
 router.get('/login/failed',(req,res)=>{
     res.status(401).json({success:false,message:"failure"})
