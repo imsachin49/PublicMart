@@ -13,15 +13,16 @@ const Categories = () => {
             <div className='cat-wrapper' >
 
                 {CategoryList.map((item,id)=>{
-                    return(<Link to={`/products/${item.cat}`}><div className='cat-card' key={item.id}>
-                    <div className='org-card'>
-                    <img src={item.img}/>
-                        <div className='cat-mid'>
-                            <h4 className='ctitle'>{item.cat}</h4>
-                            {/* <Button className='cat-shop' color='error' variant='outlined' style={{width:'120px',display:'flex',margin:'auto',color:'black',borderColor:'black',fontWeight:'bolder'}}>Shop Now</Button> */}
-                        </div> 
-                    </div>
-                    </div>
+                    return(
+                    <Link to={`/products/${item.cat}`} key={item.id}>
+                        <div className='cat-card'>
+                            <div className='org-card'>
+                                <img src={item.img}/>
+                                <div className='cat-mid'>
+                                    <h4 className='ctitle'>{item.cat}</h4>
+                                </div> 
+                            </div>
+                        </div>
                     </Link>)  
                 })}
             </div>

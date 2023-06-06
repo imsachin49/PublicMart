@@ -64,26 +64,24 @@ const Products = () => {
     return (
         <div style={{ backgroundColor: 'white'}} id="new">
             <h2>Our Latest Top Collections</h2>
-            {!loading ? <div className='pKacategories' style={{backgroundColor:'white'}}>
-                
-                {/* in-case only two items is there grid wiill not work properly so use this */}
-                
+            {!loading ? <div className='pKacategories' style={{backgroundColor:'white'}}>                
                 <div className='pKawrapper'>
-                {products.map((item)=>{
-                return(
-                    <div className='productCard' key={item.id}>
-                    <div className='imgContainer'>
-                        <img src={item.img} className='itemImg' />
-                    </div>
-                        <div className='productTexts'>
-                            <p className='productTitle' style={{fontWeight:'bolder'}}>{item.title}</p>
-                            <p className='productPrice'>${item.price}</p>
+                {products.map((item,index)=>{
+                    return(
+                        <div className='productCard' key={index}>
+                            <div className='imgContainer'>
+                                <img src={item.img} className='itemImg' />
+                            </div>
+                            <div className='productTexts'>
+                                <p className='productTitle' style={{fontWeight:'bolder'}}>{item.title}</p>
+                                <p className='productPrice'>${item.price}</p>
+                            </div>
+                            <div className='cartBtn'>
+                                <><Button onClick={()=>addToProduct(item._id)} className='cartNow' style={{border:'1px solid #555',marginLeft:'20px',borderRadius:'25px',color:'#444',fontFamily:"'candara', sans-serif",fontWeight:'bold',padding:'3px 8px'}}>Explore</Button></>
+                            </div>
                         </div>
-                        <div className='cartBtn'>
-                            <><Button onClick={()=>addToProduct(item._id)} className='cartNow' style={{border:'1px solid #555',marginLeft:'20px',borderRadius:'25px',color:'#444',fontFamily:"'candara', sans-serif",fontWeight:'bold',padding:'3px 8px'}}>Explore</Button></>
-                        </div>
-                </div>
-            )})}  
+                    )})
+                }  
             </div>
             <div className='pagination'>
             <Stack spacing={2}>

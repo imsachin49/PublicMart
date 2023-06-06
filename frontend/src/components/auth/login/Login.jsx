@@ -21,9 +21,10 @@ const Login = () => {
   //  const loginStart=useSelector(state=>state.user.loginStart);
   //  console.log(loginSuccess,loginFailure,loginStart)
     
-  const google=()=>{
-    window.open("https://full-stack-ecommerce-mu.vercel.app/auth/google", "_self");
-  }
+  // const google=()=>{
+  //   window.open("https://full-stack-ecommerce-mu.vercel.app/auth/google", "_self");
+  //   console.log("hello")
+  // }
   
   // const github=()=>{
   //   window.open("https://full-stack-ecommerce-mu.vercel.app/auth/github", "_self");
@@ -75,9 +76,9 @@ const Login = () => {
                     Don't have account ? <Link to='/register' className='register'>&nbsp;Create New</Link></Link>
                 </div>
                 {/* {err && <p className='wrong'>Something went Wrong..</p>} */}
-                <div className='formInput'>
-                    <Button variant='contained' className='rbtn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',marginBottom:'8px',fontFamily:"'candara',sans-serif"}} ><img src='https://cdn-icons-png.flaticon.com/128/2875/2875404.png' style={{height:'20px'}} onClick={google} />&nbsp;Login with Google</Button>
-                </div>
+                {/*<div className='formInput'>
+                    <Button variant='contained' className='rbtn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',marginBottom:'8px',fontFamily:"'candara',sans-serif"}} onClick={google}><img src='https://cdn-icons-png.flaticon.com/128/2875/2875404.png' style={{height:'20px'}} />&nbsp;Login with Google</Button>
+                </div>*/}
                 
                 {/* <div className='formInput'>
                     <Button variant='contained' className='rbtn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',fontFamily:"'candara',sans-serif"}} onClick={github}><GitHubIcon/>&nbsp;Login with Github</Button>

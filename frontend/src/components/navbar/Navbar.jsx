@@ -36,9 +36,9 @@ import { useLocation } from 'react-router-dom';
 
 const Navbar = ({user}) => {
     var isUser=false;
-    const cart=useSelector(state=>state.cart);
-    const quantity=useSelector(state=>state.cart.quantity);
-    const currentUser=useSelector(state=>state.user.currentUser.user);
+    const cart=useSelector(state=>state?.cart);
+    const quantity=useSelector(state=>state?.cart?.quantity);
+    const currentUser=useSelector(state=>state?.user?.currentUser?.user);
     // console.log(currentUser);
     const dispatch=useDispatch();
     const navigate=useNavigate();
@@ -75,20 +75,20 @@ const Navbar = ({user}) => {
       }
 
     return (
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <div className="container-fluid">
 
         <div className='logo'>
             <img src='https://img.icons8.com/bubbles/1x/shopping-cart.png' alt='no-images' className='logoImg' />
             <Link className='logoName' to='/'>PublicMart</Link>
         </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
         </button>
         
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         {!isAuthPage && <>
             <NavHashLink to='/' className='equal'><div className='navbarMenuItems'>Home</div></NavHashLink>
             <NavHashLink to='/#categories' className='equal'><div className='navbarMenuItems'>
