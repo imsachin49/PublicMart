@@ -16,7 +16,8 @@ const Products = () => {
     const navigate=useNavigate();
     const [loading,setLoading]=useState(false);
     const [page,setPage]=useState(1);
-    console.log(page)
+    console.log(page);
+    const [total,setTotal]=useState(0);
 
     const getAllProducts=async()=>{
         try{
@@ -35,13 +36,15 @@ const Products = () => {
 
     const totalLength=allProducts.length;
     console.log(totalLength)
-    const totalPage=Math.ceil(totalLength/11);
+    const totalPage=Math.ceil(total/11);
 
     const getProducts=async()=>{
         try{
             setLoading(true);
             const res=await publicRequest.get(`/products?page=${page}&limit=11`);
-            setProduts(res.data);
+            setProduts(res.data.paginatedProducts);
+            setTotal(res.data.total);
+            console.log(res.data)
             setLoading(false);  
         }catch(err){
             console.log(err);
