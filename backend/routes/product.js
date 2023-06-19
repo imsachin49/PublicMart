@@ -46,6 +46,8 @@ router.get('/',async(req,res)=>{
         }
         else{
             products=await Product.find();
+            // total
+            const total=products.length;
             let page=Number(req.query.page) || 1;
             let limit=Number(req.query.limit) || 10;
             let skip=(page-1)*limit;
@@ -56,7 +58,7 @@ router.get('/',async(req,res)=>{
             //     { $sample: { size: 100 } } // Replace "10" with the desired number of random documents
             //   ]).exec();
               
-            res.status(200).json(paginatedProducts);
+            res.status(200).json({paginatedProducts,total});
         }
     }
     catch(err){
