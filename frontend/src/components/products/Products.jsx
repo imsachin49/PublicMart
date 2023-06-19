@@ -21,7 +21,7 @@ const Products = () => {
     const getAllProducts=async()=>{
         try{
             setLoading(true);
-            const res=await publicRequest.get(`http://localhost:5000/api/products`);
+            const res=await publicRequest.get(`https://full-stack-ecommerce-mu.vercel.app/api/products`);
             setAllProducts(res.data);
             setLoading(false);  
         }catch(err){
