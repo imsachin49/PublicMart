@@ -46,17 +46,17 @@ router.get('/',async(req,res)=>{
         }
         else{
             products=await Product.find();
-            // let page=Number(req.query.page) || 1;
-            // let limit=Number(req.query.limit) || 10;
-            // let skip=(page-1)*limit;
-            // const paginatedProducts=products.slice(skip,skip+limit);
+            let page=Number(req.query.page) || 1;
+            let limit=Number(req.query.limit) || 10;
+            let skip=(page-1)*limit;
+            const paginatedProducts=products.slice(skip,skip+limit);
             
             // for random retrivel of products 
             // products=await Product.aggregate([
             //     { $sample: { size: 100 } } // Replace "10" with the desired number of random documents
             //   ]).exec();
               
-            res.status(200).json(products);
+            res.status(200).json(paginatedProducts);
         }
     }
     catch(err){
