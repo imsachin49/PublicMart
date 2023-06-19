@@ -10,6 +10,11 @@ const CategoryList=[
         img:'https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8d29tZW5zJTIwd2VhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
     },
     {
+        id:8,
+        cat:"kids",
+        img:'https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fGtpZHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60',
+    },
+    {
         id:4,
         cat:"electronics",
         img:'https://images.pexels.com/photos/207589/pexels-photo-207589.jpeg?auto=compress&cs=tinysrgb&w=600'
@@ -21,18 +26,13 @@ const CategoryList=[
     },
     {
         id:1,
-        cat:"furnitures",
-        img:'https://images.pexels.com/photos/1743227/pexels-photo-1743227.jpeg?auto=compress&cs=tinysrgb&w=600'
+        cat:"kitchen",
+        img:'https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     },
     {
         id:6,
         cat:"sneakers",
         img:'https://images.unsplash.com/photo-1552346154-21d32810aba3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c25lYWtlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-    },
-    {
-        id:8,
-        cat:"gifts",
-        img:'https://images.unsplash.com/photo-1545785028-23ee5937cf69?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTJ8fGdpZnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
     },
     {
         id:7,

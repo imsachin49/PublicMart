@@ -1,20 +1,17 @@
 import { Button } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';import Navbar from '../../components/navbar/Navbar'
-import Products from '../../components/products/Products'
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
+import { useLocation } from 'react-router-dom';
 import './ProductType.css';
 import '../../components/products/Products.css'
-import Type from '../../MyProducts';
-import { Link, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { addProduct } from '../../redux/cartRedux';
 import { useNavigate } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
+import Footer from '../../components/footer/Footer.jsx';
+import NewsLetter from '../../components/NewsLetter/NewsLetter.jsx';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+
+AOS.init();
 
 const ProductType = () => {
     const location=useLocation();
@@ -23,6 +20,10 @@ const ProductType = () => {
     const [sort,setSort]=useState('newest');
     const [loading,setLoading]=useState(false);
     const [error,setError]=useState(false);
+
+    useEffect(()=>{
+        window.scrollTo(0,0);
+    },[])
 
     const handleFilters=(e)=>{
         setFilters({
@@ -104,7 +105,7 @@ const ProductType = () => {
 
     return (
     <>
-        <div style={{ backgroundColor: 'white'}}>
+        <div style={{ backgroundColor: 'white',paddingBottom:'100px'}}>
             {!loading ? <div className='pKacategories' style={{backgroundColor:'white'}}>
             
                 <div className='typeTop'>
@@ -137,9 +138,9 @@ const ProductType = () => {
                 <div className="pKawrapper">
                 {filteredProducts.map((item)=>{
                 return(
-                    <div className='productCard' key={item.id}>
+                    <div className='productCard' key={item.id} data-aos="zoom-out-up">
                     <div className='imgContainer'>
-                        <img src={item.img} className='itemImg' />
+                        <img src={item.img} className='itemImg' alt='noImg' />
                     </div>
                         <div className='productTexts'>
                             <p className='productTitle' style={{fontWeight:'bolder'}}>{item.title}</p>
@@ -160,7 +161,8 @@ const ProductType = () => {
             <CircularProgress color="success" />
             </div>}
         </div>
-
+        <NewsLetter/>
+        <Footer />
     </>
   )
 }

@@ -17,6 +17,7 @@ import Single from './components/Singles/Single';
 import { useParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import Search from './components/search/Search';
+import Reviews from './components/reviews/Reviews';
 
 function App() {
   const user=useSelector(state=>state.user.currentUser);
@@ -44,6 +45,7 @@ function App() {
         <Route path='/one' element={<One/>}/>      
         <Route path='/single' element={<Single/>}/>  
         <Route path='/search' element={<Search/>}/>  
+        <Route path='/reviews' element={<Reviews />} />
       </Routes>
      </Router>
       {/* <Navbar /> */}

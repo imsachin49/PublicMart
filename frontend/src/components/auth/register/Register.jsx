@@ -27,7 +27,6 @@ const Register = () => {
 
   const [loading,setLoading]=useState(false);
   const [error,setError]=useState(false);
-  const smallSc=useMediaQuery('(max-width: 800px)')
   const navigate=useNavigate();
   const [user,setUser]=useState({
     username:"",phone:"",email:"",password:""
@@ -37,25 +36,32 @@ const Register = () => {
     setUser({...user,[e.target.name]:e.target.value})
   }
   
-  const sendRequest=async()=>{
-    try{
+  // const sendRequest=async()=>{
+  //   try{
+  //     setLoading(true);
+  //     const res=await axios.post('https://full-stack-ecommerce-mu.vercel.app/api/auth/register',user);
+  //     const data=await res.data;
+  //     return data;
+  //   }catch(err){
+  //     console.log(err); 
+  //     setError(true);
+  //   }
+  //   setLoading(false);
+  // }
+
+  const handleSubmit=async(e)=>{
+    e.preventDefault();
+    try {
       setLoading(true);
       const res=await axios.post('https://full-stack-ecommerce-mu.vercel.app/api/auth/register',user);
       const data=await res.data;
-      return data;
-      setLoading(false);
-    }catch(err){
-      console.log(err); 
+      console.log(data);
+      navigate('/login');
+    } catch (error) {
       setError(true);
+      console.log(error);
     }
-  }
-
-  
-  const handleSubmit=async(e)=>{
-    e.preventDefault();
-    sendRequest();
-    navigate('/login');
-    console.log(user);
+    setLoading(false);
   }
 
 

@@ -1,0 +1,73 @@
+.newsLetterContainer{
+    width: 100%;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.newsLetter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    padding: 10px 0px;
+}
+
+.newsLetterTitle{
+    font-family: "candara",sans-serif;
+    font-size: 30px;
+    color:#333;
+    margin: 0;
+    padding: 0;
+}
+
+.subInput{
+    width: 300px;
+    border: none;
+    outline: none;
+    padding: 7px;
+    font-family: "candara",sans-serif;
+    border: 1px solid rgb(226, 226, 226);
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.subBtn{
+    padding: 6px;
+    border: 1px solid rgb(226, 226, 226);
+    border-top-right-radius:5px;
+    border-bottom-right-radius: 5px;
+    background-color: rgb(244, 51, 151);
+    outline: none;
+    color: white;
+    font-family: "candara",sans-serif;
+    font-weight: bold;
+}
+
+.subInfo{
+    max-width: 300px;
+    font-family: "candara",sans-serif;
+    font-size: 13px;
+    color: gray;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width:400px) {
+    .subInput{
+        width: 200px;
+    }
+    .newsLetter{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:300px) {
+    .subInput{
+        width: 170px;
+    }
+}

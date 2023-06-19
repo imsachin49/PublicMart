@@ -1,0 +1,274 @@
+[
+    {
+      "title": "men's running shoes",
+      "desc": "upgrade your running performance with these high-quality men's running shoes. designed for comfort and durability, they provide excellent support and cushioning for long-distance runs.",
+      "img": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2hvZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60",
+      "categories": ["sneakers", "men's"],
+      "size": ["s", "m", "l", "xl", "xxl"],
+      "color": ["black", "white", "red"],
+      "price": 100,
+      "company":"Addidas Shoes"
+    },
+    {
+      "id": 2,
+      "title": "women's fashion sneakers",
+      "desc": "step out in style with these fashionable women's sneakers. made from premium materials, they offer a perfect blend of comfort and elegance, making them a versatile choice for any occasion.",
+      "img": "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNob2VzfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60",
+      "categories": ["sneakers", "women's"],
+      "size": ["s", "m", "l", "xl", "xxl"],
+      "color": ["white", "pink", "purple"],
+      "price": 120,
+       "company":"Addidas Shoes"
+    },
+    {
+      "id": 3,
+      "title": "kids' sports shoes",
+      "desc": "let your little ones stay active and comfortable with these sports shoes for kids. they are designed to provide excellent support and cushioning, ensuring a safe and enjoyable playtime experience.",
+      "img": "https://images.unsplash.com/photo-1575537302964-96cd47c06b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHNob2VzfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60",
+      "categories": ["sneakers", "kids"],
+      "size": ["s", "m", "l", "xl", "xxl"],
+      "color": ["black", "blue", "green"],
+      "price": 80,
+       "company":"Puma"
+    },
+    {
+      "id": 4,
+      "title": "mens casual shoes",
+      "desc": "add a touch of casual elegance to your outfit with these mens casual shoes. crafted with attention to detail, they offer both style and comfort for everyday wear.",
+      "img": "https://media.istockphoto.com/id/1249369867/photo/a-pair-shoe-of-latest-trend.webp?b=1&s=170667a&w=0&k=20&c=QHUU_rIQauRonRBCjXpTS1LSyA0HFxLsY2vAEnuCWeM=",
+      "categories": ["shoes", "mens"],
+      "size": ["s", "m", "l", "xl"],
+      "color": ["brown", "gray", "navy"],
+      "price": 90,
+       "company":"Puma"
+    },
+    {
+      "id": 5,
+      "title": "women's high heels",
+      "desc": "step up your style with these fashionable women's high heels. designed to make a statement, they offer both elegance and comfort for any special occasion.",
+      "img": "https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHNuZWFrZXJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60",
+      "categories": ["heels", "women's"],
+      "size": ["s", "m", "l", "xl"],
+      "color": ["black", "red", "silver"],
+      "price": 150,
+       "company":"Rebook"
+    },
+    {
+      "id": 6,
+      "title": "kids' sandals",
+      "desc": "keep your kids' feet cool and comfortable with these stylish sandals. perfect for warm weather, they offer a secure fit and durability for all-day play.",
+      "img": "https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNob2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60",
+      "categories": ["sandals", "kids"],
+      "size": ["s", "m", "l", "xl"],
+      "color": ["blue", "pink", "orange"],
+      "price": 60,
+      "company":"Nike"
+    },
+    {
+      "id": 7,
+      "title": "women's boots",
+      "desc": "make a fashion statement with these trendy women's boots. designed with both style and comfort in mind, they are perfect for any season and occasion.",
+      "img": "https://images.unsplash.com/photo-1626947346165-4c2288dadc2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHNob2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60",
+      "categories": ["boots", "women's"],
+      "size": ["s", "m", "l", "xl"],
+      "color": ["black", "brown", "gray"],
+      "price": 110,
+       "company":"Nike"
+    },
+    {
+      "id": 8,
+      "title": "men's dress shoes",
+      "desc": "complete your formal look with these sleek men's dress shoes. crafted with attention to detail, they offer a perfect fit and sophisticated style for any formal event.",
+      "img": "https://media.istockphoto.com/id/869985302/photo/pair-of-blank-white-beach-slippers-design-mock-up-clipping-path-3d-illustration-home-plain.webp?b=1&s=170667a&w=0&k=20&c=tiRcXW9fQ4qpNnpmoupGoPApYzlHvkcZl7QSaJgKV3I=",
+      "categories": ["shoes", "men's"],
+      "size": ["s", "m", "l", "xl"],
+      "color": ["black", "brown", "tan"],
+      "price": 130,
+       "company":"Nike"
+    },
+    {
+      "id": 9,
+      "title": "womens sneakers",
+      "desc": "enjoy both comfort and style with these womens sneakers. designed for everyday wear, they offer a trendy look and reliable performance throughout the day.",
+      "img": "https://images.unsplash.com/photo-1598343175492-9e7dc0e63cc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNsaXBwZXJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60",
+      "categories": ["sneakers", "womens"],
+      "size": ["s", "m", "l", "xl", "xxl"],
+      "color": ["white", "gray", "blue"],
+      "price": 95,
+      "company":"Converse"
+    },
+    {
+      "id": 10,
+      "title": "kids' boots",
+      "desc": "let your kids explore the outdoors with these sturdy and comfortable boots. designed to withstand various terrains, they offer protection and support for adventurous activities.",
+      "company": "abc corporation",
+      "img": "https://images.unsplash.com/photo-1603218167744-4b6371f208c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHNsaXBwZXJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60",
+      "categories": ["boots", "kids"],
+      "size": ["s", "m", "l", "xl"],
+      "color": ["black", "pink", "purple"],
+      "price": 75
+    },      
+{
+  "id": 11,
+  "title": "face moisturizer",
+  "desc": "hydrate and nourish your skin with this face moisturizer. enriched with natural ingredients, it helps to restore moisture, leaving your skin soft, smooth, and radiant.",
+  "company": "abc corporation",
+  "img": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80",
+  "categories": ["beauty", "skincare"],
+  "size": ["100ml", "200ml"],
+  "price": 25
+},
+{
+  "id": 12,
+  "title": "lipstick",
+  "desc": "add a pop of color to your lips with this vibrant lipstick. its long-lasting formula provides a smooth and creamy texture, ensuring a flawless application every time.",
+  "company": "abc corporation",
+  "img": "https://images.unsplash.com/photo-1601049413574-214d105b26e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNyZWFtfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60",
+  "categories": ["beauty", "makeup"],
+  "color": ["red", "pink", "nude"],
+  "price": 15
+},
+{
+  "id": 13,
+  "title": "hair conditioner",
+  "desc": "nourish and strengthen your hair with this revitalizing hair conditioner. enriched with natural oils and proteins, it helps to repair damaged hair, leaving it soft, shiny, and manageable.",
+  "company": "abc corporation",
+  "img": "https://images.pexels.com/photos/5632334/pexels-photo-5632334.jpeg?auto=compress&cs=tinysrgb&w=400",
+  "categories": ["beauty", "haircare"],
+  "size": ["250ml", "500ml"],
+  "price": 20
+},
+{
+  "id": 14,
+  "title": "eyeshadow palette",
+  "desc": "create stunning eye looks with this versatile eyeshadow palette. featuring a range of shades and finishes, it allows you to unleash your creativity and achieve various eye makeup looks.",
+  "company": "abc corporation",
+  "img": "https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGhhaXIlMjBvaWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60",
+  "categories": ["beauty", "makeup"],
+  "price": 30
+},
+{
+  "id": 19,
+  "title": "cookware set",
+  "desc": "elevate your cooking experience with this high-quality cookware set. made from durable materials, it includes a variety of pots and pans that are perfect for all your culinary needs.",
+  "company": "xyz kitchenware",
+  "img": "https://images.unsplash.com/photo-1484632105053-8662f3194e7f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8a2l0Y2hlbiUyMGl0ZW18ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60",
+  "categories": ["kitchen", "cookware"],
+  "color": ["silver", "black"],
+  "price": 150
+},
+{
+  "id": 20,
+  "title": "blender",
+  "desc": "create delicious smoothies, soups, and more with this powerful blender. equipped with multiple speed settings and sharp blades, it can handle a variety of ingredients with ease.",
+  "company": "abc appliances",
+  "img": "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=400",
+  "categories": ["kitchen", "appliances"],
+  "color": ["white", "black"],
+  "price": 80
+},
+{
+  "id": 21,
+  "title": "knife set",
+  "desc": "enhance your kitchen arsenal with this versatile knife set. featuring sharp blades and comfortable handles, it includes a range of knives that are essential for every cooking task.",
+  "company": "pqr cutlery",
+  "img": "https://images.pexels.com/photos/4397820/pexels-photo-4397820.jpeg?auto=compress&cs=tinysrgb&w=400",
+  "categories": ["kitchen", "cutlery"],
+  "color": ["silver", "black"],
+  "price": 100
+},
+{
+  "id": 22,
+  "title": "food storage containers",
+  "desc": "keep your food fresh and organized with this set of food storage containers. made from BPA-free materials, they are stackable and come in various sizes, perfect for storing leftovers and meal preps.",
+  "company": "lmn home essentials",
+  "img": "https://images.pexels.com/photos/1450903/pexels-photo-1450903.jpeg?auto=compress&cs=tinysrgb&w=400",
+  "categories": ["kitchen", "storage"],
+  "color": ["clear"],
+  "price": 30
+},  
+{
+  "id": 23,
+  "title": "fiction novel",
+  "desc": "get lost in the captivating world of this fiction novel. filled with intriguing characters and an engaging plot, it will keep you hooked from beginning to end.",
+  "author": "john smith",
+  "img": "https://plus.unsplash.com/premium_photo-1677168797153-fd930b852bad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Ym9va3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60",
+  "categories": ["books", "fiction"],
+  "price": 20,
+  "company":"Taxman Publications Limited"
+},
+{
+  "id": 24,
+  "title": "Milk and honey",
+  "desc": "discover valuable insights and practical advice with this empowering self-help book. written by a renowned author, it offers guidance and tools to improve various aspects of your life.",
+  "author": "jane doe",
+  "img": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Ym9va3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=400&q=60",
+  "categories": ["books", "self-help"],
+  "price": 15,
+   "company":"Hachette India Publishers"
+},
+{
+  "id": 25,
+  "title": "cookbook",
+  "desc": "explore a world of delicious recipes with this comprehensive cookbook. it features a variety of dishes from different cuisines, along with helpful tips and techniques for home cooks.",
+  "author": "mary johnson",
+  "img": "https://images.pexels.com/photos/2228586/pexels-photo-2228586.jpeg?auto=compress&cs=tinysrgb&w=400",
+  "categories": ["books", "cooking"],
+  "price": 25,
+   "company":"MacMillan books"
+},
+{
+  "id": 26,
+  "title": "biography",
+  "desc": "gain insights into the extraordinary life of a remarkable individual with this compelling biography. written by a skilled author, it provides an in-depth look into the subject's achievements and struggles.",
+  "author": "david wilson",
+  "img": "https://images.unsplash.com/photo-1521123845560-14093637aa7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODd8fGJvb2t8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60",
+  "categories": ["books", "biography"],
+  "price": 18,
+  "company":"MacMillan books"
+},
+{
+  "id": 27,
+  "title": "educational toy",
+  "desc": "spark your child's curiosity with this interactive educational toy. designed to promote learning and creativity, it offers engaging activities and hands-on exploration for young minds.",
+  "brand": "abc toys",
+  "img": "https://images.pexels.com/photos/836040/pexels-photo-836040.jpeg?auto=compress&cs=tinysrgb&w=400",
+  "categories": ["kids", "educational"],
+  "age_range": "3-6 years",
+  "price": 30,
+  "company":"chaos"
+},
+{
+  "id": 28,
+  "title": "children's book",
+  "desc": "embark on an enchanting adventure with this delightful children's book. filled with colorful illustrations and captivating stories, it will ignite your child's imagination and love for reading.",
+  "author": "emma smith",
+  "img": "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8a2lkcyUyMGNsb3RofGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60",
+  "categories": ["kids", "books"],
+  "age_range": "4-8 years",
+  "price": 12,
+  "company":"lego"
+},
+{
+  "id": 29,
+  "title": "kids' bicycle",
+  "desc": "let your child ride in style with this sturdy and colorful kids' bicycle. designed with safety features and adjustable components, it provides a fun and adventurous biking experience.",
+  "brand": "xyz cycles",
+  "img": "https://images.pexels.com/photos/4971070/pexels-photo-4971070.jpeg?auto=compress&cs=tinysrgb&w=400",
+  "categories": ["kids", "outdoor"],
+  "age_range": "6-10 years",
+  "price": 80,
+  "company":"Hot Heals"
+},
+{
+  "id": 30,
+  "title": "puzzle set",
+  "desc": "challenge your child's problem-solving skills with this engaging puzzle set. featuring a variety of puzzles with varying difficulty levels, it offers hours of entertainment and cognitive development.",
+  "brand": "pqr puzzles",
+  "img": "https://images.unsplash.com/photo-1539627831859-a911cf04d3cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fHB1enpsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=400&q=60",
+  "categories": ["kids", "toys"],
+  "age_range": "8+ years",
+  "price": 15,
+  "company":"lego"
+}
+]

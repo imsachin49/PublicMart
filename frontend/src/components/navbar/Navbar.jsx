@@ -1,42 +1,23 @@
-import React from 'react'
-import {json, Link} from 'react-router-dom'
-import Button from '@mui/material/Button';
-import { Stack } from '@mui/system';
-import { IconButton, Typography } from '@mui/material';
-import LoginIcon from '@mui/icons-material/Login';
-import SearchIcon from '@mui/icons-material/Search';
-import Search from '@mui/icons-material/Search';
-import ShopIcon from '@mui/icons-material/Shop';
-import InputBase from '@mui/material/InputBase';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import './Navbar.css';
-import { useNavigate } from 'react-router-dom';
-import LogoutIcon from '@mui/icons-material/Logout';
-import Avatar from '@mui/material/Avatar';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
-import { useSelector } from 'react-redux';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
-import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
-import Badge from '@mui/material/Badge';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
-import { setLogout } from '../../redux/userRedux';
-import {Box,Select,FormControl} from "@mui/material";
+import React,{useState} from 'react'
+import { Link,useNavigate,useLocation} from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { NavHashLink } from 'react-router-hash-link';
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { setLogout } from '../../redux/userRedux';
+import { IconButton, Typography } from '@mui/material';
+import InputBase from '@mui/material/InputBase';
+import LoginIcon from '@mui/icons-material/Login';
+import SearchIcon from '@mui/icons-material/Search';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import './Navbar.css';
+import MenuItem from '@mui/material/MenuItem';
+import { useSelector } from 'react-redux';
+import Badge from '@mui/material/Badge';
+import {Select,FormControl} from "@mui/material";
 
 const Navbar = ({user}) => {
     var isUser=false;
-    const cart=useSelector(state=>state?.cart);
     const quantity=useSelector(state=>state?.cart?.quantity);
     const currentUser=useSelector(state=>state?.user?.currentUser?.user);
     // console.log(currentUser);

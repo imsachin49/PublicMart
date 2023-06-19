@@ -1,74 +1,89 @@
-.carousel-item img{
+.carousel-item img {
+  height: 400px;
+}
+
+.prevS,
+.nextS {
+  height: 20px;
+}
+
+.carousel-caption {
+  font-family: "candara", sans-serif;
+  color: darkslategray;
+  font-size: 16px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+#sgh,
+#hii {
+  font-family: "candara", sans-serif;
+  color: darkslategray;
+  font-size: 16px;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+#hii {
+  color: white;
+}
+
+@media screen and (max-width: 770px) {
+  .carousel-item img {
+    height: 450px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .carousel-item img {
     height: 400px;
+  }
+  .carousel-caption {
+    display: block;
+  }
 }
 
-.prevS,.nextS{
+@media screen and (max-width: 600px) {
+  .carousel-item img {
+    height: 310px;
+  }
+  .prevS,
+  .nextS {
+    height: 27px;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .carousel-item img {
+    height: 270px;
+  }
+  .prevS,
+  .nextS {
     height: 20px;
-}
-
-.carousel-caption{
-    font-family: 'candara', sans-serif;
-    color:darkslategray;
-    font-size: 16px;
+  }
+  .carousel-control-next-icon,
+  .carousel-control-prev-icon {
+    height: 20px;
+    width: 20px;
+  }
+  .carousel-caption {
+    font-size: 14px;
     font-weight: 600;
+  }
+  .butn {
+    font-size: 12px;
+    font-weight: lighter;
+  }
 }
 
-
-@media screen and (max-width:770px) {
-    .carousel-item img{
-        height:450px;
-    }
+@media screen and (max-width: 368px) {
+  .carousel-item img {
+    height: 295px;
+  }
 }
 
-
-@media screen and (max-width:768px) {
-    .carousel-item img{
-        height:400px;
-    }
-    .carousel-caption{
-        display: block;
-    }
+@media screen and (max-width: 330px) {
+  .carousel-item img {
+    height: 230px;
+  }
 }
-
-@media screen and (max-width:600px) {
-    .carousel-item img{
-        height:310px;
-    }
-    .prevS,.nextS{
-        height: 27px;
-    }
-}
-
-@media screen and (max-width:410px) {
-    .carousel-item img{
-        height:270px;
-    }
-    .prevS,.nextS{
-        height: 20px;
-    }
-    .carousel-control-next-icon,.carousel-control-prev-icon{
-        height: 20px;
-        width: 20px;
-    }   
-    .carousel-caption{
-        font-size: 14px;
-        font-weight: 600;
-    }
-    .butn{
-        font-size: 12px;
-        font-weight: lighter;
-    }
-}
-
-@media screen and (max-width:368px) {
-    .carousel-item img{
-        height:295px;
-    }
-}
-
-@media screen and (max-width:330px) {
-    .carousel-item img{
-        height:230px;
-    }
-}
-

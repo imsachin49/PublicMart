@@ -99,7 +99,7 @@ const Cart = () => {
                 <DisabledByDefaultIcon/>
               </IconButton>
               <div className='cartPrice'>
-                <p className='times'>{c.quantity}</p>
+                <p className='times'>{c.quantity} x</p>
                 <p className='Itemprice'>${c.price}</p>
               </div>
             </div>
@@ -117,7 +117,7 @@ const Cart = () => {
               </div> 
               <Divider variant="middle" style={{width:'93%',display:'flex',margin:'auto',backgroundColor:'#333'}}/>
 
-              <div className='checkoutLeft' id="hii">
+              <div className='checkoutLeft' id="hiiii">
                 <p className='totalText'>Total</p>
                 <p className='totalAmount'>${cart.total+100}</p>
               </div> <Divider variant="middle" style={{width:'93%',display:'flex',margin:'auto',backgroundColor:'#333'}}/>

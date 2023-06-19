@@ -1,142 +1,162 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import {useDispatch} from 'react-redux';
-import { Button } from '@mui/material'
-import {useMediaQuery} from '@mui/material';
+import { useState, useEffect } from 'react';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Button, useMediaQuery } from '@mui/material'
 import KeyboardDoubleArrowRightSharpIcon from '@mui/icons-material/KeyboardDoubleArrowRightSharp';
 import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
-import {userRequest,publicRequest} from '../../requestMethods';
-import {addProduct} from '../../redux/cartRedux';
+import { publicRequest } from '../../requestMethods';
+import { addProduct } from '../../redux/cartRedux';
 import CircularProgress from '@mui/material/CircularProgress';
 import LoginIcon from '@mui/icons-material/Login';
 import './Single.css'
+import Reviews from '../reviews/Reviews';
+import NewsLetter from '../NewsLetter/NewsLetter';
+import Footer from '../footer/Footer';
 
 const Single = () => {
-    const location=useLocation();
-    const id=location.pathname.split('/')[2];
-    const [product,setProdut]=useState({});
-    const dispatch=useDispatch();
-    const currentUser=useSelector(state=>state.user.currentUser.user);
-    const cart=useSelector(state=>state.cart);
-    const [loading,setLoading]=useState(false);
-    const [error,setError]=useState(false);
-    const [size, setSize] =useState('');
-    const [color,setColor]=useState('');
-    const isMobile=useMediaQuery('(max-width:365px)');
-    const navigate=useNavigate();
+    const location = useLocation();
+    const id = location.pathname.split('/')[2];
+    const [product, setProdut] = useState({});
+    const dispatch = useDispatch();
+    const currentUser = useSelector(state => state?.user?.currentUser?.user);
+    const cart = useSelector(state => state?.cart);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+    const [size, setSize] = useState('');
+    const [color, setColor] = useState('');
+    const isMobile = useMediaQuery('(max-width:365px)');
+    const navigate = useNavigate();
 
-    useEffect(()=>{
-        const getProduct=async()=>{
-            try{
+    // scroll to top while coming on this page
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    useEffect(() => {
+        const getProduct = async () => {
+            try {
                 setLoading(true);
-                const res=await publicRequest.get(`/products/find/${id}`);
+                const res = await publicRequest.get(`/products/find/${id}`);
                 setProdut(res.data);
                 setLoading(false);
-            }catch(err){
+            } catch (err) {
                 console.log(err);
                 setError(true);
             }
         }
         getProduct();
-    },[id])
+    }, [id])
 
     const handleChange = (event) => {
-      setSize(event.target.value);
+        setSize(event.target.value);
     };
 
-    const [count,setCount]=useState(1);
-    const countInc=()=>{
-        setCount(count+1);
+    const [count, setCount] = useState(1);
+    const countInc = () => {
+        setCount(count + 1);
     }
 
-    const countDec=()=>{
-        if(count>1)
-        setCount(count-1);
+    const countDec = () => {
+        if (count > 1)
+            setCount(count - 1);
     }
-    
-    const handleClick=async()=>{
-        console.log({...product,size,quantity:count,color})
-        dispatch(addProduct({...product,size,quantity:count,color}));  //color also...
-        navigate('/cart');
-    }
-    
-    const isInCart=cart.products.filter((item)=>item._id===id).length>0;
 
-    const Send=()=>{
+    const handleClick = async () => {
+        console.log({ ...product, size, quantity: count, color })
+        dispatch(addProduct({ ...product, size, quantity: count, color }));  //color also...
         navigate('/cart');
     }
 
+    const isInCart = cart.products.filter((item) => item._id === id).length > 0;
 
-  return (
-    <div className='singles'>
-        {!loading ? <div className='singleContainer'>
-            
-            <div className='singleLeft'>
-                <img src={product.img} />
-               {currentUser ? <div className='buttons'>
-                    {!isInCart ? <Button variant='contained' style={{margin:'10px 20px',fontFamily:"'candara',sans-serif",fontWeight:'bold',padding:'8px 18px',backgroundColor:'white',color:'#111',border:'1px solid #111'}} onClick={handleClick}><ShoppingCartSharpIcon/>Add to Cart</Button>
-                    : <Button variant='contained' style={{margin:'10px 20px',fontFamily:"'candara',sans-serif",fontWeight:'bold',padding:'8px 18px',backgroundColor:'white',color:'#111',border:'1px solid #111'}} onClick={Send}><ShoppingCartSharpIcon/>View Cart</Button>}
-                    <Link  to='/cart' style={{textDecoration:'none'}}><Button variant='contained' style={{margin:'10px 20px',fontFamily:"'candara',sans-serif",fontWeight:'bold',padding:'8px 18px',backgroundColor:'rgb(244, 51, 151)',color:'white',border:'1px solid transparent'}}><KeyboardDoubleArrowRightSharpIcon/>Buy Now</Button></Link>
-                </div> : 
-                <div className='noProduct' style={{textAlign:'center'}}>
-                    <p className='noProductText'>Login to Buy Products</p>
-                    <Link  to='/login' style={{textDecoration:'none'}}><Button variant='contained' style={{margin:'10px 20px',fontFamily:"'candara',sans-serif",fontWeight:'bold',padding:'8px 18px',backgroundColor:'rgb(244, 51, 151)',color:'white',border:'1px solid transparent'}}><LoginIcon style={{marginRight:'5px'}}/>Login</Button></Link>
-                </div>    
-                }
-            </div>
+    const Send = () => {
+        navigate('/cart');
+    }
 
-            <div className='singleRight'>
-                
-                <div className='titlePrice'>
-                    <p className='singleTitle'>{product.title}</p>
-                    <p className='singlePrice'>${product.price}</p>
-                    <p className='delivery'>In Stock</p>
-                </div>
 
-                <div className='titlePrice'>
-                    <p className='selectSize'>Select Size</p>
-                    <div className='Sizes'>
-                        {product.size && product.size.map((syz)=>{
-                           return (<button className={`chooseS ${syz === size ? 'selectedSyz' : 'notS'}`} onClick={(e)=>setSize(e.target.value)} value={syz} key={syz}>{syz}</button>)})}
-                    </div>    
-                </div>
-                
-                <div className='titlePrice'>
-                    <p className='selectSize'>Select Color</p>
-                    <div className='Sizes'>
-                       {product.color && product.color.map((clr)=>{
-                            return (<button className={`choose ${clr === color ? 'selected' : 'notS'}`} onClick={(e)=>setColor(e.target.value)} value={clr} key={clr} style={{backgroundColor:clr}}></button>)})}
-                    </div>    
-                </div>
+    return (
+        <>
+            <div className='singles'>
+                {!loading ? <div className='singleContainer'>
 
-                <div className='titlePrice'>
-                    <p className='selectSize'>Quantity</p>
-                        <div className='quantity1'>
-                        <button className='speech-bubble' onClick={countDec}><RemoveIcon style={{border:'1px solid #999',borderRadius:'50%',marginBottom:'3px'}}/></button>
-                        <button className='speech-bubble' style={{marginBottom:'3px'}}>{count}</button>
-                        <button className='speech-bubble' onClick={countInc}><AddIcon style={{border:'1px solid #999',borderRadius:'50%',marginBottom:'3px'}}/></button>
+                    <div className='singleLeft'>
+                        <img src={product.img} alt='noImg' data-aos="fade-down" data-aos-duration="2000" />
+                        <div className='titlePrice' data-aos="fade-up" data-aos-duration="2000">
+                            <div className='titlePrice11'>
+                                <p className='singleTitles'>{product.title}</p>
+                                <p className='singlePrices'>₹{product.price}</p>
+                            </div>
+                            <div style={{ display: 'flex' }}>
+                                <p className='delivery'>In Stock</p>
+                                <p className='delivery'>Free Delivery</p>
+                                <p className='delivery'>few Left!</p>
+                            </div>
                         </div>
-                </div>
+                    </div>
 
-                <div className='titlePrice'>
-                    <div className='titleS'>Product Details</div>
-                    <p className='singleTitle' style={{fontSize:'17px'}}>{product.desc}</p>
-                </div>
-                        
+                    <div className='singleRight'>
+                        <div className='titlePrice' data-aos="fade-right" data-aos-duration="2000">
+                            {currentUser ?
+                                <div className='buttons'>
+                                    {!isInCart ? <Button variant='contained' style={{ margin: '10px 20px', fontFamily: "'candara',sans-serif", fontWeight: 'bold', padding: '8px 18px', backgroundColor: 'white', color: '#111', border: '1px solid #111' }} onClick={handleClick}><ShoppingCartSharpIcon />Add to Cart</Button>
+                                        : <Button variant='contained' style={{ margin: '10px 20px', fontFamily: "'candara',sans-serif", fontWeight: 'bold', padding: '8px 18px', backgroundColor: 'white', color: '#111', border: '1px solid #111' }} onClick={Send}><ShoppingCartSharpIcon />View Cart</Button>}
+                                    <Link to='/cart' style={{ textDecoration: 'none' }}><Button variant='contained' style={{ margin: '10px 20px', fontFamily: "'candara',sans-serif", fontWeight: 'bold', padding: '8px 18px', backgroundColor: 'rgb(244, 51, 151)', color: 'white', border: '1px solid transparent' }}><KeyboardDoubleArrowRightSharpIcon />Buy Now</Button></Link>
+                                </div> :
+                                <div className='noProduct' style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}>
+                                    <p className='noProductText'>Login to Buy</p>
+                                    <Link to='/login' style={{ textDecoration: 'none' }}><Button variant='contained' style={{ margin: '10px 20px', fontFamily: "'candara',sans-serif", fontWeight: 'bold', padding: '8px 18px', backgroundColor: 'rgb(244, 51, 151)', color: 'white', border: '1px solid transparent' }}><LoginIcon style={{ marginRight: '5px' }} />Login</Button></Link>
+                                </div>
+                            }
+                        </div>
+                        <div className='titlePrice' data-aos="fade-left" data-aos-duration="2000">
+                            <p className='selectSize'>Select Size</p>
+                            <div className='Sizes'>
+                                {product.size && product.size.map((syz) => {
+                                    return (<button className={`chooseS ${syz === size ? 'selectedSyz' : 'notS'}`} onClick={(e) => setSize(e.target.value)} value={syz} key={syz}>{syz}</button>)
+                                })}
+                            </div>
+                        </div>
+
+                        <div className='titlePrice' data-aos="fade-right" data-aos-duration="2000">
+                            <p className='selectSize'>Select Color</p>
+                            <div className='Sizes'>
+                                {product.color && product.color.map((clr) => {
+                                    return (<button className={`choose ${clr === color ? 'selected' : 'notS'}`} onClick={(e) => setColor(e.target.value)} value={clr} key={clr} style={{ backgroundColor: clr }}></button>)
+                                })}
+                            </div>
+                        </div>
+
+                        <div className='titlePrice' data-aos="fade-left" data-aos-duration="2000">
+                            <p className='selectSize'>Quantity</p>
+                            <div className='quantity1'>
+                                <button className='speech-bubble' onClick={countDec}><RemoveIcon style={{ border: '1px solid #999', borderRadius: '50%', marginBottom: '3px' }} /></button>
+                                <button className='speech-bubble' style={{ marginBottom: '3px' }}>{count}</button>
+                                <button className='speech-bubble' onClick={countInc}><AddIcon style={{ border: '1px solid #999', borderRadius: '50%', marginBottom: '3px' }} /></button>
+                            </div>
+                        </div>
+
+                        <div className='titlePrice' data-aos="fade-right" data-aos-duration="2000">
+                            <div className='titleS'>Product Details</div>
+                            <p className='singleTitle' style={{ fontSize: '12px', marginLeft: '5px' }}>{product.desc}</p>
+                        </div>
+
+                    </div>
+
+                </div> :
+                    <div className='singleContainer1'>
+                        <CircularProgress color="success" />
+                    </div>}
+
+                {!loading && <div className='singleContainer2'>
+                    <Reviews />
+                </div>}
             </div>
-
-        </div> : 
-        <div className='singleContainer1'>
-            <CircularProgress color="success" />
-        </div>}
-    </div>
-  )
+            <NewsLetter />
+            <Footer />
+        </>
+    )
 }
 
 export default Single

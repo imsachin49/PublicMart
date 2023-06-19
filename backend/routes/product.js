@@ -17,6 +17,18 @@ router.post('/',verifyTokenAndAdmin,async(req,res)=>{
 })
 
 
+// // add multiple Product at once or json file
+// router.post('/postMany',async(req,res)=>{
+//     try{
+//         const products=await Product.insertMany(req.body);
+//         console.log(products);
+//         res.status(200).json(products);
+//     }
+//     catch(err){
+//         res.status(400).json(err);
+//     }
+// })
+
 //GET All_ITEMS
 router.get('/',async(req,res)=>{
     const category=req.query.category;
@@ -34,11 +46,17 @@ router.get('/',async(req,res)=>{
         }
         else{
             products=await Product.find();
-            let page=Number(req.query.page) || 1;
-            let limit=Number(req.query.limit) || 10;
-            let skip=(page-1)*limit;
-            const paginatedProducts=products.slice(skip,skip+limit);
-            res.status(200).json(paginatedProducts);
+            // let page=Number(req.query.page) || 1;
+            // let limit=Number(req.query.limit) || 10;
+            // let skip=(page-1)*limit;
+            // const paginatedProducts=products.slice(skip,skip+limit);
+            
+            // for random retrivel of products 
+            // products=await Product.aggregate([
+            //     { $sample: { size: 100 } } // Replace "10" with the desired number of random documents
+            //   ]).exec();
+              
+            res.status(200).json(products);
         }
     }
     catch(err){
