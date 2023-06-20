@@ -150,7 +150,7 @@ const Single = () => {
                     </div>}
 
                 {!loading && <div className='singleContainer2'>
-                    <Reviews />
+                    <Reviews item={product} />
                 </div>}
             </div>
             <NewsLetter />

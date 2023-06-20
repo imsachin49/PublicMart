@@ -11,6 +11,7 @@
     box-sizing: border-box;
     color: black;
     margin-top: 25px;
+    overflow: hidden;
 }
 
 .revHeader{

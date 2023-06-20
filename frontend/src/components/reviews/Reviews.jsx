@@ -18,7 +18,7 @@ import ReviewModal from '../modals/review/ReviewModal';
 
 SwiperCore.use([Navigation]);
 
-const Reviews = () => {
+const Reviews = ({item}) => {
     const [slidesPerView, setSlidesPerView] = useState(4);
     const swiperRef = useRef(null);
   
@@ -81,7 +81,7 @@ const Reviews = () => {
     }, [swiperRef.current]);
 
     return (
-        <div className='reviews' data-aos="zoom-out" data-aos-duration="1500">
+        <div className='reviews'>
             
             <div className='revHeader'>
                 <h1 className='revText'>Reviews({review.length})</h1>
@@ -106,7 +106,7 @@ const Reviews = () => {
                     <FaChevronCircleRight size={15} color="rgb(244, 51, 151)" />
                 </button>)}
             </div>
-            {openAddReviewModal && <ReviewModal open={openAddReviewModal} onClose={()=>setOpenReviewModal(false)} />}
+            {openAddReviewModal && <ReviewModal item={item} open={openAddReviewModal} onClose={()=>setOpenReviewModal(false)} />}
         </div>
     )
 }
