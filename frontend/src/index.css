@@ -13,3 +13,17 @@ body {
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",monospace;
 }
+
+/* For Webkit-based browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+	width: 2.5px; /* Change the width as desired */
+  }
+  
+  ::-webkit-scrollbar-track {
+	background: #f1f1f1; /* Change the background color as desired */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+	background: rgb(244, 51, 151); /* Change the scrollbar color as desired */
+  }
+  

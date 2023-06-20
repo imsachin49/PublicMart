@@ -15,7 +15,7 @@ const Carousel = () => {
     }, [])
 
     return (
-        <div style={{ backgroundColor: 'aliceblue' }}>
+        <div style={{ backgroundColor: 'aliceblue',overflowX:'hidden' }}>
             <div id="carouselExampleCaptions" className="carousel slide carouselExampleCaptions">
                 <div className="carousel-inner">
                     {CaarouselPhotos.map((c, index) => (
