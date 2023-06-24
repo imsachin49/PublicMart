@@ -3,8 +3,7 @@ const router=express.Router();
 const bcrypt=require('bcryptjs');
 const jwt=require('jsonwebtoken');
 const User=require('../models/User');
-import {corsMiddleware} from '../middleware/verify';
-
+const {corsMiddleware}=require('../middleware/verify')
 //Register User
 router.post('/register',corsMiddleware,async(req,res)=>{
     const {
