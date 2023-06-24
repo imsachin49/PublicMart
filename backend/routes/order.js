@@ -1,10 +1,10 @@
 const express=require('express');
 const router=express.Router();
 const Order=require('../models/Order');
-const {verifyToken,verifyTokenAndAuthorization,verifyTokenAndAdmin}=require('../middleware/verify')
+const {verifyToken,verifyTokenAndAuthorization,verifyTokenAndAdmin,corsMiddleware}=require('../middleware/verify')
 
 //NEW ORDER
-router.post('/',verifyToken,async(req,res)=>{
+router.post('/',corsMiddleware,verifyToken,async(req,res)=>{
     const newOrder=new Order(req.body);
     try{
         const savedOrder=await newOrder.save();
@@ -17,7 +17,7 @@ router.post('/',verifyToken,async(req,res)=>{
 })
 
 //GET All_ORDERS
-router.get('/',verifyToken,async(req,res)=>{
+router.get('/',corsMiddleware,verifyToken,async(req,res)=>{
     try{
         const orders=await Order.find();
         if(!orders){
@@ -31,7 +31,7 @@ router.get('/',verifyToken,async(req,res)=>{
 })
 
 //GET USER ORDERS
-router.get("/find/:userId",verifyTokenAndAuthorization,async(req, res)=>{
+router.get("/find/:userId",corsMiddleware,verifyTokenAndAuthorization,async(req, res)=>{
     try{
       const orders =await Order.find({userId:req.params.userId});
       res.status(200).json(orders);
@@ -41,7 +41,7 @@ router.get("/find/:userId",verifyTokenAndAuthorization,async(req, res)=>{
 });
 
 //UPDATE ORDER
-router.put('/:id',verifyTokenAndAdmin,async(req,res)=>{
+router.put('/:id',corsMiddleware,verifyTokenAndAdmin,async(req,res)=>{
     try{
         const updatedOrder=await Order.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true});
         res.status(200).json(updatedOrder)
@@ -52,7 +52,7 @@ router.put('/:id',verifyTokenAndAdmin,async(req,res)=>{
 })
 
 //DELETE ITEM
-router.delete('/:id',verifyTokenAndAdmin,async(req,res)=>{
+router.delete('/:id',corsMiddleware,verifyTokenAndAdmin,async(req,res)=>{
     try{
         const deletedOrder=await Order.findByIdAndDelete(req.params.id);
         res.status(200).json({message:'Your order has been deleted successfully'+deletedOrder});
@@ -63,7 +63,7 @@ router.delete('/:id',verifyTokenAndAdmin,async(req,res)=>{
 })
 
 // GET MONTHLY INCOME
-router.get("/income", verifyTokenAndAdmin, async (req, res) => {
+router.get("/income", corsMiddleware,verifyTokenAndAdmin, async (req, res) => {
     const productId = req.query.pid;
     const date = new Date();
     const lastMonth = new Date(date.setMonth(date.getMonth() - 1));

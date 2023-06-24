@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product');
-const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin } = require('../middleware/verify');
+const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin,corsMiddleware } = require('../middleware/verify');
 const User = require('../models/User');
 const Review = require('../models/Review');
 
 // add a review and push to reviews of product
-router.post('/:productid', async (req, res) => {
+router.post('/:productid', corsMiddleware,async (req, res) => {
     console.log(req.body);
     const productId = req.params.productid;
     const user=await User.findById(req.body.userId);
@@ -31,7 +31,7 @@ router.post('/:productid', async (req, res) => {
 })
 
 // Edit a review
-router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
+router.put('/:id',corsMiddleware, verifyTokenAndAuthorization, async (req, res) => {
     try {
         const updatedReview = await Review.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
         res.status(200).json(updatedReview);
@@ -41,7 +41,7 @@ router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
 })
 
 // delete a review
-router.delete('/:productid/:id', verifyTokenAndAuthorization, async (req, res) => {
+router.delete('/:productid/:id',corsMiddleware, verifyTokenAndAuthorization, async (req, res) => {
     try {
         const product = await Product.findById(req.params.productid);
         const reviewId = req.params.id;
@@ -55,7 +55,7 @@ router.delete('/:productid/:id', verifyTokenAndAuthorization, async (req, res) =
 })
 
 // get a review
-router.get('/:id', async (req, res) => {
+router.get('/:id',corsMiddleware, async (req, res) => {
     try {
         const review = await Review.findById(req.params.id);
         res.status(200).json(review);
@@ -65,7 +65,7 @@ router.get('/:id', async (req, res) => {
 })
 
 // get All reviews of a product
-router.get('/product/:id', async (req, res) => {
+router.get('/product/:id',corsMiddleware, async (req, res) => {
     try {
         const product = await Product.findById(req.params.id);
         const reviews = await Promise.all(

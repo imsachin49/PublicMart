@@ -1,10 +1,10 @@
 const express=require('express');
 const router=express.Router();
 const Cart=require('../models/Cart');
-const {verifyToken,verifyTokenAndAuthorization,verifyTokenAndAdmin}=require('../middleware/verify')
+const {verifyToken,verifyTokenAndAuthorization,verifyTokenAndAdmin,corsMiddleware}=require('../middleware/verify')
 
 //Crreate Cart
-router.post('/',verifyToken,async(req,res)=>{
+router.post('/',verifyToken,corsMiddleware,async(req,res)=>{
     const newCart=new Cart(req.body);
     try{
         const cart=await newCart.save();
@@ -15,7 +15,7 @@ router.post('/',verifyToken,async(req,res)=>{
 })
 
 //get user cart
-router.get('/find/:userId',verifyToken,async(req,res)=>{
+router.get('/find/:userId',corsMiddleware,verifyToken,async(req,res)=>{
     try{
         const userCart=await Cart.findOne({userId:req.params.userId});
         if(userCart){
@@ -31,7 +31,7 @@ router.get('/find/:userId',verifyToken,async(req,res)=>{
 })
 
 //Update Cart
-router.put('/:id',verifyTokenAndAuthorization,async(req,res)=>{
+router.put('/:id',corsMiddleware,verifyTokenAndAuthorization,async(req,res)=>{
     try{
         const updatedCart=await Cart.findOneAndUpdate(req.params.id,{$set:req.body},{new:true});
         res.status(200).json(updatedCart);
@@ -42,7 +42,7 @@ router.put('/:id',verifyTokenAndAuthorization,async(req,res)=>{
 })
 
 //Deleting Cart
-router.delete('/:id',verifyTokenAndAuthorization,async(req,res)=>{
+router.delete('/:id',corsMiddleware,verifyTokenAndAuthorization,async(req,res)=>{
     try{
         const deletedCart=await Cart.findByIdAndDelete(req.params.id);  //if fails findOneAndDelete 
         res.status(200).json({message:'cart deleted successfully'+deletedCart});
@@ -52,7 +52,7 @@ router.delete('/:id',verifyTokenAndAuthorization,async(req,res)=>{
 })
 
 //get all carts
-router.get('/',verifyTokenAndAdmin,async(req,res)=>{
+router.get('/',corsMiddleware,verifyTokenAndAdmin,async(req,res)=>{
     try{
         const allCart=await Cart.find().sort({createdAt:-1});
         res.status(200).json(allCart);

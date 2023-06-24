@@ -4,8 +4,9 @@ const router=express.Router();
 const KEY=process.env.STRIPE_KEY;
 const stripe=require('stripe')(KEY)
 const { v4: uuidv4 } = require('uuid');
+const {corsMiddleware}=require('../middleware/verify')
 
-router.post('/payment', async (req, res) => {
+router.post('/payment',corsMiddleware, async (req, res) => {
     console.log(req.body.token);
     const {token,amount}=req.body;
     const idempotencyKey = uuidv4();

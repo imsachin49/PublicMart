@@ -1,13 +1,13 @@
 const express=require('express');
 const router=express.Router();
 const User=require('../models/User');
-const {verifyToken,verifyTokenAndAuthorization,verifyTokenAndAdmin}=require('../middleware/verify')
+const {verifyToken,verifyTokenAndAuthorization,verifyTokenAndAdmin,corsMiddleware}=require('../middleware/verify')
 const jwt=require('jsonwebtoken');
 const bcrypt=require('bcryptjs');
 
 
 //Updating User Info..
-router.put('/:id',verifyTokenAndAuthorization,async(req,res)=>{
+router.put('/:id',corsMiddleware,verifyTokenAndAuthorization,async(req,res)=>{
     const {username,emai,password}=req.body;
     try{
         if(password){
@@ -24,7 +24,7 @@ router.put('/:id',verifyTokenAndAuthorization,async(req,res)=>{
 
 
 //Deleting User
-router.delete('/:id',verifyTokenAndAuthorization,async(req,res)=>{
+router.delete('/:id',corsMiddleware,verifyTokenAndAuthorization,async(req,res)=>{
     try{
         const deletedUser=await User.findByIdAndDelete(req.params.id);
         res.status(200).json({message:"User deleted successfully",deletedUser});
@@ -36,7 +36,7 @@ router.delete('/:id',verifyTokenAndAuthorization,async(req,res)=>{
 
 
 //Get a User
-router.get("/find/:id", verifyTokenAndAdmin, async (req, res) => {
+router.get("/find/:id",corsMiddleware, verifyTokenAndAdmin, async (req, res) => {
     try {
       const user = await User.findById(req.params.id);
       const { password, ...others } = user._doc;
@@ -48,7 +48,7 @@ router.get("/find/:id", verifyTokenAndAdmin, async (req, res) => {
 
 
 // GET all users
-router.get("/", verifyTokenAndAdmin, async (req, res) => {
+router.get("/", corsMiddleware,verifyTokenAndAdmin, async (req, res) => {
     // const query=req.query.username;
     try {
       const users=await User.find();
@@ -60,7 +60,7 @@ router.get("/", verifyTokenAndAdmin, async (req, res) => {
 
 // User Data
 
-router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
+router.get("/stats",corsMiddleware, verifyTokenAndAdmin, async (req, res) => {
     const date = new Date();
     const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
   

@@ -1,10 +1,10 @@
 const express=require('express');
 const router=express.Router();
 const Product=require('../models/Product');
-const {verifyToken,verifyTokenAndAuthorization,verifyTokenAndAdmin}=require('../middleware/verify');
+const {verifyToken,verifyTokenAndAuthorization,verifyTokenAndAdmin,corsMiddleware}=require('../middleware/verify');
 
 //NEW Product
-router.post('/',verifyTokenAndAdmin,async(req,res)=>{
+router.post('/',corsMiddleware,verifyTokenAndAdmin,async(req,res)=>{
     const createdProduct=new Product(req.body);
     try{
         const product=await createdProduct.save();
@@ -30,7 +30,7 @@ router.post('/',verifyTokenAndAdmin,async(req,res)=>{
 // })
 
 //GET All_ITEMS
-router.get('/',async(req,res)=>{
+router.get('/',corsMiddleware,async(req,res)=>{
     const category=req.query.category;
     const userId=req.query.userId;
     
@@ -67,7 +67,7 @@ router.get('/',async(req,res)=>{
 })
 
 //GET ITEM
-router.get('/find/:id',async(req,res)=>{
+router.get('/find/:id',corsMiddleware,async(req,res)=>{
     try{
         const product=await Product.findById(req.params.id);
         res.status(200).json(product);
@@ -78,7 +78,7 @@ router.get('/find/:id',async(req,res)=>{
 })
 
 //UPDATE ITEM
-router.put('/:id',verifyTokenAndAdmin,async(req,res)=>{
+router.put('/:id',corsMiddleware,verifyTokenAndAdmin,async(req,res)=>{
     try{
         const Updatedproduct=await Product.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true});
         res.status(200).json(Updatedproduct)
@@ -89,7 +89,7 @@ router.put('/:id',verifyTokenAndAdmin,async(req,res)=>{
 })
 
 //DELETE ITEM
-router.delete('/:id',verifyTokenAndAdmin,async(req,res)=>{
+router.delete('/:id',corsMiddleware,verifyTokenAndAdmin,async(req,res)=>{
     try{
         const deletedProduct=await Product.findByIdAndDelete(req.params.id);
         res.status(200).json({message:`product with title ${deletedProduct.title} has been deleted successfully`});
@@ -100,7 +100,7 @@ router.delete('/:id',verifyTokenAndAdmin,async(req,res)=>{
 })
 
 //for Query using regex later part and case insensitive search\
-router.get('/search',async(req,res)=>{
+router.get('/search',corsMiddleware,async(req,res)=>{
     const title=req.query.title;
     try{
         const products=await Product.find({title:{$regex:title,$options:'$i'}});
@@ -112,7 +112,7 @@ router.get('/search',async(req,res)=>{
 })
 
 // for like and dislike the product by users
-router.put('/:id/like',async(req,res)=>{
+router.put('/:id/like',corsMiddleware,async(req,res)=>{
     try{
         const product=await Product.findById(req.params.id);
         if(!product.likes.includes(req.body.userId)){
@@ -133,7 +133,7 @@ router.put('/:id/like',async(req,res)=>{
 })
 
 // for getting the liked products by the user
-router.get('/likedProducts/:userId',verifyToken,async(req,res)=>{
+router.get('/likedProducts/:userId',corsMiddleware,verifyToken,async(req,res)=>{
     try{
         const products=await Product.find({likes:{$in:[req.params.userId]}});
         res.status(200).json(products);

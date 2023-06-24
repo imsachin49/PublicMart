@@ -3,9 +3,10 @@ const router=express.Router();
 const bcrypt=require('bcryptjs');
 const jwt=require('jsonwebtoken');
 const User=require('../models/User');
+import {corsMiddleware} from '../middleware/verify';
 
 //Register User
-router.post('/register',async(req,res)=>{
+router.post('/register',corsMiddleware,async(req,res)=>{
     const {
         username,
         email,
@@ -43,7 +44,7 @@ router.post('/register',async(req,res)=>{
 
 
 //Login User
-router.post('/login',async(req,res)=>{
+router.post('/login',corsMiddleware,async(req,res)=>{
     try{
         const { email, password } = req.body;
         const user=await User.findOne({email});
