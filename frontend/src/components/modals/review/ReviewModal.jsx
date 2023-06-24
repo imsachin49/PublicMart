@@ -17,7 +17,7 @@ const ReviewModal = ({ onClose, item }) => {
     const addReview = async () => {
         const review = {review: desc,rating,productId: item._id,userId: user.id}
         try {
-            const res=await axios.post(`http://localhost:5000/api/reviews/${item._id}`, review);
+            const res=await axios.post(`https://full-stack-ecommerce-scm2.vercel.app/api/reviews/${item._id}`, review);
             console.log(res.data);
             onClose();
             window.location.reload();

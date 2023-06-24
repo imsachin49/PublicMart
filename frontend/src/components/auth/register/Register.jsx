@@ -21,7 +21,7 @@ const Register = () => {
   // }
 
   // const github=()=>{
-  //   window.open("http://localhost:5000/auth/github", "_self");
+  //   window.open("https://full-stack-ecommerce-scm2.vercel.app/auth/github", "_self");
   //   console.log("hello from github");
   // }
 
