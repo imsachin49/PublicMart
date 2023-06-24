@@ -38,6 +38,7 @@
     flex-direction: column;
     justify-content: center;
     height: 100%;
+    min-width: 300px;
     /* border: 1px solid grey; */
 }
 
@@ -53,10 +54,24 @@
     height: 100%;
     margin-top: -10px;
     padding-top: 0px;
+    max-width: 500px;
+}
+
+.singleImgs{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+    /* margin-top: 10px; */
+    /* margin-bottom: 10px; */
+    margin: 2px 20px;
+    margin-left: 10px;
+    margin-right: 5px;
 }
 
 .singleImg{
-    width:360px;
+    width:400px;
     height:430px;
     margin-top: 10px;
 }
@@ -64,14 +79,15 @@
 .titlePrice{
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
     margin: 10px;
-    width: 95%;
-    /* min-width: 300px; */
+    /* width: 95%; */
+    min-width: 240px;
     padding-bottom: 0.1px;
     display: flex;
     flex-direction: column;
     padding-left: 8px;
     font-family: monospace;
     background-color: white;
+    padding: 7px;
 }
 
 .titlePrice11{
@@ -106,7 +122,7 @@
 
 .singleTitle{
     margin:0px;
-    width: 400px;
+    /* width: 400px; */
     font-size: 20px;
     color: rgb(0, 0, 0);
     font-family: 'candara',sans-serif;
@@ -230,36 +246,18 @@
     border:1px solid transparent;
 }
 
+.selecteds{
+    background-color: pink;
+    padding: 15px;
+    color: white;
+    border: 3px solid aqua;
+}
+
 .selectedSyz{
     background-color:aqua;
     border: none;
     padding: 9px 15px;
 }
-
-
-.selected{
-    background-color: pink;
-    padding: 15px;
-    color: white;
-    border: 3px solid aqua;
-    /* box-shadow: 0px 0px 5px 0px; */
-}
-
-/* .selectedSyz{ */
-    /* background-color: red; */
-    /* background-color: pink; */
-    /* padding: 15px; */
-    /* padding: 15px; */
-    /* color: white; */
-    /* border: 3px solid aqua; */
-/* } */
-
-/* .singleDetails{
-    margin: 10px;
-    font-size: 16px;
-    color: grey;
-    font-family: 'candara',sans-serif;
-} */
 
 .titleS{
     margin: 10px;
@@ -269,15 +267,40 @@
     margin-left: 10px;
     margin-bottom: 0px;
     font-family: monospace;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    padding-right: 10px;
 }
 
 .singleTitle1{
     margin:10px;
-    width: 400px;
+    /* width: 400px; */
     font-size: 14px;
     color: rgb(61, 61, 61);
     font-family: 'candara',sans-serif
 }
+
+.share{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color:red;
+}
+
+@media screen and (max-width:920px) {
+    .singleRight{
+        max-width: 370px;
+    }
+}
+
+@media screen and (max-width:795px) {
+    .singleRight{
+        max-width: 300px;
+    }
+}
+
 
 @media screen and  (max-width:850px){
     .singleImg{
@@ -318,6 +341,7 @@
     }
     .singleRight{
         width: 100%;
+        max-width: 100%;
     }
     .singleImg{
         width: 100%;

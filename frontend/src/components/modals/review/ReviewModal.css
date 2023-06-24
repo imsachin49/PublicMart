@@ -6,6 +6,7 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 9998;
+  margin-left: 10px;
 }
 
 .loginModal {
@@ -35,6 +36,10 @@
     position: absolute;
     top: -39px;
     right: 43%;
+}
+
+.rates{
+  width: 100%;
 }
 
 .prodtImg{
@@ -132,7 +137,7 @@
     .loginModal{
         width: 50vw;
     }
-    .formmmGroup input{
+    .formmmGroup input,.formmmGroup textarea{
         width: 40vw;
     }
     .submittt{
@@ -143,12 +148,12 @@
 
 @media screen and (max-width: 768px) {
   .modalOverlay{
-    display: none;
+    /* display: none; */
   }
     .loginModal{
         width: 70vw;
     }
-    .formmmGroup input{
+    .formmmGroup input,.formmmGroup textarea{
         width: 57vw;
     }
     .submittt{
@@ -160,7 +165,7 @@
     .loginModal{
         width: 90vw;
     }
-    .formmmGroup input{
+    .formmmGroup input,.formmmGroup textarea{
         width: 70vw;
     }
     .submittt{

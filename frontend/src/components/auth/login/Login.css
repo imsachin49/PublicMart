@@ -1,146 +1,129 @@
-.rmain-form{
-    height:95vh;
-    width:100%;
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    margin-top: -30px;
-    /* background-color: aliceblue; */
-    font-family: "candara", sans-serif;
-
+.rmain-form {
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -30px;
+  font-family: "candara", sans-serif;
+  /* background: url('../../../assets/login.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+  scroll-behavior: smooth;
+  overflow: hidden;
 }
 
-.rform{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height:fit-content;
-    font-family:'candara',sans-serif,
+.pgText {
+  text-align: start;
+  padding: 5px;
+  font-size: 1.7rem;
+  font-weight: bolder;
+  color: rgb(46, 46, 85);
+  padding-bottom: 5px;
+  margin: 0;
+  margin-top: 1rem;
 }
 
-.rbox{
-    font-family:'candara',sans-serif,
+.pgTextSm {
+  text-align: start;
+  font-size: 0.8rem;
+  font-weight: bolder;
+  color: gray;
+  padding-bottom: 0px;
+  margin: 0;
+  margin-top: -2px;
+  padding-left: 8px;
 }
 
-.or{
-    border:'1px solid green'
+.rform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  font-family: "candara", sans-serif;
 }
 
-.rinput{
-    margin-bottom:8px;
-    padding: 0px;
+.rbox {
+  font-family: "candara", sans-serif;
+  width: 500px;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 }
 
-#rfname,#rlname,#remail,#rpwd1,#rpwd2{
-    width: 230px;
+.rinput {
+  margin-bottom: 8px;
+  padding: 0px;
 }
 
-h3{
-    text-align: center;
-    cursor: pointer;
-    color:darkorange
+h3 {
+  text-align: center;
+  cursor: pointer;
+  color: darkorange;
 }
 
-.rlog{
-    text-decoration: none;
-    color:#111;
-    font-weight: bold;
-    margin-top: 6px;
-    margin-bottom:15px;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    font-family:'candara',sans-serif,
+.rlog {
+  text-decoration: none;
+  color: #111;
+  font-weight: bold;
+  margin-top: 6px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  font-family: "candara", sans-serif;
 }
 
-.register{
-    color: rgb(42, 42, 177);
-    cursor: pointer;
-    font-family:'candara',sans-serif,
-
+.register {
+  color: rgb(42, 42, 177);
+  cursor: pointer;
+  font-family: "candara", sans-serif;
 }
 
-.register:hover{
-    color: crimson;
-    text-decoration: underline;
+.register:hover {
+  color: crimson;
+  text-decoration: underline;
 }
 
-.formInput{
-    /* border: 1px solid grey; */
-    padding: 6px;
-    width: 100%;
-    padding-right: 20px;
+.formInput {
+  padding: 6px;
+  width: 100%;
+  padding-right: 20px;
 }
 
-.rbtn{
-    width: 260px;
+.rbtn {
+  width: inherit;
 }
 
-.rbox{
-    /* border: 1px solid grey; */
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+label {
+  font-family: "candara", sans-serif;
 }
 
-@media screen and (max-width:450px){
-    .rform{
-        width: 98%;
-    }
-    #rfname,#rlname,#remail,#rpwd1,#rpwd2{
-        width: 300px;
-    }
-    .rbtn{
-        width: 327px;
-    }
-    .rbox{
-        width:98%;
-    }
+.wrong {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  margin-top: -10px;
+  font-family: "candara", sans-serif;
 }
 
-
-@media screen and (max-width:380px){
-    .rform{
-        width: 100%;
-    }
-    #rfname,#rlname,#remail,#rpwd1,#rpwd2{
-        width: 250px;
-    }
-    .rbtn{
-        width: 277px;
-    }
-    .rbox{
-        width:98%;
-    }
+@media screen and (max-width: 550px) {
+  .rbox {
+    width: 350px;
+  }
+  .rmain-form {
+    height: 95vh;
+  }
 }
 
-@media screen and (max-width:325px){
-    .rform{
-        width: 96%;
-    }
-    #rfname,#rlname,#remail,#rpwd1,#rpwd2{
-        width: 230px;
-        margin-left: -42px;
-    }
-    .rbtn{
-        width: 217px;
-    }
-    .rbox{
-        width:98%;
-    }
-}
-
-label{
-    font-family:'candara',sans-serif,
-}
-
-.wrong{
-    color: red;
-    text-align: center;
-    font-weight: bold;
-    /* border: 1px solid black; */
-    margin-top: -10px;
-    /* font-size: 12px; */
-    font-family:'candara',sans-serif,
+@media screen and (max-width: 380px) {
+  .rbox {
+    width: 295px;
+  }
+  .rmain-form {
+    height: 84vh;
+  }
 }

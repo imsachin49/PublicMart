@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 const Categories = () => {
     return (
-        <div style={{ backgroundColor: 'aliceblue'}} id="categories" data-aos="fade-down" data-aos-duration="1000">
+        <div style={{ backgroundColor: 'aliceblue'}} id="categories" 
+        >
             <h2>Shop Our Top Categories</h2>
-            <div className='cat-categories'>
+            <div className='cat-categories' data-aos="fade-down" data-aos-duration="1000">
             <div className='cat-wrapper' >
-
                 {CategoryList.map((item,id)=>{
                     return(
                     <Link to={`/products/${item.cat}`} key={item.id}>

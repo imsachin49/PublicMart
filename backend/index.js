@@ -13,6 +13,7 @@ const productRoutes=require('./routes/product')
 const orderRoutes=require('./routes/order');
 const cartRoutes=require('./routes/cart');
 const userRoutes=require('./routes/user');
+const reviewRoutes=require('./routes/review');
 const stripeRoutes=require('./routes/stripe');
 const passportRoutes=require('./routes/authPassport');
 
@@ -48,6 +49,7 @@ app.use('/api/products',productRoutes);
 app.use('/api/orders',orderRoutes);
 app.use('/api/carts',cartRoutes);
 app.use('/api/users',userRoutes);
+app.use('/api/reviews',reviewRoutes);
 app.use('/api/checkout',stripeRoutes);
 app.use('/auth',passportRoutes);
 

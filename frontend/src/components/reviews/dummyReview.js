@@ -1,108 +1,108 @@
 export const review = [
     {
-      id: 1,
-      name: "John Doe",
+      _id: 1,
+      username: "John Doe",
       rating: 4,
-      comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-      date: "2021-05-01"
+      review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+      createdAt: "2021-05-01"
     },
     {
-      id: 2,
-      name: "Jane Smith",
+      _id: 2,
+      username: "Jane Smith",
       rating: 5,
-      comment: "This product exceeded my expectations! Highly recommended.",
-      date: "2021-05-02"
+      review: "This product exceeded my expectations! Highly recommended.",
+      createdAt: "2021-05-02"
     },
     {
-      id: 3,
-      name: "David Johnson",
+      _id: 3,
+      username: "Dav_id Johnson",
       rating: 3,
-      comment: "The quality could be better, but it gets the job done.",
-      date: "2021-05-03"
+      review: "The quality could be better, but it gets the job done.",
+      createdAt: "2021-05-03"
     },
     {
-      id: 4,
-      name: "Emily Davis",
+      _id: 4,
+      username: "Emily Davis",
       rating: 4,
-      comment: "I'm satisfied with this product. It meets my needs.",
-      date: "2021-05-04"
+      review: "I'm satisfied with this product. It meets my needs.",
+      createdAt: "2021-05-04"
     },
     {
-      id: 5,
-      name: "Sarah Wilson",
+      _id: 5,
+      username: "Sarah Wilson",
       rating: 2,
-      comment: "I expected better performance for the price. Disappointing.",
-      date: "2021-05-05"
+      review: "I expected better performance for the price. Disappointing.",
+      createdAt: "2021-05-05"
     },
     {
-      id: 6,
-      name: "Michael Thompson",
+      _id: 6,
+      username: "Michael Thompson",
       rating: 5,
-      comment: "Outstanding product! Works flawlessly and looks great.",
-      date: "2021-05-06"
+      review: "Outstanding product! Works flawlessly and looks great.",
+      createdAt: "2021-05-06"
     },
     {
-      id: 7,
-      name: "Emma Johnson",
+      _id: 7,
+      username: "Emma Johnson",
       rating: 4,
-      comment: "I'm impressed with the features and functionality. Good value for money.",
-      date: "2021-05-07"
+      review: "I'm impressed with the features and functionality. Good value for money.",
+      createdAt: "2021-05-07"
     },
     {
-      id: 8,
-      name: "Daniel Brown",
+      _id: 8,
+      username: "Daniel Brown",
       rating: 3,
-      comment: "Decent product, but the user interface could be more intuitive.",
-      date: "2021-05-08"
+      review: "Decent product, but the user interface could be more intuitive.",
+      createdAt: "2021-05-08"
     },
     {
-      id: 9,
-      name: "Olivia Lee",
+      _id: 9,
+      username: "Olivia Lee",
       rating: 5,
-      comment: "I absolutely love this product! It has exceeded my expectations.",
-      date: "2021-05-09"
+      review: "I absolutely love this product! It has exceeded my expectations.",
+      createdAt: "2021-05-09"
     },
     {
-      id: 10,
-      name: "Liam Davis",
+      _id: 10,
+      username: "Liam Davis",
       rating: 4,
-      comment: "The product works well and the customer service was helpful.",
-      date: "2021-05-10"
+      review: "The product works well and the customer service was helpful.",
+      createdAt: "2021-05-10"
     },
     {
-      id: 11,
-      name: "Sophia Johnson",
+      _id: 11,
+      username: "Sophia Johnson",
       rating: 2,
-      comment: "I encountered some issues with the product. Not fully satisfied.",
-      date: "2021-05-11"
+      review: "I encountered some issues with the product. Not fully satisfied.",
+      createdAt: "2021-05-11"
     },
     {
-      id: 12,
-      name: "Noah Wilson",
+      _id: 12,
+      username: "Noah Wilson",
       rating: 5,
-      comment: "I'm extremely happy with my purchase. Highly recommended!",
-      date: "2021-05-12"
+      review: "I'm extremely happy with my purchase. Highly recommended!",
+      createdAt: "2021-05-12"
     },
     {
-      id: 13,
-      name: "Ava Smith",
+      _id: 13,
+      username: "Ava Smith",
       rating: 4,
-      comment: "The product works as described. It's a good value for the price.",
-      date: "2021-05-13"
+      review: "The product works as described. It's a good value for the price.",
+      createdAt: "2021-05-13"
     },
     {
-      id: 14,
-      name: "William Davis",
+      _id: 14,
+      username: "William Davis",
       rating: 3,
-      comment: "It's an average product. Nothing outstanding, but not terrible either.",
-      date: "2021-05-14"
+      review: "It's an average product. Nothing outstanding, but not terrible either.",
+      createdAt: "2021-05-14"
     },
     {
-      id: 15,
-      name: "Isabella Johnson",
+      _id: 15,
+      username: "Isabella Johnson",
       rating: 5,
-      comment: "I'm absolutely thrilled with this product! It has exceeded my expectations.",
-      date: "2021-05-15"
+      review: "I'm absolutely thrilled with this product! It has exceeded my expectations.",
+      createdAt: "2021-05-15"
     }
   ];
   

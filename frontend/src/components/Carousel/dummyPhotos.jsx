@@ -1,18 +1,27 @@
+import image1 from '../../assets/slider/slider0.jpg'
+import image2 from '../../assets/slider/slider1.jpg'
+import image3 from '../../assets/slider/slider2.jpg'
+import image4 from '../../assets/slider/slider3.jpg'
+import image5 from '../../assets/slider/slider4.jpg'
+import image6 from '../../assets/slider/slider5.jpg'
+import banner from '../../assets/banner-img.png'
+import cover from '../../assets/cover.jfif'
+
 export const CaarouselPhotos=[
     {
         id:1,
-        pic:'https://cdn.pixabay.com/photo/2018/08/29/17/07/ecommerce-3640321_1280.jpg'
+        pic:image5
     },
     {
         id:2,
-        pic:'https://img.freepik.com/free-photo/black-friday-elements-assortment_23-2149074076.jpg?size=626&ext=jpg&ga=GA1.2.1448707257.1687164508&semt=ais'
+        pic:image1
     },
     {
         id:3,
-        pic:'https://media.istockphoto.com/id/618982838/photo/lace-up-for-the-workout-of-your-life.jpg?s=612x612&w=0&k=20&c=TiOXixIIyLNcP6GqKglpsZRUgliwxCVskeVI-dqCRec='
+        pic:cover
     },
     {
         id:4,
-        pic:'https://media.istockphoto.com/id/514175379/photo/buying-smartphone.jpg?s=612x612&w=0&k=20&c=hxU7b78QZXCcdQJFwK8D87VKKjgT2GVzFFQkzWblClk='    
+        pic:image6
     }
 ]

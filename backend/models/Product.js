@@ -13,6 +13,14 @@ const productSchema=new mongoose.Schema({
         type:String,
         required:true
     },
+    likes:{
+        type:Array,
+        default:[]
+    },
+    reviews:{
+        type:Array,
+        default:[]
+    },
     img:{ 
         type: String, 
         required: true 
