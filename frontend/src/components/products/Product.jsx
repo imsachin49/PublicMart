@@ -24,7 +24,7 @@ const Product = ({ item }) => {
     const handleLike = async () => {
         if (isLoggedIn) {
             try {
-                const res=await axios.put(`https://full-stack-ecommerce-scm2.vercel.app/api/products/${item?._id}/like`, { userId: user?.id });
+                const res=await axios.put(`https://full-stack-ecommerce-mu.vercel.app/api/products/${item?._id}/like`,{ userId: user?.id });
                 console.log(res.data);
                 setIsLiked(!isLiked);
             } catch (error) {

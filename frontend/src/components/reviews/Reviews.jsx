@@ -93,7 +93,7 @@ const Reviews = ({ item }) => {
     const getAllReviews = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`https://full-stack-ecommerce-scm2.vercel.app/api/reviews/product/${item._id}`);
+        const res = await axios.get(`https://full-stack-ecommerce-mu.vercel.app/api/reviews/product/${item._id}`);
         console.log(res.data)
         setReviews([
           ...res.data,
