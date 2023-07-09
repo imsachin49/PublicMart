@@ -92,7 +92,7 @@ router.put('/:id',corsMiddleware,verifyTokenAndAdmin,async(req,res)=>{
 router.delete('/:id',corsMiddleware,verifyTokenAndAdmin,async(req,res)=>{
     try{
         const deletedProduct=await Product.findByIdAndDelete(req.params.id);
-        res.status(200).json({message:`product with title ${deletedProduct.title} has been deleted successfully`});
+        res.status(200).json({message:'the product has been deleted',deletedProduct});
     }
     catch(err){
         res.status(400).json({message:'error in deleting the product'+err});
@@ -140,6 +140,17 @@ router.get('/likedProducts/:userId',corsMiddleware,verifyToken,async(req,res)=>{
     }
     catch(err){
         res.status(400).json({message:'error in getting the liked products'+err});
+    }
+})
+
+// get all item without pagination
+router.get('/all',corsMiddleware,verifyTokenAndAdmin,async(req,res)=>{
+    try{
+        const products=await Product.find();
+        res.status(200).json(products);
+    }
+    catch(err){
+        res.status(400).json({message:'error in getting the products'+err});
     }
 })
 

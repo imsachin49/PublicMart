@@ -1,0 +1,151 @@
+.nav2Container {
+  margin: 0;
+  padding: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-family: "candara", sans-serif;
+  position: sticky;
+  top: 0;
+  /* z-index: 100; */
+  overflow-x: hidden;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  margin-bottom: 2px;
+  z-index: 1;
+  background: white;
+}
+
+.nav2Wrapper {
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav2List {
+  display: flex;
+  text-decoration: none;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+}
+
+.logoImg {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.logoName {
+  font-size: 25px;
+  font-weight: bold;
+  color: rgba(23, 185, 23, 0.63);
+  text-shadow: 0px 0px 5px aquamarine;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: "Paprika", cursive;
+  font-family: "candara", sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav2ListLink {
+  font-family: "candara", sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  /* border: 1px solid red; */
+  padding: 4px 7px;
+  margin: 0px 2px;
+  border-radius: 5px;
+}
+
+.nav2ListLink:hover {
+  background-color: rgb(244, 51, 151);
+  color: white;
+  border-radius: 2px;
+}
+
+.nav2Right {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+}
+
+.NavSearch {
+  border: 1px solid rgb(197, 197, 197);
+  background-color: rgba(255, 255, 255, 0.541);
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+  padding: 2px 0px;
+  border-radius: 5px;
+}
+
+
+.searchInput {
+  /* background-color: blue; */
+  color:rgb(49, 49, 49);
+  padding-left: 6px;
+}
+
+.userDropDown{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 54px;
+  right: 2px;
+  background-color:whitesmoke;
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 6px;
+  padding: 10px 0px;
+  z-index: 999;
+  border-top-right-radius: 0px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+  min-width: 140px;
+}
+
+.userDropDownLink{
+  display: flex;
+  align-items: center;
+  padding: 6px 28px;
+  gap: 5px;
+  text-decoration: none;
+  width: 100%;
+  color: black;
+}
+
+.userDropDownLink:hover{
+  background-color: rgb(244, 51, 151);
+  color:white;
+}
+
+.userDropDownText{
+  font-family: "candara", sans-serif;
+}

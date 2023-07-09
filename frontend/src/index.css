@@ -1,29 +1,20 @@
-:root {
-	--primary: #0091ff;
-	--dark: #061b28;
-	--gray: #756388;
-	--light: #ffffff;
-	--transition:all 3ms ease-in-out; 
-}
-body {
-	margin: 0;
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
-code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",monospace;
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
 }
 
 /* For Webkit-based browsers (Chrome, Safari) */
+
 ::-webkit-scrollbar {
-	width: 2.5px; /* Change the width as desired */
-  }
-  
-  ::-webkit-scrollbar-track {
-	background: #f1f1f1; /* Change the background color as desired */
-  }
-  
-  ::-webkit-scrollbar-thumb {
-	background: rgb(244, 51, 151); /* Change the scrollbar color as desired */
-  }
-  
+  width: 2.5px; /* Change the width as desired */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Change the background color as desired */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(244, 51, 151); /* Change the scrollbar color as desired */
+}

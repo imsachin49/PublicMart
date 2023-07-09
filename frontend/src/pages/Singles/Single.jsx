@@ -11,10 +11,10 @@ import { addProduct } from '../../redux/cartRedux';
 import CircularProgress from '@mui/material/CircularProgress';
 import LoginIcon from '@mui/icons-material/Login';
 import './Single.css'
-import Reviews from '../reviews/Reviews';
-import NewsLetter from '../NewsLetter/NewsLetter';
-import Footer from '../footer/Footer';
-import Recommended from '../recommended/Recommended';
+import Reviews from '../../components/reviews/Reviews';
+import NewsLetter from '../../components/NewsLetter/NewsLetter';
+import Footer from '../../components/footer/Footer';
+import Recommended from '../../components/recommended/Recommended';
 import { RWebShare } from 'react-web-share'
 import { FaShare } from 'react-icons/fa';
 
