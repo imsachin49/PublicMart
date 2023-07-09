@@ -92,6 +92,7 @@ router.put('/:id',corsMiddleware,verifyTokenAndAdmin,async(req,res)=>{
 router.delete('/:id',corsMiddleware,verifyTokenAndAdmin,async(req,res)=>{
     try{
         const deletedProduct=await Product.findByIdAndDelete(req.params.id);
+        const products=await Product.find();
         res.status(200).json({message:'the product has been deleted',deletedProduct});
     }
     catch(err){
