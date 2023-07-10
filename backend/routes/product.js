@@ -104,7 +104,7 @@ router.delete('/:id',corsMiddleware,verifyTokenAndAdmin,async(req,res)=>{
 router.get('/search',corsMiddleware,async(req,res)=>{
     const title=req.query.title;
     try{
-        const products=await Product.find({title:{$regex:title,$options:'$i'}});
+        const products=await Product.find({title:{$regex:title,$options:'i'}});
         res.status(200).json(products);
     }
     catch(err){
