@@ -72,13 +72,11 @@ const Login = () => {
   }
 
   return (
-    <div className='rmain-form'>
-      <div className='rbox'>
-        <form onSubmit={handleSubmit}>
-          <h1 className='pgText'>Login to your account</h1>
-          <p className='pgTextSm'>
-            Welcome back, please login to start shopping your favourite products            
-          </p>                
+    <div className='main-form'>
+      <div className='box'>
+        <h1 className='pgText'>Login to your account</h1>
+        <p className='pgTextSm'> Welcome back, please login to start shopping your favourite products</p>
+        <form onSubmit={handleSubmit} className='frms'>
           <div className='formInput'>
             <label htmlFor='email'>Email</label>
             <input type='email' required name='email' value={user.email} onChange={handleChange} placeholder='Enter Email' />
@@ -94,9 +92,7 @@ const Login = () => {
             }
           </div>
           <div className='formInput'>
-          </div>
-          <div className='formInput'>
-            <Link className='rlog'>
+            <Link className='log'>
               Don't have account ? <Link to='/register' className='register'>&nbsp;Create New</Link></Link>
           </div>
           {err && <p className='wrong'>Something went Wrong..</p>}
@@ -109,10 +105,12 @@ const Login = () => {
                 </div> */}
 
         </form>
+        <div className="pg font-candara mb-1 text-center border border-bottom-0 border-end-0 border-start-0 pt-1">
+          By signing in or creating an account, you agree with our Terms & Conditions and Privacy Statement
+        </div>
       </div>
     </div>
   )
 }
 
 export default Login
-// <img src='https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif' alt='login' className='rimg' />

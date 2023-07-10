@@ -14,6 +14,7 @@ import Reviews from './components/reviews/Reviews';
 import ScrollToTop from './Scroll';
 import Home from './pages/home/Home';
 import Nav2 from "./components/nav/Nav2";
+import Search from "./pages/search/Search"
 
 function App() {
   const user=useSelector(state=>state.user.currentUser);
@@ -42,6 +43,7 @@ function App() {
         <Route path='/success' element={<Success/>}/>
         <Route path='/single' element={<Single/>}/>  
         <Route path='/reviews' element={<Reviews />} />
+        <Route path='/search' element={<Search />} />
       </Routes>
      </Router>
       {/* <Navbar /> */}

@@ -60,7 +60,7 @@ const Products = () => {
     // handleLike={handleLike} isLiked={isLiked}
     return (
         <div style={{ backgroundColor: 'white', scrollBehavior: 'smooth' }} id="new" >
-            <h2 data-aos="fade-down" data-aos-duration="1000">Our Latest Top Collections</h2>
+            <h2>Our Latest Top Collections</h2>
             <div className='pKacategories' style={{ backgroundColor: 'white' }}>
                 {!loading ? <div className='pKawrapper'>
                     {products.map((item, index) => {

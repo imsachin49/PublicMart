@@ -5,6 +5,7 @@ import { BsFillHeartFill } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import {IoStarSharp} from 'react-icons/io5';
 
 const Product = ({ item }) => {
     const [isLiked, setIsLiked] = useState(false);
@@ -36,19 +37,21 @@ const Product = ({ item }) => {
         }
     };
 
+    // to generAtE random number between 4 and 5
+
     return (
         <>
-            <div className='productCard' data-aos="zoom-out-down">
+            <div className='productCard'>
                 <div className='imgContainer'>
                     <img src={item?.img} className='itemImg' alt='noImg' />
                     <BsFillHeartFill className='likePRoduct' size={20} color={` ${isLiked ? 'red' : 'lightblue'}`} onClick={handleLike} />
                 </div>
                 <div className='productTexts'>
-                    <p className='productTitle' data-aos="fade-right" data-aos-duration="1500" style={{ fontWeight: 'bolder' }}>{item?.title}</p>
-                    <p className='productPrice' data-aos="fade-left" data-aos-duration="1500">${item?.price}</p>
+                    <p className='productTitle' style={{ fontWeight: 'bolder' }}>{item?.title}</p>
+                    <p className='productPrice'>${item?.price}</p>
                 </div>
                 <div className='cartBtn'>
-                    <><Button onClick={() => addToProduct(item?._id)} className='cartNow' style={{ border: '1px solid #555', marginLeft: '20px', borderRadius: '25px', color: '#444', fontFamily: "'candara', sans-serif", fontWeight: 'bold', padding: '3px 8px' }}>Explore</Button></>
+                    <><Button onClick={() => addToProduct(item?._id)} className='cartNow' style={{ border: '1px solid #555', marginLeft: '20px', borderRadius: '25px', color: '#111', fontFamily: "'Open sans', sans-serif", fontWeight: 'bold', padding: '3px 8px',textTransform:"capitalize" }}>Explore</Button></>
                 </div>
             </div>
         </>

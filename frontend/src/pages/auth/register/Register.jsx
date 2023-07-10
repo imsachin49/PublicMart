@@ -67,7 +67,7 @@ const Register = () => {
   return (
     <div className='main-form'>
       <div className='box'>
-        <h1 className='pgText'>Create Your Account !!</h1>
+        <h1 className='pgText'>Create Your Account</h1>
         <p className='pgTextSm'>Get started with your free account</p>
         <form onSubmit={handleSubmit}>
           <div className='formInput'>
@@ -101,6 +101,9 @@ const Register = () => {
                   <Button variant='contained' className='btn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',fontFamily:"'candara',sans-serif",marginBottom:'5px'}} ><GitHubIcon/>&nbsp;Continue with Github</Button>
               </div>*/}
         </form>
+        <div className="pg font-candara mb-1 text-center border border-bottom-0 border-end-0 border-start-0 pt-1">
+        By signing in or creating an account, you agree with our Terms & Conditions and Privacy Statement
+      </div>
       </div>
     </div>
   )

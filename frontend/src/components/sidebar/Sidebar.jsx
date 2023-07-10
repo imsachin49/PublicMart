@@ -70,12 +70,18 @@ export const MuiDrawer = ({ openDrawer, setOpenDrawer }) => {
               gap: "1px",
               fontFamily: "'candara',sans-serif'",
             }}
+            style={{
+              backgroundImage: `url("https://img.freepik.com/premium-photo/jumping-high-portrait-young-beautiful-woman-neon-light-dark-studio-backgound-with-lettering-sale-human-emotions-black-friday-cyber-monday-purchases-sales-finance-copyspace_489646-2449.jpg?size=626&ext=jpg&ga=GA1.2.1448707257.1687164508&semt=ais")`,
+            }}
           >
             <Typography
               sx={{
                 fontWeight: "bold",
                 fontFamily: "'candara',sans-serif",
-                fontSize: "20px",
+                fontSize: "24px",
+                color:"white",
+                textTransform: "capitalize",
+                marginLeft: "10px",
               }}
             >
               <b>{currentUser?.username}</b>
@@ -97,7 +103,7 @@ export const MuiDrawer = ({ openDrawer, setOpenDrawer }) => {
             </Button>
           </Box>
         ) : (
-          <img src={bgTop} alt="no" height={80} />
+          <img src={"https://img.freepik.com/free-vector/template-banner-online-store-with-shopping-cart-with-purchases-boxes-delivery-from-supermarket-vector-illustration_548887-104.jpg?size=626&ext=jpg&ga=GA1.2.1448707257.1687164508&semt=ais"} alt="no" height={80} />
         )}
         <Box p={1} width="240px" role="presentation" textAlign="start">
           {!isUser && <Link

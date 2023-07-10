@@ -53,6 +53,7 @@ ul.social-network {
     font-weight: bold;
     font-size: 20px;
     color: white;
+    font-family: "Open Sans", sans-serif;
 }
 
 ul.social-network li {
@@ -74,21 +75,31 @@ ul.social-network li {
 .right{
     font-size: 13px;
     font-family: "candara", sans-serif;
+    font-family: "Open Sans", sans-serif;
+
 }
 
 .yr{
     font-family: monospace;
+    font-family: "Open Sans", sans-serif;
 }
 
 .catText{
     text-decoration: none;
-    font-size: 13px;
+    font-size: 15px;
     padding: 0;
     letter-spacing:.1px;
     word-spacing: 1px;
-    font-weight: 100;
-    color: #e4e4e4;
+    font-weight: normal;
+    color: #b6b6b6;
     margin: 0;
     font-family: monospace;
+    font-family: "candara", sans-serif;
 }
 
+@media screen and (max-width: 768px) {
+  .footer-pad{
+    text-align: center;
+  }
+}
+  

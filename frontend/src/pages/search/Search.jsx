@@ -1,9 +1,8 @@
-import { Button } from '@mui/material'
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
+import React,{useState,useEffect} from 'react'
 import { useLocation } from 'react-router-dom';
-import './ProductType.css';
-import '../../components/products/Products.css'
+import { publicRequest } from '../../requestMethods';
+import "./Search.css";
+import { Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
 import Footer from '../../components/footer/Footer.jsx';
@@ -11,104 +10,98 @@ import NewsLetter from '../../components/NewsLetter/NewsLetter.jsx';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-AOS.init();
 
-const ProductType = () => {
-    const location = useLocation();
-    const cat = location.pathname.split('/')[2];
-    const [filters, setFilters] = useState({});
-    const [sort, setSort] = useState('newest');
-    const [loading, setLoading] = useState(false);
-    const [products, setProduts] = useState([]);
-    const [filteredProducts, setFilteredProducts] = useState([]);
-    const [length, setLength] = useState(0);
-    const [error, setError] = useState(false);
+const Search = () => {
+  const [title, setTitle] = useState("");
+  const location = useLocation();
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [length, setLength] = useState(0);
+  const [filters, setFilters] = useState({});
+  const [sort, setSort] = useState('newest');
+  const [error, setError] = useState(false);
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+  
+  useEffect(() => {
+    setTitle(location.search.split("=")[1]);
+  }, [location.search]);
 
-    const handleFilters = (e) => {
-        setFilters({
-            ...filters,
-            [e.target.name]: e.target.value
-        })
-    }
+  const handleFilters = (e) => {
+      setFilters({
+          ...filters,
+          [e.target.name]: e.target.value
+      })
+  }
 
-    const handleSort = (e) => {
-        setSort(
-            [e.target.name] = e.target.value
+  const handleSort = (e) => {
+    setSort(
+        [e.target.name] = e.target.value
+    )
+    console.log(sort)
+  }
+
+  const navigate = useNavigate();
+  const addToProduct = (id) => {
+    navigate('/product/' + id);
+  }
+
+  useEffect(() => {
+    const getProducts = async () => {
+      setLoading(true);
+      try {
+        const res = await publicRequest.get(`/products/search?title=${title}`);
+        setProducts(res.data);
+        setLoading(false);
+      } catch (err){
+        console.log(err);
+      }
+    };
+    getProducts();
+  }, [title]);
+
+
+  useEffect(() => {
+    title && setFilteredProducts(
+      products.filter((item) =>
+        item.title.toLowerCase().includes(title.toLowerCase())
+      )
+    );
+  }, [title, products]);
+
+  //sorting the products
+  useEffect(() => {
+    if (sort === 'newest') {
+        setFilteredProducts((prev) =>
+            [...prev].sort((a, b) => a.createdAt - b.createdAt)
         )
-        console.log(sort)
     }
-
-    const navigate = useNavigate();
-    const addToProduct = (id) => {
-        navigate('/product/' + id);
-    }
-
-    useEffect(() => {
-        const getProducts = async () => {
-            try {
-                setLoading(true);
-                const res =
-                    await axios.get(cat ?
-                        `https://full-stack-ecommerce-mu.vercel.app/api/products?category=${cat}` :
-                        "https://full-stack-ecommerce-mu.vercel.app/api/products"
-                    );
-                setProduts(res.data);
-                setLoading(false);
-            } catch (err) {
-                setError(true);
-                console.log(err);
-            }
-        }
-        getProducts()
-    }, [cat])
-
-
-    useEffect(() => {
-        cat && setFilteredProducts(
-            products.filter((item) =>
-                Object.entries(filters).every(([key, value]) =>
-                    item[key].includes(value)
-                )
-            )
+    else if (sort === 'asc') {
+        setFilteredProducts((prev) =>
+            [...prev].sort((a, b) => a.price - b.price)
         )
-    }, [filters, products, cat])
+    }
+    else {
+        setFilteredProducts((prev) =>
+            [...prev].sort((a, b) => b.price - a.price)
+        )
+    }
+  }, [sort])
 
-    //sorting the products
-    useEffect(() => {
-        if (sort === 'newest') {
-            setFilteredProducts((prev) =>
-                [...prev].sort((a, b) => a.createdAt - b.createdAt)
-            )
-        }
-        else if (sort === 'asc') {
-            setFilteredProducts((prev) =>
-                [...prev].sort((a, b) => a.price - b.price)
-            )
-        }
-        else {
-            setFilteredProducts((prev) =>
-                [...prev].sort((a, b) => b.price - a.price)
-            )
-        }
-    }, [sort])
+  useEffect(() => {
+    setLength(filteredProducts.length);
+  }, [filteredProducts]);
 
-    // length of products
-    useEffect(() => {
-        setLength(filteredProducts.length);
-    }, [filteredProducts])
-
-
-    return (
-        <>
+  return (
+    <>
             <div style={{ backgroundColor: 'white', paddingBottom: '100px' }}>
                 {!loading ? <div className='pKacategories' style={{ backgroundColor: 'white' }}>
 
                     <div className='typeTop'>
-                        <div className='leftTop'>{cat}</div>
+                        <div className='leftTop'>Search Result for:-{title}</div>
                         <div className='rightTop'>
 
                             <div className='sort'>
@@ -137,7 +130,7 @@ const ProductType = () => {
                     <div className="pKawrapper">
                         {filteredProducts.map((item) => {
                             return (
-                                <div className='productCard' key={item.id} data-aos="zoom-out-up">
+                                <div className='productCard' key={item._id} data-aos="zoom-out-up">
                                     <div className='imgContainer'>
                                         <img src={item.img} className='itemImg' alt='noImg' />
                                     </div>
@@ -164,7 +157,7 @@ const ProductType = () => {
             <NewsLetter />
             <Footer />
         </>
-    )
+  )
 }
 
-export default ProductType;
+export default Search

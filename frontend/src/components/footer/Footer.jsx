@@ -30,7 +30,7 @@ const Footer = () => {
 
             <div className="col-md-3 col-sm-6">
               <div className="footer-pad boxesx">
-                <h4 className="footHead">About P.M.</h4>
+                <h4 className="footHead">About PublicMart</h4>
                 <ul className="list-unstyled">
                   <li><Link className="catText" to="#">About us</Link></li>
                   <li><Link className="catText" to="#">Carrers</Link></li>

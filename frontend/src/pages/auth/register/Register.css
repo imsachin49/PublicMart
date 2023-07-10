@@ -1,22 +1,22 @@
 .main-form {
-  height: 90vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: -10px;
+  margin-top: 7px;
   font-family: "candara", sans-serif;
+  justify-content: center;
 }
 
 .pgText {
   text-align: start;
-  padding: 5px;
+  padding: 5px 0px;
   font-size: 1.7rem;
   font-weight: bolder;
   color: rgb(46, 46, 85);
   padding-bottom: 5px;
   margin: 0;
   margin-top: 1rem;
+  font-family: "Open Sans", sans-serif;
 }
 
 .pgTextSm{
@@ -27,21 +27,19 @@
   padding-bottom: 0px;
   margin: 0;
   margin-top: -2px;
-  padding-left: 8px;
+  padding-left: 2px;
+  font-family: "Open Sans", sans-serif;
 }
 
 .box {
-  border: 1px solid rgba(128, 128, 128, 0.425);
   padding: 5px 30px;
   border-radius: 5px;
-  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
-    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
   width: 500px;
+  padding-bottom: 0px;
 }
 
-.input {
-  margin-bottom: 8px;
-  padding: 0px;
+label{
+  font-family: "Open Sans", sans-serif;
 }
 
 h3 {
@@ -79,7 +77,6 @@ h3 {
 .progress {
   width: 100%;
   height: 50px;
-  /* background-color: #eee; */
   display: flex;
   justify-content: center;
   border-radius: 5px;
@@ -90,12 +87,16 @@ h3 {
 .formInput {
   display: flex;
   flex-direction: column;
+  margin: 8px 0px;
 }
 
 input {
   padding: 5px 3px;
+  padding-left: 13px;
   outline-color: rgba(88, 111, 141, 0.664);
   border: 1px solid rgba(167, 167, 167, 0.726);
+  margin-bottom: 8px;
+  font-family: "candara", sans-serif;
 }
 
 label {
@@ -105,19 +106,7 @@ label {
 
 @media screen and (max-width: 550px) {
   .box {
-    width: 350px;
+    width: 94%;
     padding: 5px 10px;
-  }
-  .main-form {
-    height: 95vh;
-  }
-}
-
-@media screen and (max-width: 380px) {
-  .box {
-    width: 295px;
-  }
-  .main-form {
-    height: 84vh;
   }
 }

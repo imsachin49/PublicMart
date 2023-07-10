@@ -1,5 +1,5 @@
 import "./nav2.css";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { NavHashLink } from "react-router-hash-link";
@@ -29,15 +29,15 @@ const Nav2 = () => {
   var isUser = false;
   const quantity = useSelector((state) => state?.cart?.quantity);
   const currentUser = useSelector((state) => state?.user?.currentUser?.user);
+  console.log(currentUser);
   // console.log(currentUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const location = useLocation();
-  console.log(location.pathname);
+  let path = location.hash;
   const isAuthPage =
     location.pathname === "/login" || location.pathname === "/register";
-  console.log(isAuthPage);
   const [showfullSearchMenu, setShowfullSearchMenu] = useState(false);
   const [openDropDown, setOpenDropDown] = useState(false);
   const smallerScreen = useMediaQuery("(max-width:768px)");
@@ -71,6 +71,35 @@ const Nav2 = () => {
     setOpenDropDown(!openDropDown);
   };
 
+  const handleFullSearch = () => {
+    setShowfullSearchMenu(!showfullSearchMenu);
+  };
+
+  const ref = useRef();
+  const dropRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!ref?.current?.contains(event.target)) {
+        setShowfullSearchMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+  }, [ref]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!dropRef?.current?.contains(event.target)) {
+        setOpenDropDown(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+  }, [ref]);
+
+  const caseP = smallerScreen && showfullSearchMenu;
+  console.log("caseP", caseP)
+
+
   return (
     <div className="nav2Container" style={{ zIndex: "100" }}>
       <div className="nav2Wrapper">
@@ -80,27 +109,28 @@ const Nav2 = () => {
             alt="no-images"
             className="logoImg"
           />
-          <Link className="logoName" to="/">
+          {!caseP && <Link className="logoName" to="/">
             PublicMart
-          </Link>
+          </Link>}
         </div>
 
-        {!smallerScreen && (
+        {!smallerScreen && !isAuthPage && (
           <div className="nav2List">
-            <Link className="nav2ListLink" to="/">
+            <NavHashLink className={`nav2ListLink ${(path === "" && location.pathname === "/") ? "actives" : ""} `} to="/">
               Home
-            </Link>
-            <Link className="nav2ListLink" to="/#categories">
+            </NavHashLink>
+            <NavHashLink className={`nav2ListLink ${path === "#categories" ? "actives" : ""} `} to="/#categories">
               Categories
-            </Link>
-            <Link className="nav2ListLink" to="/#new">
+            </NavHashLink>
+            <NavHashLink className={`nav2ListLink ${path === "#new" ? "actives" : ""} `} to="/#new">
               What's New
-            </Link>
+            </NavHashLink>
           </div>
         )}
 
         <div className="nav2Right">
-          {/*<form className="NavSearch" onSubmit={() => {}}>
+          {(showfullSearchMenu && !isAuthPage) ?
+            <form className="NavSearch1" onSubmit={handleSubmit} ref={ref}>
               <GoSearch
                 style={{ margin: "0px 5px", marginLeft: "10px" }}
                 color="gray"
@@ -108,16 +138,16 @@ const Nav2 = () => {
               <input
                 type="text"
                 placeholder="Search for Products"
-                className="searchInput"
+                className="searchInput1"
                 onChange={(e) => setTitle(e.target.value)}
                 name="title"
                 value={title}
               />
-        </form>*/}
+          </form> :
 
-          <IconButton color="error">
-            <GoSearch color="black" size={22}/>
-          </IconButton>
+            <IconButton color="error" onClick={handleFullSearch}>
+              <GoSearch color="black" size={22} />
+            </IconButton>}
 
           {!smallerScreen && isUser && (
             <IconButton
@@ -128,11 +158,11 @@ const Nav2 = () => {
             </IconButton>
           )}
 
-          {isUser ? (
+          {isUser && !caseP && (
             <Link
-              className="NavAuthItemsCart"
+              className="NavAuthItemsCart11"
               to="/cart"
-              style={{ marginRight: "7px" }}
+              style={{ marginRight: "0px" }}
             >
               <IconButton>
                 <Badge badgeContent={quantity} color="error">
@@ -140,7 +170,8 @@ const Nav2 = () => {
                 </Badge>
               </IconButton>
             </Link>
-          ) : (
+          )}
+          {!isUser && !caseP && (
             <Link
               className="NavAuthItemsCart"
               to="/login"
@@ -151,9 +182,9 @@ const Nav2 = () => {
               </IconButton>
             </Link>
           )}
-          {smallerScreen && (
+          {smallerScreen && !caseP && (
             <IconButton
-              style={{ marginLeft: "3px", fontWeight: "bold" }}
+              style={{ fontWeight: "bold" }}
               onClick={() => setOpenDrawer(true)}
             >
               <CgMenuRight color="black" />
@@ -162,9 +193,9 @@ const Nav2 = () => {
         </div>
 
         {openDropDown && isUser && (
-          <div className="userDropDown">
+          <div className="userDropDown" ref={dropRef}>
             <Link className="userDropDownLink" to="/">
-              <FaUserCircle className="userDropDownIcon" size={22} />
+              {!currentUser?.userimg ? <FaUserCircle className="userDropDownIcon" size={22} /> : <img style={{ height: '20px', width: '20px' }} src={currentUser?.userimg} alt="noImg" />}
               <Typography
                 className="userDropDownText"
                 sx={{ fontFamily: "'candara',sans-serif" }}
