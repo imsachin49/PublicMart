@@ -42,7 +42,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(cors({
-  "origin":["http://localhost:3000","https://full-stack-ecommerce-scm2.vercel.app","https://full-stack-ecommerce-mu.vercel.app"],
+  "origin":["http://localhost:3000","https://visual-board-ten.vercel.app","https://full-stack-ecommerce-scm2.vercel.app","https://full-stack-ecommerce-mu.vercel.app"],
   methods:"GET,POST,PUT,DELETE",
   credentials:true,
 }))
