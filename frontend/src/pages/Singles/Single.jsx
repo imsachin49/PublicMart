@@ -81,8 +81,8 @@ const Single = () => {
                 {!loading ? <div className='singleContainer'>
 
                     <div className='singleLeft'>
-                        <img src={product.img} className='singleImgs' alt='noImg' data-aos="fade-down" data-aos-duration="2000" />
-                        <div className='titlePrice' data-aos="fade-up" data-aos-duration="2000">
+                        <img src={product.img} className='singleImgs' alt='noImg' />
+                        <div className='titlePrice'>
                             <div className='titlePrice11'>
                                 <p className='singleTitles'>{product.title}</p>
                                 <p className='singlePrices'>₹{product.price}</p>
@@ -90,7 +90,7 @@ const Single = () => {
                             <div style={{ display: 'flex' }}>
                                 <p className='delivery'>In Stock</p>
                                 <p className='delivery share'>
-                                    <RWebShare data={{ text: "PublicMArt", url: shareUrl, title: "GfG", }} onClick={() => console.log("shared successfully!")}>
+                                    <RWebShare data={{ text: "PublicMArt", url: shareUrl, title:`${product.title}`}} onClick={() => console.log("shared successfully!")}>
                                         <div>
                                             <span>Share</span>
                                             <FaShare style={{ marginLeft: '4px' }} />
@@ -103,7 +103,7 @@ const Single = () => {
 
 
                     <div className='singleRight'>
-                        <div className='titlePrice' data-aos="fade-right" data-aos-duration="2000">
+                        <div className='titlePrice'>
                             {currentUser ?
                                 <div className='buttons'>
                                     {!isInCart ? <Button variant='contained' style={{ margin: '10px 20px', fontFamily: "'candara',sans-serif", fontWeight: 'bold', padding: '8px 18px', backgroundColor: 'white', color: '#111', border: '1px solid #111' }} onClick={handleClick}><ShoppingCartSharpIcon />Add</Button>
@@ -116,7 +116,7 @@ const Single = () => {
                                 </div>
                             }
                         </div>
-                        <div className='titlePrice' data-aos="fade-left" data-aos-duration="2000">
+                        <div className='titlePrice'>
                             <p className='selectSize'>Select Size</p>
                             <div className='Sizes'>
                                 {product.size && product.size.map((syz) => {
@@ -125,7 +125,7 @@ const Single = () => {
                             </div>
                         </div>
 
-                        <div className='titlePrice' data-aos="fade-right" data-aos-duration="2000">
+                        <div className='titlePrice'>
                             <p className='selectSize'>Select Color</p>
                             <div className='Sizes'>
                                 {product.color && product.color.map((clr) => {
@@ -134,7 +134,7 @@ const Single = () => {
                             </div>
                         </div>
 
-                        <div className='titlePrice' data-aos="fade-left" data-aos-duration="2000">
+                        <div className='titlePrice'>
                             <p className='selectSize'>Quantity</p>
                             <div className='quantity1'>
                                 <button className='speech-bubble' onClick={countDec}><RemoveIcon style={{ border: '1px solid #999', borderRadius: '50%', marginBottom: '3px' }} /></button>
@@ -143,7 +143,7 @@ const Single = () => {
                             </div>
                         </div>
 
-                        <div className='titlePrice' data-aos="fade-right" data-aos-duration="2000">
+                        <div className='titlePrice'>
                             <div className='titleS'>Product Details</div>
                             <p className='singleTitle' style={{ fontSize: '12px', marginLeft: '5px' }}>{product.desc}</p>
                         </div>
