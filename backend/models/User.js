@@ -26,7 +26,16 @@ const userSchema=new mongoose.Schema({
     },
     userimg:{
         type:String,
-    }
+    },
+    dateOfBirth:{
+        type:String,
+    },
+    phoneNo:{
+        type:String,
+    },
+    address:{
+        type:String,
+    },
 },{timestamps:true})
 
 const User=mongoose.model("User",userSchema);

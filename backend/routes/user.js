@@ -8,11 +8,20 @@ const bcrypt=require('bcryptjs');
 
 //Updating User Info..
 router.put('/:id',corsMiddleware,verifyTokenAndAuthorization,async(req,res)=>{
-    const {username,emai,password}=req.body;
+    const {
+      username,
+      email,
+      password,
+      isAdmin,
+      userimg,
+      dateOfBirth,
+      phoneNo,
+      address
+    }=req.body;
     try{
         if(password){
-            const salt=await bcrypt.genSalt(10);
-            const password=await bcrypt.hash(password,salt);
+          const salt=await bcrypt.genSalt(10);
+          const password=await bcrypt.hash(password,salt);
         }
         const updatedUser=await User.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true});
         res.status(200).json(updatedUser);    
@@ -21,7 +30,6 @@ router.put('/:id',corsMiddleware,verifyTokenAndAuthorization,async(req,res)=>{
         res.status(200).json({message:'Error while updating info..'+err});
     }
 })
-
 
 //Deleting User
 router.delete('/:id',corsMiddleware,verifyTokenAndAuthorization,async(req,res)=>{
@@ -33,7 +41,6 @@ router.delete('/:id',corsMiddleware,verifyTokenAndAuthorization,async(req,res)=>
         res.status(400).json({message:'Error while deleting the user'+err});
     }
 }) 
-
 
 //Get a User
 router.get("/find/:id",corsMiddleware, verifyTokenAndAdmin, async (req, res) => {
@@ -59,7 +66,6 @@ router.get("/", corsMiddleware,verifyTokenAndAdmin, async (req, res) => {
 });
 
 // User Data
-
 router.get("/stats",corsMiddleware, verifyTokenAndAdmin, async (req, res) => {
     const date = new Date();
     const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));

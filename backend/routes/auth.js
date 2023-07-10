@@ -10,10 +10,15 @@ router.post('/register',corsMiddleware,async(req,res)=>{
         username,
         email,
         password,
+        isAdmin,
+        userimg,
+        dateOfBirth,
+        phoneNo,
+        address
     }=req.body;
     
     if(!username || !email || !password){
-        res.status(400).json({message:'All field are Required'});
+        res.status(400).json({message:'All field are Required i.e. username,email,password'});
     }
     
     const isExisting=await User.findOne({email});
@@ -29,6 +34,11 @@ router.post('/register',corsMiddleware,async(req,res)=>{
         username,
         email,
         password:hashedPassword,
+        isAdmin,
+        userimg,
+        dateOfBirth,
+        phoneNo,
+        address
     })
 
     try{
