@@ -142,7 +142,7 @@ const Nav2 = () => {
                 onChange={(e) => setTitle(e.target.value)}
                 name="title"
                 value={title}
-              />
+                style={{ border:"none", background:'none'}}
           </form> :
 
             <IconButton color="error" onClick={handleFullSearch}>
