@@ -143,8 +143,8 @@ const Nav2 = () => {
                 name="title"
                 value={title}
                 style={{ border:"none", background:'none'}}
-          </form> :
-
+                />
+            </form> :
             <IconButton color="error" onClick={handleFullSearch}>
               <GoSearch color="black" size={22} />
             </IconButton>}
