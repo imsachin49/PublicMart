@@ -7,9 +7,9 @@
     justify-content: center;
     background-color: #f0f8ff;
     border: 1px solid rgb(255, 255, 255);
-    border-top-right-radius: 25px;
-    border-top-left-radius: 25px;
-    margin:5px;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 .pKacategories1{
@@ -38,10 +38,12 @@
     align-items: center;
     flex-wrap: wrap;
     margin: 0px 10px;
+    margin: 0;
+    padding: 0;
 }
 
 .typeTop{
-    padding:8px;
+    padding:8px 0px;
     width:100%;
     color: black;
     font-size: 18px;
@@ -230,7 +232,7 @@ option{
 
 @media screen and (max-width:990px){
     .pKawrapper{
-        grid-template-columns: 33.3% 33.3% 33.3%;
+        grid-template-columns: 33% 33% 33%;
     }
     .productCard{
         width:265px;
@@ -242,7 +244,7 @@ option{
 
 @media screen and (max-width:845px){
     .pKawrapper{
-        grid-template-columns: 33.3% 33.3% 33.3%;
+        grid-template-columns: 33% 33% 33%;
     }
     .productCard{
         width:235px;
@@ -254,7 +256,7 @@ option{
 
 @media screen and (max-width:760px){
     .pKawrapper{
-        grid-template-columns: 33.3% 33.3% 33.3%;
+        grid-template-columns: 33% 33% 33%;
     }
     .productCard{
         width:215px;
@@ -266,8 +268,7 @@ option{
 
 @media screen and (max-width:695px){
     .pKawrapper{
-        display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 49.5% 49.5%;
     }
     .productCard{
         width: 275px;
@@ -279,7 +280,7 @@ option{
 
 @media screen and (max-width:585px){
     .pKawrapper{
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 49.5% 49.5%;
     }
     .productCard{
         width: 245px;
@@ -292,7 +293,7 @@ option{
 
 @media screen and (max-width:525px){
     .pKawrapper{
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 49.5% 49.5%;
     }
     .productCard{
         width: 215px;
@@ -304,7 +305,7 @@ option{
 
 @media screen and (max-width:475px){
     .pKawrapper{
-        grid-template-columns: 100%;
+        grid-template-columns: 99%;
     }
     .productCard{
         width: 370px;
@@ -316,8 +317,7 @@ option{
 
 @media screen and (max-width:386px){
     .pKawrapper{
-        grid-template-columns: 100%;
-        margin-left: 4px;
+        grid-template-columns: 99%;
     }
     .productCard{
         width: 100%;
@@ -336,11 +336,10 @@ option{
 
 @media screen and (max-width:335px){
     .pKawrapper{
-        grid-template-columns: 100%;
+        grid-template-columns: 99%;
     }
     .productCard{
         width: 250px;
-        margin-left: 20px;
     }
     .itemImg,.imgContainer{
         width: 250px;

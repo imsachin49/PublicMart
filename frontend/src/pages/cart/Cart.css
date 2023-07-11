@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden;
 }
 
 .cart-main {
@@ -15,11 +16,9 @@
   padding-bottom: 20px;
   max-width: 800px;
   margin: 0px;
-  padding: 0px;
 }
 
 .cartItem {
-  /* border-radius: 3px; */
   margin: 0;
   display: flex;
   flex-direction: row;
