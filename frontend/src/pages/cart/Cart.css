@@ -61,11 +61,12 @@
 }
 
 .cartImg {
-  width: 120px;
+  width: 100px;
   height: 110px;
   margin: 4px;
   border-radius: 3px;
   display: flex;
+  min-width: 100px;
 }
 
 .cartInfo {
@@ -311,6 +312,9 @@
   .rightCart {
     margin-right: 10px;
     padding-right: 0;
+  }
+  .cartInfo{
+    margin-left:0px;
   }
 }
 

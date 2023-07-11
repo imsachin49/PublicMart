@@ -101,7 +101,7 @@ const Search = () => {
                 {!loading ? <div className='pKacategories' style={{ backgroundColor: 'white' }}>
 
                     <div className='typeTop'>
-                        <div className='leftTop'>Search Result for:-{title}</div>
+                        <div className='leftTop'>{title}</div>
                         <div className='rightTop'>
 
                             <div className='sort'>
