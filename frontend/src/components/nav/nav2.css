@@ -116,11 +116,11 @@
   padding-bottom:0px;
 }
 
-input{
+/*input{
   border:none;
   outline:none;
 }
-
+*/
 .userDropDown{
   display: flex;
   flex-direction: column;
