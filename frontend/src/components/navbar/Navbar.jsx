@@ -116,6 +116,10 @@ const Navbar = ({ user }) => {
                   onChange={(e) => setTitle(e.target.value)}
                   name="title"
                   value={title}
+                  style={{
+                    border:'none',
+                    background:'none'
+                  }}
                 />
                 <SearchIcon />
               </form>
