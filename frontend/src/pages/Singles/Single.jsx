@@ -19,18 +19,17 @@ import { RWebShare } from 'react-web-share'
 import { FaShare } from 'react-icons/fa';
 
 const Single = () => {
+    const currentUser = useSelector(state => state?.user?.currentUser?.user);
+    const cart = useSelector(state => state?.cart);
     const location = useLocation();
     const id = location.pathname.split('/')[2];
     const [product, setProdut] = useState({});
-    const dispatch = useDispatch();
-    const currentUser = useSelector(state => state?.user?.currentUser?.user);
-    const cart = useSelector(state => state?.cart);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+
     const [size, setSize] = useState('');
     const [color, setColor] = useState('');
-    const isMobile = useMediaQuery('(max-width:365px)');
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const getProduct = async () => {
@@ -41,15 +40,12 @@ const Single = () => {
                 setLoading(false);
             } catch (err) {
                 console.log(err);
-                setError(true);
             }
         }
         getProduct();
     }, [id])
 
-    const handleChange = (event) => {
-        setSize(event.target.value);
-    };
+    console.log("product", product);
 
     const [count, setCount] = useState(1);
     const countInc = () => {
@@ -73,7 +69,7 @@ const Single = () => {
         navigate('/cart');
     }
 
-    const shareUrl = `https://full-stack-ecommerce-scm2.vercel.app/product/${id}`
+    const shareUrl = `https://full-stack-ecommerce-scm2.vercel.app/product/${id}`;
 
     return (
         <>
@@ -83,14 +79,14 @@ const Single = () => {
                     <div className='singleLeft'>
                         <img src={product.img} className='singleImgs' alt='noImg' />
                         <div className='titlePrice'>
-                            <div className='titlePrice11'>
+                            <div className='titlePrice1'>
                                 <p className='singleTitles'>{product.title}</p>
                                 <p className='singlePrices'>₹{product.price}</p>
                             </div>
-                            <div style={{ display: 'flex' }}>
+                            <div style={{ display: 'flex', marginLeft: "9px" }}>
                                 <p className='delivery'>In Stock</p>
                                 <p className='delivery share'>
-                                    <RWebShare data={{ text: "PublicMArt", url: shareUrl, title:`${product.title}`}} onClick={() => console.log("shared successfully!")}>
+                                    <RWebShare data={{ text: "PublicMArt", url: shareUrl, title: `${product.title}` }} onClick={() => console.log("shared successfully!")}>
                                         <div>
                                             <span>Share</span>
                                             <FaShare style={{ marginLeft: '4px' }} />
@@ -116,23 +112,25 @@ const Single = () => {
                                 </div>
                             }
                         </div>
-                        <div className='titlePrice'>
-                            <p className='selectSize'>Select Size</p>
-                            <div className='Sizes'>
-                                {product.size && product.size.map((syz) => {
-                                    return (<button className={`chooseS ${syz === size ? 'selectedSyz' : 'notS'}`} onClick={(e) => setSize(e.target.value)} value={syz} key={syz}>{syz}</button>)
-                                })}
-                            </div>
-                        </div>
 
-                        <div className='titlePrice'>
+                        {product && product?.size?.length > 0 &&
+                            <div className='titlePrice'>
+                                <p className='selectSize'>Select Size</p>
+                                <div className='Sizes'>
+                                    {product.size && product.size.map((syz) => {
+                                        return (<button className={`chooseS ${syz === size ? 'selectedSyz' : 'notS'}`} onClick={(e) => setSize(e.target.value)} value={syz} key={syz}>{syz}</button>)
+                                    })}
+                                </div>
+                            </div>}
+
+                        {product && product?.color?.length > 0 && <div className='titlePrice'>
                             <p className='selectSize'>Select Color</p>
                             <div className='Sizes'>
                                 {product.color && product.color.map((clr) => {
                                     return (<button className={`choose ${clr === color ? 'selecteds' : 'notS'}`} onClick={(e) => setColor(e.target.value)} value={clr} key={clr} style={{ backgroundColor: clr }}></button>)
                                 })}
                             </div>
-                        </div>
+                        </div>}
 
                         <div className='titlePrice'>
                             <p className='selectSize'>Quantity</p>

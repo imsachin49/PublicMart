@@ -12,7 +12,6 @@ const Review = ({ item }) => {
 
   return (
     <div className='revCard'>
-
       <div className='revCardHeader'>
         <img alt='no' className='revUser' src={generateProfilePic(item?.username ? item.username : "raviraj")} />
         <div className='revUserInfo'>
@@ -21,13 +20,11 @@ const Review = ({ item }) => {
         </div>
         <p className='revUserStars'><b className='starbold'>{item?.rating}</b><AiTwotoneStar /></p>
       </div>
-
       <div className='revBody'>
         <p className='revBodyText'>
           {item?.review}
         </p>
       </div>
-
     </div>
   )
 }
