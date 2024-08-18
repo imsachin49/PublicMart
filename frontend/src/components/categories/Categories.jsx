@@ -1,3 +1,4 @@
+import SectionSubtitle from "../section-subtitle/SectionSubtitle";
 import "./Categories.css";
 import CategoryList from "./CategoryList";
 import { Link } from "react-router-dom";
@@ -5,7 +6,7 @@ import { Link } from "react-router-dom";
 const Categories = () => {
   return (
     <div id="categories">
-      <h2>Shop Our Top Categories</h2>
+      <SectionSubtitle subtitle="Shop Our Top Categories" />
       <div className="cat-categories">
         <div className="cat-wrapper">
           {CategoryList.map((item, id) => {

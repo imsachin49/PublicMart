@@ -17,13 +17,16 @@ import Footer from '../../components/footer/Footer';
 import Recommended from '../../components/recommended/Recommended';
 import { RWebShare } from 'react-web-share'
 import { FaShare } from 'react-icons/fa';
+
 const Single = () => {
     const currentUser = useSelector(state => state?.user?.currentUser?.user);
     const cart = useSelector(state => state?.cart);
     const location = useLocation();
     const id = location.pathname.split('/')[2];
+    console.log("idd",id);
     const [product, setProdut] = useState({});
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
 
     const [size, setSize] = useState('');
     const [color, setColor] = useState('');

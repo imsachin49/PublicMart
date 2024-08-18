@@ -1,0 +1,32 @@
+.sec-subt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 120px;
+    margin-bottom: 40px;
+}
+
+.section__subtitle {
+    color: #f44397;
+    font-weight: 400;
+    font-size: 2rem !important;
+    position: relative;
+}
+
+.section__subtitle__line {
+    width: 100px;
+    height: 2px;
+    background-color: #f44397;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 805px) {
+    .section__subtitle {
+        font-size: 1.5rem !important;
+    }
+
+    .section__subtitle__line {
+        width: 50px;
+    }
+}

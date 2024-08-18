@@ -3,15 +3,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow-x: hidden;
 }
 
 .cat-wrapper{
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    margin: 15px;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    max-width: 1000px;
 }
 
 hr{
@@ -80,10 +79,9 @@ hr{
 
 h2{
     text-align: center;
-    color: rgb(100, 99, 99);
+    color: #f44397;
     margin: 60px;
     margin-bottom: 30px;
-    border-bottom: 1px solid rgb(224, 224, 224);
     padding: 20px;
 }
 

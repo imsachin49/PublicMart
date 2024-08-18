@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Review from '../reviews/Review'
-import { MdRateReview } from 'react-icons/md'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -8,7 +6,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import SwiperCore, { Navigation } from 'swiper';
 import '../recommended/Recommended.css'
-import { review } from '../reviews/dummyReview'
 import ReviewModal from '../modals/review/ReviewModal';
 import { BsArrowRightCircleFill } from 'react-icons/bs'
 import { BsArrowLeftCircleFill } from 'react-icons/bs'
@@ -16,7 +13,6 @@ import SingleRecommend from './SingleRecommend';
 import axios from 'axios';
 import CategoryList from '../categories/CategoryList';
 import { useNavigate } from 'react-router-dom';
-import { CircularProgress } from '@mui/material';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
