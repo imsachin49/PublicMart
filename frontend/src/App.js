@@ -37,7 +37,6 @@ function App() {
         <Route path='/product/:id' element={<Single />} />
         <Route path='/cart' element={isLogged ? <Cart /> : <Home/>} />        
         <Route path='/success' element={<Success/>}/>
-        <Route path='/single' element={<Single/>}/>  
         <Route path='/reviews' element={<Reviews />} />
         <Route path='/search' element={<Search />} />
       </Routes>

@@ -1,169 +1,243 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, Link, useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { Button } from '@mui/material'
-import KeyboardDoubleArrowRightSharpIcon from '@mui/icons-material/KeyboardDoubleArrowRightSharp';
-import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
-import RemoveIcon from '@mui/icons-material/Remove';
-import AddIcon from '@mui/icons-material/Add';
-import { publicRequest } from '../../requestMethods';
-import { addProduct } from '../../redux/cartRedux';
-import CircularProgress from '@mui/material/CircularProgress';
-import LoginIcon from '@mui/icons-material/Login';
-import './Single.css'
-import Reviews from '../../components/reviews/Reviews';
-import NewsLetter from '../../components/NewsLetter/NewsLetter';
-import Footer from '../../components/footer/Footer';
-import Recommended from '../../components/recommended/Recommended';
-import { RWebShare } from 'react-web-share'
-import { FaShare } from 'react-icons/fa';
+import { useState, useEffect } from "react";
+import { useNavigate, Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { publicRequest } from "../../requestMethods";
+import { addProduct } from "../../redux/cartRedux";
+import CircularProgress from "@mui/material/CircularProgress";
+import "./Single.css";
+import Reviews from "../../components/reviews/Reviews";
+import NewsLetter from "../../components/NewsLetter/NewsLetter";
+import Footer from "../../components/footer/Footer";
+import Recommended from "../../components/recommended/Recommended";
+import { RWebShare } from "react-web-share";
+import { FaShare } from "react-icons/fa";
+import axios from "axios";
+import { review } from "../../components/reviews/dummyReview";
 
-const Single = () => {
-    const currentUser = useSelector(state => state?.user?.currentUser?.user);
-    const cart = useSelector(state => state?.cart);
-    const location = useLocation();
-    const id = location.pathname.split('/')[2];
-    console.log("idd",id);
-    const [product, setProdut] = useState({});
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+export default function Single() {
+  const currentUser = useSelector((state) => state?.user?.currentUser?.user);
+  const cart = useSelector((state) => state?.cart);
+  const location = useLocation();
+  const id = location.pathname.split("/")[2];
+  const shareUrl = `https://full-stack-ecommerce-scm2.vercel.app/product/${id}`;
+  const isInCart = cart.products.filter((item) => item._id === id).length > 0;
+  const [product, setProdut] = useState({});
+  const [reviews, setReviews] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-    const [size, setSize] = useState('');
-    const [color, setColor] = useState('');
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
+  const [size, setSize] = useState("");
+  const [color, setColor] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        const getProduct = async () => {
-            try {
-                setLoading(true);
-                const res = await publicRequest.get(`/products/find/${id}`);
-                setProdut(res.data);
-                setLoading(false);
-            } catch (err) {
-                console.log(err);
-            }
-        }
-        getProduct();
-    }, [id])
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        setLoading(true);
+        const res = await publicRequest.get(`/products/find/${id}`);
+        setProdut(res.data);
+        setLoading(false);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getProduct();
+  }, [id]);
 
-    const [count, setCount] = useState(1);
-    const countInc = () => {
-        setCount(count + 1);
+  const handleClick = async () => {
+    if (!currentUser) {
+      alert("Please login to add to cart");
+      return;
     }
+    console.log({ ...product, size, quantity: 1, color });
+    dispatch(addProduct({ ...product, size, quantity: 1, color })); //color also...
+    navigate("/cart");
+  };
 
-    const countDec = () => {
-        if (count > 1)
-            setCount(count - 1);
-    }
+  useEffect(() => {
+    const getAllReviews = async () => {
+      setLoading(true);
+      try {
+        const res = await axios.get(
+          `https://full-stack-ecommerce-mu.vercel.app/api/reviews/product/${product._id}`
+        );
+        setReviews([...res.data, ...review]);
+      } catch (error) {
+        console.log(error);
+      }
+      setLoading(false);
+    };
+    getAllReviews();
+  }, [product._id]);
 
-    const handleClick = async () => {
-        console.log({ ...product, size, quantity: count, color })
-        dispatch(addProduct({ ...product, size, quantity: count, color }));  //color also...
-        navigate('/cart');
-    }
-
-    const isInCart = cart.products.filter((item) => item._id === id).length > 0;
-
-    const Send = () => {
-        navigate('/cart');
-    }
-
-    const shareUrl = `https://full-stack-ecommerce-scm2.vercel.app/product/${id}`;
-
+  if (loading) {
     return (
-        <>
-            <div className='singles'>
-                {!loading ? <div className='singleContainer'>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "100px",
+        }}
+      >
+        <CircularProgress />
+      </div>
+    );
+  }
 
-                    <div className='singleLeft'>
-                        <img src={product.img} className='singleImgs' alt='noImg' />
-                        <div className='titlePrice'>
-                            <div className='titlePrice1'>
-                                <p className='singleTitles'>{product.title}</p>
-                                <p className='singlePrices'>₹{product.price}</p>
-                            </div>
-                            <div style={{ display: 'flex', marginLeft: "9px" }}>
-                                <p className='delivery'>In Stock</p>
-                                <p className='delivery share'>
-                                    <RWebShare data={{ text: "PublicMArt", url: shareUrl, title: `${product.title}` }} onClick={() => console.log("shared successfully!")}>
-                                        <div>
-                                            <span>Share</span>
-                                            <FaShare style={{ marginLeft: '4px' }} />
-                                        </div>
-                                    </RWebShare>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div className='singleRight'>
-                        <div className='titlePrice'>
-                            {currentUser ?
-                                <div className='buttons'>
-                                    {!isInCart ? <Button variant='contained' style={{ margin: '10px 20px', fontWeight: 'bold', padding: '8px 18px', backgroundColor: 'white', color: '#111', border: '1px solid #111' }} onClick={handleClick}><ShoppingCartSharpIcon />Add</Button>
-                                        : <Button variant='contained' style={{ margin: '10px 20px', fontWeight: 'bold', padding: '8px 18px', backgroundColor: 'white', color: '#111', border: '1px solid #111' }} onClick={Send}><ShoppingCartSharpIcon />View </Button>}
-                                    <Link to='/cart' style={{ textDecoration: 'none' }}><Button variant='contained' style={{ margin: '10px 20px', fontWeight: 'bold', padding: '8px 18px', backgroundColor: 'rgb(244, 51, 151)', color: 'white', border: '1px solid transparent' }}><KeyboardDoubleArrowRightSharpIcon />Buy</Button></Link>
-                                </div> :
-                                <div className='noProduct' style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}>
-                                    <p className='noProductText'>Login to Buy</p>
-                                    <Link to='/login' style={{ textDecoration: 'none' }}><Button variant='contained' style={{ margin: '10px 20px', fontWeight: 'bold', padding: '8px 18px', backgroundColor: 'rgb(244, 51, 151)', color: 'white', border: '1px solid transparent' }}><LoginIcon style={{ marginRight: '5px' }} />Login</Button></Link>
-                                </div>
-                            }
-                        </div>
-
-                        {product && product?.size?.length > 0 &&
-                            <div className='titlePrice'>
-                                <p className='selectSize'>Select Size</p>
-                                <div className='Sizes'>
-                                    {product.size && product.size.map((syz) => {
-                                        return (<button className={`chooseS ${syz === size ? 'selectedSyz' : 'notS'}`} onClick={(e) => setSize(e.target.value)} value={syz} key={syz}>{syz}</button>)
-                                    })}
-                                </div>
-                            </div>}
-
-                        {product && product?.color?.length > 0 && <div className='titlePrice'>
-                            <p className='selectSize'>Select Color</p>
-                            <div className='Sizes'>
-                                {product.color && product.color.map((clr) => {
-                                    return (<button className={`choose ${clr === color ? 'selecteds' : 'notS'}`} onClick={(e) => setColor(e.target.value)} value={clr} key={clr} style={{ backgroundColor: clr }}></button>)
-                                })}
-                            </div>
-                        </div>}
-
-                        <div className='titlePrice'>
-                            <p className='selectSize'>Quantity</p>
-                            <div className='quantity1'>
-                                <button className='speech-bubble' onClick={countDec}><RemoveIcon style={{ border: '1px solid #999', borderRadius: '50%', marginBottom: '3px' }} /></button>
-                                <button className='speech-bubble' style={{ marginBottom: '3px' }}>{count}</button>
-                                <button className='speech-bubble' onClick={countInc}><AddIcon style={{ border: '1px solid #999', borderRadius: '50%', marginBottom: '3px' }} /></button>
-                            </div>
-                        </div>
-
-                        <div className='titlePrice'>
-                            <div className='titleS'>Product Details</div>
-                            <div className='singleTitle' style={{ fontSize: '12px' }}>{product.desc}</div>
-                        </div>
-
-                    </div>
-
-                </div> :
-                    <div className='singleContainer1'>
-                        <CircularProgress color="success" />
-                    </div>}
-
-                {!loading && <div className='singleContainer2'>
-                    <Reviews item={product} />
-                </div>}
-                {!loading && <div className='singleContainer2'>
-                    <Recommended item={product} />
-                </div>}
+  return (
+    <>
+      <div className="ppcontainer">
+        <div className="single-product">
+          <div className="row">
+            <div className="col-6">
+              <div className="product-image">
+                <div className="product-image-main">
+                  <img src={product?.img} alt="" id="product-main-image" />
+                </div>
+              </div>
             </div>
-            <NewsLetter />
-            <Footer />
-        </>
-    )
-}
 
-export default Single
+            <div className="col-6 downn">
+              <div className="breadcrumb">
+                <span>
+                  <Link to="#">Home</Link>
+                </span>
+                <span>
+                  <Link to="#">Product</Link>
+                </span>
+                <span className="active">{product?.title?.slice(0, 25)}</span>
+              </div>
+              <div className="product">
+                <div className="product-title">
+                  <h4>
+                    <strong>{product?.title?.slice(0, 25)}</strong>
+                  </h4>
+                </div>
+                <div className="product-rating">
+                  <span>
+                    <i className="bx bxs-star"></i>
+                  </span>
+                  <span>
+                    <i className="bx bxs-star"></i>
+                  </span>
+                  <span>
+                    <i className="bx bxs-star"></i>
+                  </span>
+                  <span>
+                    <i className="bx bxs-star"></i>
+                  </span>
+                  {reviews?.length % 2 === 0 && (
+                    <span>
+                      <i className="bx bxs-star"></i>
+                    </span>
+                  )}
+                  <span className="review">
+                    <strong>({reviews?.length} Review)</strong>
+                  </span>
+                </div>
+                <div className="product-price">
+                  <span className="offer-price">${product?.price}.00</span>
+                  <span className="sale-price">${product?.price + 100}.00</span>
+                </div>
+
+                <div className="product-details">
+                  <h4>
+                    <strong>Description</strong>
+                  </h4>
+                  <p>{product?.desc}</p>
+                </div>
+
+                {product?.size && (
+                  <div className="product-size">
+                    <h4>
+                      <strong>Size</strong>
+                    </h4>
+                    <div className="size-layout">
+                      {product?.size &&
+                        product?.size?.map((syz) => {
+                          return (
+                            <>
+                              <input
+                                type="radio"
+                                onChange={(e) => setSize(e.target.value)}
+                                name="size"
+                                value={syz}
+                                id={syz}
+                                className="size-input"
+                              />
+                              <label htmlFor={syz} className="size">
+                                {syz}
+                              </label>
+                            </>
+                          );
+                        })}
+                    </div>
+                  </div>
+                )}
+                {product?.color && (
+                  <div className="product-color">
+                    <h4>
+                      <strong>Color</strong>
+                    </h4>
+                    <div className="color-layout">
+                      {product?.color?.map((clr) => (
+                        <div key={clr} style={{ display: "inline-block" }}>
+                          <input
+                            type="radio"
+                            onChange={(e) => setColor(e.target.value)}
+                            name="color"
+                            value={clr}
+                            id={clr}
+                            className="color-input"
+                            style={{ display: "none" }}
+                          />
+                          <label
+                            htmlFor={clr}
+                            style={{ backgroundColor: clr }}
+                            className={`color-label ${
+                              clr === color ? "selected-label" : ""
+                            }`}
+                          ></label>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <span className="divider"></span>
+
+                <div className="product-btn-group">
+                  <button onClick={handleClick} className="button buy-now">
+                    <i className="bx bxs-cart" />
+                    {isInCart ? "In Cart" : "Add to Cart"}
+                  </button>
+                  <div className="button add-cart">
+                    <RWebShare
+                      data={{
+                        text: "PublicMArt",
+                        url: shareUrl,
+                        title: `${product.title}`,
+                      }}
+                    >
+                      <div>
+                        <span>Share</span>
+                        <FaShare style={{ marginLeft: "4px" }} />
+                      </div>
+                    </RWebShare>
+                  </div>
+                  {/* <div className="button heart">
+                  <i className="bx bxs-heart"></i> Add to Wishlist
+                </div> */}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Reviews item={product} />
+      <Recommended item={product} />
+      <NewsLetter />
+      <Footer />
+    </>
+  );
+}
