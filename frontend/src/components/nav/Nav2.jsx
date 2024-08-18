@@ -44,10 +44,8 @@ const Nav2 = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   if (currentUser) {
-    // console.log(currentUser.username);
     isUser = true;
   } else {
-    // console.log("no user");
     isUser = false;
   }
 
@@ -58,7 +56,6 @@ const Nav2 = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(title);
     if (title?.trim().length > 0) {
       navigate(`/search?title=${title.trim()}`);
     } else {
@@ -142,8 +139,8 @@ const Nav2 = () => {
                 onChange={(e) => setTitle(e.target.value)}
                 name="title"
                 value={title}
-                style={{ border:"none", background:'none'}}
-                />
+                style={{ border: "none", background: 'none' }}
+              />
             </form> :
             <IconButton color="error" onClick={handleFullSearch}>
               <GoSearch color="black" size={22} />
@@ -198,7 +195,6 @@ const Nav2 = () => {
               {!currentUser?.userimg ? <FaUserCircle className="userDropDownIcon" size={22} /> : <img style={{ height: '20px', width: '20px' }} src={currentUser?.userimg} alt="noImg" />}
               <Typography
                 className="userDropDownText"
-                sx={{ fontFamily: "'candara',sans-serif" }}
               >
                 {currentUser?.username}
               </Typography>
@@ -207,7 +203,6 @@ const Nav2 = () => {
               <FavoriteIcon className="userDropDownIcon" />
               <Typography
                 className="userDropDownText"
-                sx={{ fontFamily: "'candara',sans-serif" }}
               >
                 Wishlist
               </Typography>
@@ -216,7 +211,6 @@ const Nav2 = () => {
               <ShoppingCartIcon className="userDropDownIcon" />
               <Typography
                 className="userDropDownText"
-                sx={{ fontFamily: "'candara',sans-serif" }}
               >
                 Orders
               </Typography>
@@ -225,7 +219,6 @@ const Nav2 = () => {
               <LoginIcon className="userDropDownIcon" />
               <Typography
                 className="userDropDownText"
-                sx={{ fontFamily: "'candara',sans-serif" }}
               >
                 Logout
               </Typography>

@@ -1,8 +1,8 @@
-.mainfooter{
-    background-color: #111;
-    color: white;
-    padding: 0px;
-    margin: 0px;
+.mainfooter {
+  background-color: #111;
+  color: white;
+  padding: 0px;
+  margin: 0px;
 }
 
 footer {
@@ -40,20 +40,19 @@ ul.social-network {
   padding: 0;
 }
 
-.footer-pad{
-    display: flex;
-    /* border: 1px solid red; */
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.footer-pad {
+  display: flex;
+  /* border: 1px solid red; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.footHead{
-    font-family: "candara", sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    color: white;
-    font-family: "Open Sans", sans-serif;
+.footHead {
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  font-family: "Open Sans", sans-serif;
 }
 
 ul.social-network li {
@@ -61,45 +60,38 @@ ul.social-network li {
   margin: 0 5px;
 }
 
-.i{
-  color:rgb(216, 216, 216);
+.i {
+  color: rgb(216, 216, 216);
 }
 
-.i:hover{
+.i:hover {
   color: #fa944b;
   animation: 1s ease-in-out 0s 1 slideInFromLeft;
   cursor: pointer;
 }
 
-
-.right{
-    font-size: 13px;
-    font-family: "candara", sans-serif;
-    font-family: "Open Sans", sans-serif;
-
+.right {
+  font-size: 13px;
+  font-family: "Open Sans", sans-serif;
 }
 
-.yr{
-    font-family: monospace;
-    font-family: "Open Sans", sans-serif;
+.yr {
+  font-family: "Open Sans", sans-serif;
 }
 
-.catText{
-    text-decoration: none;
-    font-size: 15px;
-    padding: 0;
-    letter-spacing:.1px;
-    word-spacing: 1px;
-    font-weight: normal;
-    color: #b6b6b6;
-    margin: 0;
-    font-family: monospace;
-    font-family: "candara", sans-serif;
+.catText {
+  text-decoration: none;
+  font-size: 15px;
+  padding: 0;
+  letter-spacing: 0.1px;
+  word-spacing: 1px;
+  font-weight: normal;
+  color: #b6b6b6;
+  margin: 0;
 }
 
 @media screen and (max-width: 768px) {
-  .footer-pad{
+  .footer-pad {
     text-align: center;
   }
 }
-  

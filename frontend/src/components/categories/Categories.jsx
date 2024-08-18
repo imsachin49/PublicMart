@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Categories = () => {
   return (
-    <div style={{ backgroundColor: "aliceblue" }} id="categories">
+    <div id="categories">
       <h2>Shop Our Top Categories</h2>
       <div className="cat-categories">
         <div className="cat-wrapper">
@@ -15,7 +15,7 @@ const Categories = () => {
                   <div className="org-card">
                     <img src={item.img} alt="noCat" />
                     <div className="cat-mid">
-                      <h4 className="ctitle">{item.cat}</h4>
+                      <h6 className="ctitle">{item.cat}</h6>
                     </div>
                   </div>
                 </div>

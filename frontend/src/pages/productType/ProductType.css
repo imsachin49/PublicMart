@@ -22,7 +22,6 @@
 }
 
 .noProductText{
-    font-family: 'candara', sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
     color: rgb(0, 183, 255);
@@ -140,7 +139,6 @@ hr{
     margin: 3px 7px;
     text-transform: capitalize;
     margin-bottom: 6px;
-    font-family: monospace;
     font-weight: bolder;
     margin-top: 5px;
     font-weight: 700;
@@ -182,7 +180,6 @@ hr{
     padding: 4px 8px;
     border-radius: 25px;
     margin: 0px 20px;
-    font-family: 'candara', sans-serif;
 }
 
 select{
@@ -192,13 +189,11 @@ select{
     padding: 4px 8px;
     border-radius: 25px;
     margin: 0px 10px;
-    font-family: 'candara', sans-serif;
 }
 
 
 option{
     color: black;
-    font-family: 'candara',sans-serif;
     font-weight: bold;
 }
 

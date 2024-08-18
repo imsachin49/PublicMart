@@ -139,7 +139,7 @@ const Search = () => {
                                         <p className='productPrice'>${item.price}</p>
                                     </div>
                                     <div className='cartBtn'>
-                                        <><Button className='cartNow' style={{ border: '1px solid #555', marginLeft: '20px', borderRadius: '25px', color: '#444', fontFamily: "'candara', sans-serif", fontWeight: 'bold', padding: '3px 8px' }} onClick={() => addToProduct(item._id)} >Explore</Button></>
+                                        <><Button className='cartNow' style={{ border: '1px solid #555', marginLeft: '20px', borderRadius: '25px', color: '#444', fontWeight: 'bold', padding: '3px 8px' }} onClick={() => addToProduct(item._id)} >Explore</Button></>
                                     </div>
                                 </div>
                             )

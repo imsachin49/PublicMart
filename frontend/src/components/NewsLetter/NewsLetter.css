@@ -19,8 +19,7 @@
     padding: 10px 0px;
 }
 
-.newsLetterTitle{
-    font-family: "candara",sans-serif;
+.newsLetterTitle{    
     font-size: 30px;
     color:#111;
     margin: 0;
@@ -28,15 +27,11 @@
     font-weight: bolder;
 }
 
-.newLetterform{
-}
-
 .subInput{
     width: 300px;
     border: none;
     outline: none;
     padding: 7px;
-    font-family: "candara",sans-serif;
     border-radius: 4px;
     margin-right: 0px;
     border: 1px solid rgb(173, 173, 173);
@@ -49,7 +44,6 @@
     background-color: rgb(244, 51, 151);
     outline: none;
     color: white;
-    font-family: "candara",sans-serif;
     font-weight: bold;
     box-shadow: 0px 0px 5px 0px rgb(173, 173, 173);
     border: none;
@@ -57,8 +51,7 @@
 }
 
 .subInfo{
-    max-width: 300px;
-    font-family: "candara",sans-serif;
+    max-width: 330px;
     font-size: 13px;
     color: #222;
     margin: 0px;

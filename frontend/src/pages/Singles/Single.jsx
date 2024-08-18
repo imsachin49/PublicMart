@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, useMediaQuery } from '@mui/material'
+import { Button } from '@mui/material'
 import KeyboardDoubleArrowRightSharpIcon from '@mui/icons-material/KeyboardDoubleArrowRightSharp';
 import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -17,7 +17,6 @@ import Footer from '../../components/footer/Footer';
 import Recommended from '../../components/recommended/Recommended';
 import { RWebShare } from 'react-web-share'
 import { FaShare } from 'react-icons/fa';
-
 const Single = () => {
     const currentUser = useSelector(state => state?.user?.currentUser?.user);
     const cart = useSelector(state => state?.cart);
@@ -44,8 +43,6 @@ const Single = () => {
         }
         getProduct();
     }, [id])
-
-    console.log("product", product);
 
     const [count, setCount] = useState(1);
     const countInc = () => {
@@ -102,13 +99,13 @@ const Single = () => {
                         <div className='titlePrice'>
                             {currentUser ?
                                 <div className='buttons'>
-                                    {!isInCart ? <Button variant='contained' style={{ margin: '10px 20px', fontFamily: "'candara',sans-serif", fontWeight: 'bold', padding: '8px 18px', backgroundColor: 'white', color: '#111', border: '1px solid #111' }} onClick={handleClick}><ShoppingCartSharpIcon />Add</Button>
-                                        : <Button variant='contained' style={{ margin: '10px 20px', fontFamily: "'candara',sans-serif", fontWeight: 'bold', padding: '8px 18px', backgroundColor: 'white', color: '#111', border: '1px solid #111' }} onClick={Send}><ShoppingCartSharpIcon />View </Button>}
-                                    <Link to='/cart' style={{ textDecoration: 'none' }}><Button variant='contained' style={{ margin: '10px 20px', fontFamily: "'candara',sans-serif", fontWeight: 'bold', padding: '8px 18px', backgroundColor: 'rgb(244, 51, 151)', color: 'white', border: '1px solid transparent' }}><KeyboardDoubleArrowRightSharpIcon />Buy</Button></Link>
+                                    {!isInCart ? <Button variant='contained' style={{ margin: '10px 20px', fontWeight: 'bold', padding: '8px 18px', backgroundColor: 'white', color: '#111', border: '1px solid #111' }} onClick={handleClick}><ShoppingCartSharpIcon />Add</Button>
+                                        : <Button variant='contained' style={{ margin: '10px 20px', fontWeight: 'bold', padding: '8px 18px', backgroundColor: 'white', color: '#111', border: '1px solid #111' }} onClick={Send}><ShoppingCartSharpIcon />View </Button>}
+                                    <Link to='/cart' style={{ textDecoration: 'none' }}><Button variant='contained' style={{ margin: '10px 20px', fontWeight: 'bold', padding: '8px 18px', backgroundColor: 'rgb(244, 51, 151)', color: 'white', border: '1px solid transparent' }}><KeyboardDoubleArrowRightSharpIcon />Buy</Button></Link>
                                 </div> :
                                 <div className='noProduct' style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}>
                                     <p className='noProductText'>Login to Buy</p>
-                                    <Link to='/login' style={{ textDecoration: 'none' }}><Button variant='contained' style={{ margin: '10px 20px', fontFamily: "'candara',sans-serif", fontWeight: 'bold', padding: '8px 18px', backgroundColor: 'rgb(244, 51, 151)', color: 'white', border: '1px solid transparent' }}><LoginIcon style={{ marginRight: '5px' }} />Login</Button></Link>
+                                    <Link to='/login' style={{ textDecoration: 'none' }}><Button variant='contained' style={{ margin: '10px 20px', fontWeight: 'bold', padding: '8px 18px', backgroundColor: 'rgb(244, 51, 151)', color: 'white', border: '1px solid transparent' }}><LoginIcon style={{ marginRight: '5px' }} />Login</Button></Link>
                                 </div>
                             }
                         </div>
@@ -143,7 +140,7 @@ const Single = () => {
 
                         <div className='titlePrice'>
                             <div className='titleS'>Product Details</div>
-                            <p className='singleTitle' style={{ fontSize: '12px', marginLeft: '5px' }}>{product.desc}</p>
+                            <div className='singleTitle' style={{ fontSize: '12px' }}>{product.desc}</div>
                         </div>
 
                     </div>

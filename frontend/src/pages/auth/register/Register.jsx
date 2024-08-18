@@ -87,8 +87,8 @@ const Register = () => {
             <input type='password' name='password' id='password' value={user.password} onChange={handleChange} required placeholder='At least 4 characters' />
           </div>
           <div className='formInput'>
-            {!loading ? <Button type='submit' variant='contained' className='btn' style={{ backgroundColor: 'black', color: 'white', margin: '3px 0px', fontFamily: "'candara',sans-serif", marginTop: '11px' }}>Continue</Button>
-              : <Button type='submit' variant='contained' className='btn' style={{ backgroundColor: 'black', color: 'white', margin: '3px 0px', fontFamily: "'candara',sans-serif", marginTop: '11px' }}><CircularProgress style={{ color: 'white' }} /></Button>}
+            {!loading ? <Button type='submit' variant='contained' className='btn' style={{ backgroundColor: 'black', color: 'white', margin: '3px 0px', marginTop: '11px' }}>Continue</Button>
+              : <Button type='submit' variant='contained' className='btn' style={{ backgroundColor: 'black', color: 'white', margin: '3px 0px', marginTop: '11px' }}><CircularProgress style={{ color: 'white' }} /></Button>}
           </div>
           <div className='formInput'>
             <Link className='log'>Already have an account? <Link className='login' to='/login'>&nbsp;Login</Link> </Link>
@@ -101,7 +101,7 @@ const Register = () => {
                   <Button variant='contained' className='btn' style={{backgroundColor:'black',color:'white',fontFamily:'cursive',fontFamily:"'candara',sans-serif",marginBottom:'5px'}} ><GitHubIcon/>&nbsp;Continue with Github</Button>
               </div>*/}
         </form>
-        <div className="pg font-candara mb-1 text-center border border-bottom-0 border-end-0 border-start-0 pt-1">
+        <div className="pg mb-1 text-center border border-bottom-0 border-end-0 border-start-0 pt-1">
         By signing in or creating an account, you agree with our Terms & Conditions and Privacy Statement
       </div>
       </div>

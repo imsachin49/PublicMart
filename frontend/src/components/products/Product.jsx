@@ -1,31 +1,43 @@
-import React, { useEffect, useState } from 'react'
-import './Products.css';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
-import { BsFillHeartFill } from 'react-icons/bs'
+import { BsFillHeartFill } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
-import {IoStarSharp} from 'react-icons/io5';
+import { Link } from 'react-router-dom';
+import starFilled from '../../assets/icons/star-filled.svg';
+import starEmpty from '../../assets/icons/star-empty.svg';
+import './Test.css';
+import { ShoppingCart } from '@mui/icons-material';
 
-const Product = ({ item }) => {
+const truncateText = (text, maxLength) => {
+    return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
+};
+
+export default function Product({ item }) {
     const [isLiked, setIsLiked] = useState(false);
+    const [rating, setRating] = useState(0);
     const user = useSelector(state => state?.user?.currentUser?.user);
     const isLoggedIn = user ? true : false;
     const navigate = useNavigate();
 
     const addToProduct = (id) => {
-        navigate(`/product/${id}`)
-    }
+        navigate(`/product/${id}`);
+    };
 
-    // //like or dislike post
     useEffect(() => {
         setIsLiked(item?.likes?.includes(user?.id));
     }, [item?._id, user, item?.likes]);
 
+    useEffect(() => {
+        // Randomize the number of filled stars between 1 and 5
+        setRating(Math.floor(Math.random() * 5) + 1);
+    }, [item]);
+
     const handleLike = async () => {
         if (isLoggedIn) {
             try {
-                const res=await axios.put(`https://full-stack-ecommerce-mu.vercel.app/api/products/${item?._id}/like`,{ userId: user?.id });
+                const res = await axios.put(`https://full-stack-ecommerce-mu.vercel.app/api/products/${item?._id}/like`, { userId: user?.id });
                 console.log(res.data);
                 setIsLiked(!isLiked);
             } catch (error) {
@@ -37,25 +49,34 @@ const Product = ({ item }) => {
         }
     };
 
-    // to generAtE random number between 4 and 5
-
     return (
-        <>
-            <div className='productCard'>
-                <div className='imgContainer'>
-                    <img src={item?.img} className='itemImg' alt='noImg' />
-                    <BsFillHeartFill className='likePRoduct' size={20} color={` ${isLiked ? 'red' : 'lightblue'}`} onClick={handleLike} />
+        <div className="product-card">
+            <Link to={`/${item?._id}`}>
+                <img className="product-image" src={item?.img} alt="Product" />
+            </Link>
+            <div className="product-info">
+                <Link to={`/${item?._id}`} className="product-title">{truncateText(item?.title, 50)}</Link>
+                <div className="product-rating">
+                    <div className="stars">
+                        {[...Array(5)].map((_, i) => (
+                            <img
+                                key={i}
+                                className={`star ${i < rating ? 'filled' : 'empty'}`}
+                                src={i < rating ? starFilled : starEmpty}
+                                alt={i < rating ? 'Star filled' : 'Star empty'}
+                            />
+                        ))}
+                    </div>
+                    <span className="rating-score">5.0</span>
                 </div>
-                <div className='productTexts'>
-                    <p className='productTitle' style={{ fontWeight: 'bolder' }}>{item?.title}</p>
-                    <p className='productPrice'>${item?.price}</p>
-                </div>
-                <div className='cartBtn'>
-                    <><Button onClick={() => addToProduct(item?._id)} className='cartNow' style={{ border: '1px solid #555', marginLeft: '20px', borderRadius: '25px', color: '#111', fontFamily: "'Open sans', sans-serif", fontWeight: 'bold', padding: '3px 8px',textTransform:"capitalize" }}>Explore</Button></>
+                <div className="product-footer">
+                    <span className="product-price">${item?.price}</span>
+                    <Link to={`/${item?._id}`} className="add-to-cart">
+                        <ShoppingCart style={{fontSize:"15px",color:"gray"}} />
+                        Add to cart
+                    </Link>
                 </div>
             </div>
-        </>
-    )
+        </div>
+    );
 }
-
-export default Product

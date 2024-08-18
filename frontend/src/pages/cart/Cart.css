@@ -9,7 +9,6 @@
 
 .cart-main {
   display: flex;
-  font-family: "candara", sans-serif;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -103,7 +102,6 @@
   line-height: 15px;
   margin: 0;
   padding: 0;
-  font-family: "candara", sans-serif;
   font-weight: lighter;
   color: #111;
   max-width: 500px;
@@ -264,7 +262,6 @@
 .noItemText {
   font-size: 30px;
   color: #525252;
-  font-family: "candara", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -281,7 +278,6 @@
   background-color: #525252;
   color: white;
   font-size: 20px;
-  font-family: "candara", sans-serif;
   text-decoration: none;
 }
 

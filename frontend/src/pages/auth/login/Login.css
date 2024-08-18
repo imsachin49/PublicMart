@@ -3,7 +3,6 @@
   width: 100%;
   display: flex;
   margin-top: 7px;
-  font-family: "candara", sans-serif;
   justify-content: center;
 }
 
@@ -96,7 +95,6 @@ input {
   outline-color: rgba(88, 111, 141, 0.664);
   border: 1px solid rgba(167, 167, 167, 0.726);
   margin-bottom: 8px;
-  font-family: "candara", sans-serif;
 }
 
 label {

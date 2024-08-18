@@ -3,7 +3,6 @@ import './Footer.css'
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GithubIcon from '@mui/icons-material/GitHub';
 import { Link } from 'react-router-dom';
 
@@ -77,7 +76,6 @@ const Footer = () => {
               <p className="text-center right">&copy; Copyright <span className='yr'>2022</span> - PublicMart.  All rights reserved.</p>
             </div>
           </div>
-
         </div>
       </div>
     </footer>

@@ -68,7 +68,6 @@ export const MuiDrawer = ({ openDrawer, setOpenDrawer }) => {
               fontWeight: "bold",
               borderBottom: "1px solid rgb(244,51,151)",
               gap: "1px",
-              fontFamily: "'candara',sans-serif'",
             }}
             style={{
               backgroundImage: `url("https://img.freepik.com/premium-photo/jumping-high-portrait-young-beautiful-woman-neon-light-dark-studio-backgound-with-lettering-sale-human-emotions-black-friday-cyber-monday-purchases-sales-finance-copyspace_489646-2449.jpg?size=626&ext=jpg&ga=GA1.2.1448707257.1687164508&semt=ais")`,
@@ -77,7 +76,6 @@ export const MuiDrawer = ({ openDrawer, setOpenDrawer }) => {
             <Typography
               sx={{
                 fontWeight: "bold",
-                fontFamily: "'candara',sans-serif",
                 fontSize: "24px",
                 color:"white",
                 textTransform: "capitalize",
@@ -131,7 +129,6 @@ export const MuiDrawer = ({ openDrawer, setOpenDrawer }) => {
                 sx={{
                   margin: "2px 8px",
                   padding: "6px 8px",
-                  fontFamily: "'candara',sans-serif",
                   fontWeight: "bold",
                   fontSize: "24px",
                   borderRadius: "5px",
@@ -165,7 +162,6 @@ export const MuiDrawer = ({ openDrawer, setOpenDrawer }) => {
                 sx={{
                   margin: "2px 8px",
                   padding: "6px 8px",
-                  fontFamily: "'candara',sans-serif",
                   fontWeight: "bold",
                   fontSize: "24px",
                   color: "#222",
@@ -203,7 +199,6 @@ export const MuiDrawer = ({ openDrawer, setOpenDrawer }) => {
               sx={{
                 margin: "2px 8px",
                 padding: "6px 8px",
-                fontFamily: "'candara',sans-serif",
                 fontWeight: "bold",
                 fontSize: "24px",
                 color: "#222",
@@ -254,7 +249,6 @@ export const MuiDrawer = ({ openDrawer, setOpenDrawer }) => {
                       variant="h6"
                       sx={{
                         padding: "0px 2px",
-                        fontFamily: "'candara',sans-serif",
                         fontWeight: "550px",
                         color: "#333",
                         margin: "5px 4px",
@@ -301,7 +295,6 @@ export const MuiDrawer = ({ openDrawer, setOpenDrawer }) => {
                 sx={{
                   margin: "2px 8px",
                   padding: "6px 8px",
-                  fontFamily: "'candara',sans-serif",
                   fontWeight: "bold",
                   color: "#222",
                   borderRadius: "5px",
@@ -335,7 +328,6 @@ export const MuiDrawer = ({ openDrawer, setOpenDrawer }) => {
                 sx={{
                   margin: "2px 8px",
                   padding: "6px 8px",
-                  fontFamily: "'candara',sans-serif",
                   fontWeight: "bold",
                   color: "#222",
                   borderRadius: "5px",

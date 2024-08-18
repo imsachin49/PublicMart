@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '../../components/navbar/Navbar'
 import './Cart.css'
 import { Button } from '@mui/material'
 import { useState,useEffect } from 'react'

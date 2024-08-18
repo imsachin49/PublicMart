@@ -7,21 +7,21 @@ import image6 from '../../assets/slider/slider5.jpg'
 import banner from '../../assets/banner-img.png'
 import cover from '../../assets/cover.jfif'
 
-export const CaarouselPhotos=[
+export const CaarouselPhotos = [
     {
-        id:1,
-        pic:image5
+        id: 1,
+        pic: image5
     },
     {
-        id:2,
-        pic:image1
+        id: 2,
+        pic: image1
     },
     {
-        id:3,
-        pic:cover
+        id: 3,
+        pic: cover
     },
     {
-        id:4,
-        pic:image6
+        id: 4,
+        pic: image6
     }
 ]

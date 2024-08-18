@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* background-color: aliceblue; */
     overflow-x: hidden;
 }
 
@@ -11,6 +10,8 @@
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     margin: 15px;
+    align-items: center;
+    justify-content: center;
 }
 
 hr{
@@ -18,38 +19,29 @@ hr{
 }
 
 .cat-card{
-    width:270px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     border-radius: 15px;
     background-color:rgba(237, 236, 236, 0.905);
     margin:.4rem;
     transition: all 0.3s ease-in-out;
+    width: fit-content;
 }
 
 .cat-card:hover{
     z-index: 1;
-    box-shadow: 0 8px 50px rgba(0,0,0,0.2);
-    transform: scale(1.05);
+    transform: scale(1.035);
 }
 
 .cat-card img{
     border-radius: 10px;
-    /* border: 0.3px solid snow; */
     position: relative;
-    width: 270px;
-    height: 230px;
+    width: 170px;
+    height: 170px;
 }
 
 .org-card{
     position: relative;
 }
-
-.org-card img{
-    /* width: 100%; */
-    /* height: auto; */
-    /* opacity: 0.7; */
-}
-
 
 .cat-mid{
     display: flex;
@@ -58,7 +50,7 @@ hr{
     color: black;
     justify-content: center;
     position: absolute;
-    top: 20%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -70,11 +62,10 @@ hr{
     color:#292929e3;
     padding: 2px;
     border-radius: 6px;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
     padding: 5px;
     text-transform: capitalize;
-    font-family: 'candara' , sans-serif;
     background: rgba(255, 255, 255, 0.493);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 0.5px );
@@ -87,119 +78,37 @@ hr{
     margin-top: 10px;
 }
 
-h4{
-    color: crimson;
-    text-align: center;
-    font-family: 'Kalam', cursive;
-}
-
 h2{
     text-align: center;
-    color: orangered;
+    color: rgb(100, 99, 99);
     margin: 60px;
     margin-bottom: 30px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(224, 224, 224);
     padding: 20px;
 }
 
-@media screen and (max-width: 1120px){
-    .cat-card img{
-        width:240px;
-    }
-    .cat-card{
-        width: 240px;
-    }
-}
-
-@media screen and (max-width: 1020px){
-    .cat-card img{
-        width:210px;
-    }
-    .cat-card{
-        width: 210px;
-    }  
-}
-
-@media screen and (max-width: 905px){
+@media screen and (max-width: 805px){
     .cat-wrapper{
         grid-template-columns: 33.3% 33.3% 33.3%;
     }
     .cat-card img{
-        width:220px;
+        width:160px;
+        height: 160px;
     }
-    .cat-card{
-        width: 220px;
-    }  
 }
 
-@media screen and (max-width: 700px){
-    .cat-wrapper{
-        grid-template-columns: 33.3% 33.3% 33.3%;
-    }
-    .cat-card img{
-        width:190px;
-    }
-    .cat-card{
-        width: 190px;
-    }  
-}
-
-@media screen and (max-width: 620px){
+@media screen and (max-width: 550px){
     .cat-wrapper{
         grid-template-columns: 50% 50%;
     }
     .cat-card img{
-        width:230px;
+        width:165px;
     }
-    .cat-card{
-        width: 230px;
-    }  
 }
 
-@media screen and (max-width: 520px){
-    .cat-wrapper{
-        grid-template-columns: 50% 50%;
-    }
+@media screen and (max-width: 405px){
     .cat-card img{
-        width:210px;
+        width:145px;
+        height: 145px;
     }
-    .cat-card{
-        width: 210px;
-    }  
-}
-
-@media screen and (max-width: 450px){
-    .cat-wrapper{
-        grid-template-columns: 50% 50%;
-    }
-    .cat-card img{
-        width:185px;
-    }
-    .cat-card{
-        width: 185px;
-    }  
-}
-
-@media screen and (max-width: 406px){
-    .cat-wrapper{
-        grid-template-columns: 100%;
-    }
-    .cat-card img{
-        width:300px;
-    }
-    .cat-card{
-        width: 300px;
-    }  
-}
-
-@media screen and (max-width: 320px){
-    .cat-wrapper{
-        grid-template-columns: 100%;
-    }
-    .cat-card img{
-        width:270px;
-    }
-    .cat-card{
-        width: 270px;
-    }  
 }

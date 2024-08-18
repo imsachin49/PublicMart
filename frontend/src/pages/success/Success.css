@@ -66,14 +66,12 @@
     font-size: .99rem;
     margin-top: 5px;
     text-align: center;
-    font-family: "candara", sans-serif;
 }
 
 .underline{
     /* text-base mt-5 */
     font-size: 1.1rem;
     margin-top: 2px;
-    font-family: "candara", sans-serif;
     text-decoration: underline;
 }
 

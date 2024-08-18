@@ -1,7 +1,5 @@
 import {  BrowserRouter as Router ,Routes,Route} from "react-router-dom";
 import {useState,useEffect} from 'react';
-import Navbar from './components/navbar/Navbar';
-import Products from './components/products/Products';
 import Login from './pages/auth/login/Login';
 import Register from './pages/auth/register/Register';
 import Success from './pages/success/Success';
@@ -18,7 +16,6 @@ import Search from "./pages/search/Search"
 
 function App() {
   const user=useSelector(state=>state.user.currentUser);
-  // checking if user is logged in or not
   const [isLogged,setIsLogged]=useState(false);
   
   useEffect(()=>{
@@ -30,7 +27,6 @@ function App() {
   return (
     <>
      <Router >
-      {/*<Navbar user={user} />*/}
       <Nav2/>
       <ScrollToTop />
       <Routes>
@@ -46,7 +42,6 @@ function App() {
         <Route path='/search' element={<Search />} />
       </Routes>
      </Router>
-      {/* <Navbar /> */}
     </>
   );
 }

@@ -87,8 +87,8 @@ const Login = () => {
           </div>
           <div className='formInput'>
             {!loading ?
-              <Button type='submit' variant='contained' className='rbtn' style={{ backgroundColor: 'black', color: 'white', marginTop: '10px', fontFamily: "'candara',sans-serif" }} onClick={handleClick}>Login</Button>
-              : <Button type='submit' variant='contained' className='btn' style={{ backgroundColor: 'black', color: 'white', margin: '3px 0px', fontFamily: "'candara',sans-serif", marginTop: '11px' }}><CircularProgress style={{ color: 'white' }} /></Button>
+              <Button type='submit' variant='contained' className='rbtn' style={{ backgroundColor: 'black', color: 'white', marginTop: '10px' }} onClick={handleClick}>Login</Button>
+              : <Button type='submit' variant='contained' className='btn' style={{ backgroundColor: 'black', color: 'white', margin: '3px 0px', marginTop: '11px' }}><CircularProgress style={{ color: 'white' }} /></Button>
             }
           </div>
           <div className='formInput'>
@@ -105,7 +105,7 @@ const Login = () => {
                 </div> */}
 
         </form>
-        <div className="pg font-candara mb-1 text-center border border-bottom-0 border-end-0 border-start-0 pt-1">
+        <div className="pg mb-1 text-center border border-bottom-0 border-end-0 border-start-0 pt-1">
           By signing in or creating an account, you agree with our Terms & Conditions and Privacy Statement
         </div>
       </div>

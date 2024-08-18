@@ -7,16 +7,14 @@ body {
   overflow-x: hidden;
 }
 
-/* For Webkit-based browsers (Chrome, Safari) */
-
 ::-webkit-scrollbar {
-  width: 2.5px; /* Change the width as desired */
+  width: 2.5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Change the background color as desired */
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(244, 51, 151); /* Change the scrollbar color as desired */
+  background: rgb(244, 51, 151);
 }

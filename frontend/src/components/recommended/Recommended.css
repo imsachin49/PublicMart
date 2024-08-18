@@ -25,7 +25,7 @@
 .recText{
     font-size: 23px;
     font-weight: bold;
-    font-family: "candara",sans-serif;
+    
     margin: 0;
     padding: 0;
 }
@@ -45,7 +45,6 @@
     padding: 0;
     margin: 0;
     font-weight: bold;
-    font-family: "candara", sans-serif;
     font-size: 16px;
     margin-left: 2px;
     color: red;
@@ -142,9 +141,6 @@
     font-weight: bold;
     margin: 0;
     padding: 5px 0px;
-    /* font-family: "candara", sans-serif; */
-    /* font-family: ; */
-    /* for open sans fmaily */
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -152,7 +148,6 @@
     margin: 0;
     padding: 0;
     font-size: 17px;
-    font-family: monospace;
     /* font-weight: bold; */
     display: none;
 }
