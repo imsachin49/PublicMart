@@ -31,7 +31,7 @@ mongoose.connect(process.env.MONGO_URL)
   })
   .catch((err) => {
     console.log(`Error in connecting to the DB ${err}`)
-})
+  })
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', 'https://full-stack-ecommerce-scm2.vercel.app');
@@ -40,7 +40,7 @@ app.use(function (req, res, next) {
 });
 
 app.use(cors({
-  "origin": ["http://localhost:3000", "https://visual-board-ten.vercel.app", "https://full-stack-ecommerce-scm2.vercel.app", "https://full-stack-ecommerce-mu.vercel.app"],
+  origin: '*',
   methods: "GET,POST,PUT,DELETE",
   credentials: true,
 }))

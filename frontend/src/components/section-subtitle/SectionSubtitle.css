@@ -23,10 +23,10 @@
 
 @media screen and (max-width: 805px) {
     .section__subtitle {
-        font-size: 1.5rem !important;
+        font-size: 1.2rem !important;
     }
 
     .section__subtitle__line {
-        width: 50px;
+        width: 25px;
     }
 }

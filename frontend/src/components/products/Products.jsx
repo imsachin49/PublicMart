@@ -19,7 +19,7 @@ const Products = () => {
     const getProducts = async () => {
       try {
         setLoading(true);
-        const res = await publicRequest.get(`/products?page=${page}&limit=10`);
+        const res = await publicRequest.get(`/products?page=${page}&limit=7`);
         setProduts(res.data.paginatedProducts);
         setTotal(res.data.total);
         console.log(res.data);
@@ -36,7 +36,7 @@ const Products = () => {
     productsRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
-  const totalPage = Math.ceil(total / 10);
+  const totalPage = Math.ceil(total / 7);
 
   return (
     <div ref={productsRef} id="new">
@@ -50,7 +50,7 @@ const Products = () => {
           </div>
         ) : (
           <div className="pKawrapper">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => {
+            {[1, 2, 3, 4, 5, 6, 7].map((item, index) => {
               return (
                 <div style={{ margin: "10px" }}>
                   <Skeleton height={200} width={250} />

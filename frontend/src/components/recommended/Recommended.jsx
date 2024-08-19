@@ -117,7 +117,7 @@ const Recommended = ({ item }) => {
         <h1 className="recText">Similar Products({recommends?.length})</h1>
       </div>
       <div className="AllRecOuter">
-        {!hidePrevButton && (
+        {!hidePrevButton &&  (
           <button onClick={handlePrev} className="PrevBtn">
             <TbSquareRoundedArrowLeftFilled size={35} color="#111" />
           </button>

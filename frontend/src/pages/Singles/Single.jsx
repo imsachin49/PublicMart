@@ -49,6 +49,18 @@ export default function Single() {
       alert("Please login to add to cart");
       return;
     }
+    if(product?.size && product?.size>0 && !size){
+      alert("Please select a size");
+      return;
+    }
+    if(product?.color && product?.color>0 && !color){
+      alert("Please select a color");
+      return;
+    }
+    if(isInCart){
+      navigate("/cart");
+      return;
+    }
     console.log({ ...product, size, quantity: 1, color });
     dispatch(addProduct({ ...product, size, quantity: 1, color })); //color also...
     navigate("/cart");
